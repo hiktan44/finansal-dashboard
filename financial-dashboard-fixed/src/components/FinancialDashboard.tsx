@@ -1,20 +1,22 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, lazy, Suspense } from 'react'
+import GlobalAudioControl from './GlobalAudioControl'
 import MarketIndices from './MarketIndices'
 import TechGiants from './TechGiants'
 import SectorPerformance from './SectorPerformance'
 import Commodities from './Commodities'
 import MarketSummary from './MarketSummary'
-import GlobalAudioControl from './GlobalAudioControl'
-import SettingsPanel from './SettingsPanel'
 import AIAnalysisPanel from './AIAnalysisPanel'
-import PortfolioDashboard from './portfolio/PortfolioDashboard'
-import AlertsPanel from './alerts/AlertsPanel'
-import AuthModal from './auth/AuthModal'
-import FREDEconomicData from './FREDEconomicData'
-import TurkishEconomicData from './TurkishEconomicData'
-import ComparisonDashboard from './ComparisonDashboard'
-import FonAnalizi from './FonAnalizi'
-import GunlukAnaliz from './GunlukAnaliz'
+
+// Lazy load only modal/overlay components and heavy features
+const SettingsPanel = lazy(() => import('./SettingsPanel'))
+const AuthModal = lazy(() => import('./auth/AuthModal'))
+const PortfolioDashboard = lazy(() => import('./portfolio/PortfolioDashboard'))
+const AlertsPanel = lazy(() => import('./alerts/AlertsPanel'))
+const FREDEconomicData = lazy(() => import('./FREDEconomicData'))
+const TurkishEconomicData = lazy(() => import('./TurkishEconomicData'))
+const ComparisonDashboard = lazy(() => import('./ComparisonDashboard'))
+const FonAnalizi = lazy(() => import('./FonAnalizi'))
+const GunlukAnaliz = lazy(() => import('./GunlukAnaliz'))
 import { Activity, TrendingUp, BarChart3, Coins, RefreshCw, WifiOff, Settings, LogIn, LogOut, User, Bell, Globe, MapPin, GitCompare, PieChart, Calendar } from 'lucide-react'
 import { fetchLatestMarketData, triggerDataSync, getCachedData, setCachedData } from '../lib/supabase'
 import { usePreferencesContext } from '../context/UserPreferencesContext'
@@ -27,6 +29,13 @@ interface MarketData {
   commodities: any
   summary: any
 }
+
+// Loading fallback component
+const ComponentLoader = () => (
+  <div className="flex items-center justify-center p-8">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-500"></div>
+  </div>
+)
 
 const FinancialDashboard = () => {
   const { preferences } = usePreferencesContext()
@@ -457,7 +466,7 @@ const FinancialDashboard = () => {
               <TrendingUp className={`h-8 w-8 ${averageIndexChange >= 0 ? 'text-green-100' : 'text-red-100'}`} />
             </div>
           </div>
-          
+
           <div className={`bg-gradient-to-br ${topPerformer?.changePercent >= 0 ? 'from-blue-500 to-blue-600' : 'from-orange-500 to-orange-600'} p-6 rounded-xl text-white`}>
             <div className="flex items-center justify-between">
               <div>
@@ -470,7 +479,7 @@ const FinancialDashboard = () => {
               <BarChart3 className="h-8 w-8 text-blue-100" />
             </div>
           </div>
-          
+
           <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-6 rounded-xl text-white">
             <div className="flex items-center justify-between">
               <div>
@@ -481,7 +490,7 @@ const FinancialDashboard = () => {
               <Activity className="h-8 w-8 text-purple-100" />
             </div>
           </div>
-          
+
           <div className="bg-gradient-to-br from-yellow-500 to-orange-500 p-6 rounded-xl text-white">
             <div className="flex items-center justify-between">
               <div>
@@ -504,17 +513,17 @@ const FinancialDashboard = () => {
             <TechGiants data={marketData.techGiants} />
             <SectorPerformance data={marketData.sectors} />
           </div>
-          
+
           {/* Right Column */}
           <div className="space-y-8">
             {/* AI Analysis Panel - SPX Index */}
             {marketData.indices?.indices?.[1] && (
-              <AIAnalysisPanel 
+              <AIAnalysisPanel
                 symbol={marketData.indices.indices[1].symbol || 'SPX'}
                 currentPrice={marketData.indices.indices[1].close || 0}
               />
             )}
-            
+
             <Commodities data={marketData.commodities} />
             <MarketSummary data={marketData.summary} />
           </div>
@@ -523,39 +532,57 @@ const FinancialDashboard = () => {
         )}
 
         {activeTab === 'portfolio' && (
-          <PortfolioDashboard />
+          <Suspense fallback={<ComponentLoader />}>
+            <PortfolioDashboard />
+          </Suspense>
         )}
 
         {activeTab === 'alarms' && (
-          <AlertsPanel />
+          <Suspense fallback={<ComponentLoader />}>
+            <AlertsPanel />
+          </Suspense>
         )}
 
         {activeTab === 'us_economy' && (
-          <FREDEconomicData />
+          <Suspense fallback={<ComponentLoader />}>
+            <FREDEconomicData />
+          </Suspense>
         )}
 
         {activeTab === 'turkey_economy' && (
-          <TurkishEconomicData />
+          <Suspense fallback={<ComponentLoader />}>
+            <TurkishEconomicData />
+          </Suspense>
         )}
 
         {activeTab === 'comparison' && (
-          <ComparisonDashboard />
+          <Suspense fallback={<ComponentLoader />}>
+            <ComparisonDashboard />
+          </Suspense>
         )}
 
         {activeTab === 'fon_analizi' && (
-          <FonAnalizi />
+          <Suspense fallback={<ComponentLoader />}>
+            <FonAnalizi />
+          </Suspense>
         )}
 
         {activeTab === 'gunluk_analiz' && (
-          <GunlukAnaliz />
+          <Suspense fallback={<ComponentLoader />}>
+            <GunlukAnaliz />
+          </Suspense>
         )}
       </main>
 
       {/* Modals */}
-      <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+      <Suspense fallback={null}>
+        <AuthModal isOpen={showAuthModal} onClose={() => setShowAuthModal(false)} />
+      </Suspense>
 
       {/* Settings Panel */}
-      <SettingsPanel isOpen={showSettings} onClose={() => setShowSettings(false)} />
+      <Suspense fallback={null}>
+        <SettingsPanel isOpen={showSettings} onClose={() => setShowSettings(false)} />
+      </Suspense>
     </div>
   )
 }

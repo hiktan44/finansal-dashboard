@@ -781,6 +781,7 @@ export interface TurkeyEconomicIndicator {
   data_frequency: string
   unit: string
   source: string
+  description?: string
   last_updated: string
   created_at?: string
 }
