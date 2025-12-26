@@ -67,7 +67,7 @@ const FinancialDashboard = () => {
   const loadMarketData = async (useCache = true) => {
     try {
       setError(null)
-      
+
       // Try to load from cache first if offline or requested
       if ((!isOnline || useCache) && useCache) {
         const cached = getCachedData()
@@ -86,9 +86,14 @@ const FinancialDashboard = () => {
       console.log('Fetching real-time data from Supabase...')
       const data = await fetchLatestMarketData()
 
+      // Check if we have valid data
+      if (!data || (!data.indices?.length && !data.techStocks?.length)) {
+        throw new Error('No data returned from Supabase')
+      }
+
       // Transform data to match component format
       const transformedData = {
-        indices: {
+        indices: data.indices?.length > 0 ? {
           date: data.indices[0]?.data_date || new Date().toISOString().split('T')[0],
           indices: data.indices.map((item: any) => ({
             name: item.name,
@@ -101,8 +106,8 @@ const FinancialDashboard = () => {
             quarterlyChange: item.quarterly_change,
             note: item.note
           }))
-        },
-        techGiants: {
+        } : await loadStaticMarketIndices(),
+        techGiants: data.techStocks?.length > 0 ? {
           date: data.techStocks[0]?.data_date || new Date().toISOString().split('T')[0],
           companies: data.techStocks.map((item: any) => ({
             name: item.name,
@@ -113,7 +118,7 @@ const FinancialDashboard = () => {
             dayLow: item.day_low,
             note: item.note
           }))
-        },
+        } : await loadStaticTechGiants(),
         commodities: data.commodities?.length > 0 ? {
           date: data.commodities[0]?.data_date || new Date().toISOString().split('T')[0],
           commodities: data.commodities.map((item: any) => ({
@@ -131,22 +136,62 @@ const FinancialDashboard = () => {
 
       setMarketData(transformedData)
       setLastUpdate(new Date())
-      
+
       // Cache the data
       setCachedData(transformedData)
     } catch (error) {
       console.error('Failed to load market data:', error)
-      setError('Veriler yüklenirken hata oluştu. Lütfen tekrar deneyin.')
-      
+
       // Try to use cached data as fallback
       const cached = getCachedData()
       if (cached) {
         console.log('Using cached data as fallback')
         setMarketData(cached)
         setLastUpdate(new Date())
+        setError('Önbellek verisi kullanılıyor. İnternet bağlantınızı kontrol edin.')
+      } else {
+        // Load all static data as final fallback
+        console.log('Loading static data as final fallback')
+        try {
+          const staticData = {
+            indices: await loadStaticMarketIndices(),
+            techGiants: await loadStaticTechGiants(),
+            commodities: await loadStaticCommodities(),
+            sectors: await loadSectorData(),
+            summary: await loadStaticSummary()
+          }
+          setMarketData(staticData)
+          setLastUpdate(new Date())
+          setError('Demo verileri gösteriliyor. Canlı verilere erişilemiyor.')
+        } catch (staticError) {
+          console.error('Failed to load static data:', staticError)
+          setError('Veriler yüklenirken hata oluştu. Lütfen sayfayı yenileyin.')
+        }
       }
     } finally {
       setLoading(false)
+    }
+  }
+
+  // Load static market indices as fallback
+  const loadStaticMarketIndices = async () => {
+    try {
+      const response = await fetch('/data/market_indices_20250930.json')
+      return await response.json()
+    } catch (error) {
+      console.error('Failed to load market indices:', error)
+      return null
+    }
+  }
+
+  // Load static tech giants as fallback
+  const loadStaticTechGiants = async () => {
+    try {
+      const response = await fetch('/data/tech_giants_20250930.json')
+      return await response.json()
+    } catch (error) {
+      console.error('Failed to load tech giants:', error)
+      return null
     }
   }
 
