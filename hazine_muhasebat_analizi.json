@@ -1,0 +1,204 @@
+{
+  "analiz_tarihi": "2025-11-09",
+  "toplam_slayt_sayisi": 259,
+  "hazine_muhasebat_tablolari": {
+    "toplam_hazine_muhasebat_tablosu": 8,
+    "tablolar": [
+      {
+        "slayt_numarasi": 18,
+        "tablo_adi": "Tablo 1",
+        "baslik": "2000 - 2025 MERKEZİ YÖNETİM BÜTÇE DENGESİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "24 Ocak 2023",
+        "kaynak_tam_link": "http://www.muhasebat.gov.tr",
+        "tablo_durumu": "aktif"
+      },
+      {
+        "slayt_numarasi": 20,
+        "tablo_adi": "Tablo 4",
+        "baslik": "2025 YILI MERKEZİ YÖNETİM BÜTÇE DENGE TABLOSU",
+        "kaynak_link": "www.muhasebat.hmb.gov.tr",
+        "tarih": "20 Haziran 2025",
+        "kaynak_tam_link": "http://www.muhasebat.hmb.gov.tr",
+        "tablo_durumu": "aktif"
+      },
+      {
+        "slayt_numarasi": 103,
+        "tablo_adi": "Tablo 1",
+        "baslik": "MERKEZİ YÖNETİM BÜTÇE KESİN HESAP İCMALLLERİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "",
+        "kaynak_tam_link": "http://www.muhasebat.gov.tr",
+        "tablo_durumu": "aktif"
+      },
+      {
+        "slayt_numarasi": 104,
+        "tablo_adi": "Tablo 1",
+        "baslik": "MERKEZİ YÖNETİM BÜTÇE KESİN HESAP İCMALLLERİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "",
+        "kaynak_tam_link": "http://www.muhasebat.gov.tr",
+        "tablo_durumu": "aktif"
+      },
+      {
+        "slayt_numarasi": 105,
+        "tablo_adi": "Tablo 1",
+        "baslik": "MERKEZİ YÖNETİM BÜTÇE KESİN HESAP İCMALLLERİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "",
+        "kaynak_tam_link": "http://www.muhasebat.gov.tr",
+        "tablo_durumu": "aktif"
+      },
+      {
+        "slayt_numarasi": 106,
+        "tablo_adi": "Tablo 1",
+        "baslik": "MERKEZİ YÖNETİM BÜTÇE KESİN HESAP İCMALLLERİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "",
+        "kaynak_tam_link": "http://www.muhasebat.gov.tr",
+        "tablo_durumu": "aktif"
+      },
+      {
+        "slayt_numarasi": 107,
+        "tablo_adi": "Tablo 1",
+        "baslik": "MERKEZİ YÖNETİM BÜTÇE KESİN HESAP İCMALLLERİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "",
+        "kaynak_tam_link": "http://www.muhasebat.gov.tr",
+        "tablo_durumu": "aktif"
+      }
+    ]
+  },
+  "butce_verileri_tablolari": {
+    "toplam_butce_tablosu": 3,
+    "tablolar": [
+      {
+        "slayt_numarasi": 18,
+        "tablo_adi": "Tablo 1",
+        "baslik": "2000 - 2025 MERKEZİ YÖNETİM BÜTÇE DENGESİ",
+        "kaynak_link": "www.muhasebat.gov.tr",
+        "tarih": "24 Ocak 2023"
+      },
+      {
+        "slayt_numarasi": 20,
+        "tablo_adi": "Tablo 4",
+        "baslik": "2025 YILI MERKEZİ YÖNETİM BÜTÇE DENGE TABLOSU",
+        "kaynak_link": "www.muhasebat.hmb.gov.tr",
+        "tarih": "20 Haziran 2025"
+      },
+      {
+        "slayt_numarasi": 21,
+        "tablo_adi": "3 İçerik Yer Tutucusu",
+        "baslik": "2000-2024 YILI BÜTÇE AÇIĞININ MİLLİ GELİRE ORANI",
+        "kaynak_link": "www.tuik.gov.tr",
+        "tarih": "24 Mart 2025"
+      }
+    ]
+  },
+  "hazine_nakit_gerceklesmeleri": {
+    "toplam_nakit_tablosu": 1,
+    "tablolar": [
+      {
+        "slayt_numarasi": 20,
+        "tablo_adi": "Tablo 4",
+        "baslik": "2025 YILI MERKEZİ YÖNETİM BÜTÇE DENGE TABLOSU",
+        "kaynak_link": "www.muhasebat.hmb.gov.tr",
+        "tarih": "20 Haziran 2025"
+      }
+    ]
+  },
+  "kaynak_linkler_hazine_muhasebat": {
+    "toplam_link": 8,
+    "linkler": [
+      {
+        "kaynak": "www.muhasebat.gov.tr",
+        "tam_link": "http://www.muhasebat.gov.tr",
+        "kullanim_sayisi": 6,
+        "slaytlar": [18, 103, 104, 105, 106, 107]
+      },
+      {
+        "kaynak": "www.muhasebat.hmb.gov.tr",
+        "tam_link": "http://www.muhasebat.hmb.gov.tr",
+        "kullanim_sayisi": 1,
+        "slaytlar": [20]
+      }
+    ]
+  },
+  "bos_tablolar_tespit_edilen": {
+    "toplam_bos_tablo": 0,
+    "tablo_adi": "Content Placeholder - İçerik Yer Tutucusu",
+    "tanim": "Boş tablolar tespit edilmedi, ancak bazı tablolar 'Content Placeholder' olarak isimlendirilmiş"
+  },
+  "tables_key_olan_slaytlar": {
+    "toplam_slayt_tables_key": 213,
+    "ornekler": [
+      {
+        "slayt": 11,
+        "tablo_sayisi": 1,
+        "tablo_adi": "Tablo 1"
+      },
+      {
+        "slayt": 12,
+        "tablo_sayisi": 1,
+        "tablo_adi": "Tablo 1"
+      },
+      {
+        "slayt": 18,
+        "tablo_sayisi": 1,
+        "tablo_adi": "Tablo 1"
+      },
+      {
+        "slayt": 20,
+        "tablo_sayisi": 1,
+        "tablo_adi": "Tablo 4"
+      },
+      {
+        "slayt": 103,
+        "tablo_sayisi": 1,
+        "tablo_adi": "Tablo 1"
+      }
+    ]
+  },
+  "content_alaninda_kaynak_hazine_muhasebat": {
+    "toplam_eslesme": 2,
+    "tespit_edilenler": [
+      {
+        "slayt": 18,
+        "content_orjinal": "2000 - 2025 MERKEZİ YÖNETİM BÜTÇE DENGESİ \n      (Kaynak: 24 Ocak 2023 www.muhasebat.gov.tr)",
+        "cikarilan_link": "www.muhasebat.gov.tr",
+        "tarih": "24 Ocak 2023"
+      },
+      {
+        "slayt": 20,
+        "content_orjinal": "2025 YILI MERKEZİ YÖNETİM BÜTÇE DENGE TABLOSU      \n(Kaynak: 20 Haziran 2025 www.muhasebat.hmb.gov.tr)",
+        "cikarilan_link": "www.muhasebat.hmb.gov.tr",
+        "tarih": "20 Haziran 2025"
+      }
+    ]
+  },
+  "genel_istatistikler": {
+    "toplam_tables_key_sayisi": 213,
+    "toplam_hazine_muhasebat_tablosu": 8,
+    "toplam_butce_tablosu": 3,
+    "toplam_nakit_gerceklesmeleri_tablosu": 1,
+    "hazine_muhasebat_kaynak_linkleri": [
+      "www.muhasebat.gov.tr",
+      "www.muhasebat.hmb.gov.tr"
+    ],
+    "bos_tablo_orani": "%0 - Boş tablo tespit edilmedi",
+    "tablo_adi_patternleri": [
+      "Tablo 1",
+      "Tablo 2", 
+      "Tablo 3",
+      "Tablo 4",
+      "Tablo 5",
+      "Tablo 9",
+      "4 Tablo",
+      "5 Tablo",
+      "6 Tablo",
+      "3 Tablo",
+      "Content Placeholder",
+      "İçerik Yer Tutucusu"
+    ]
+  }
+}

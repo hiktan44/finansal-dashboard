@@ -1,0 +1,62 @@
+{
+  "date": "2025-09-30",
+  "companies": [
+    {
+      "name": "Tesla",
+      "symbol": "TSLA",
+      "close": 444.72,
+      "changePercent": 0.34,
+      "dayHigh": 445.00,
+      "dayLow": 433.12
+    },
+    {
+      "name": "Apple",
+      "symbol": "AAPL",
+      "close": 254.63,
+      "changePercent": 0.08,
+      "dayHigh": 255.92,
+      "dayLow": 253.11
+    },
+    {
+      "name": "Microsoft",
+      "symbol": "MSFT",
+      "close": 517.95,
+      "changePercent": 0.65,
+      "dayHigh": 518.16,
+      "dayLow": 509.66
+    },
+    {
+      "name": "Alphabet (Google)",
+      "symbol": "GOOGL",
+      "close": 243.10,
+      "changePercent": -0.39,
+      "dayHigh": 243.29,
+      "dayLow": 239.25
+    },
+    {
+      "name": "Amazon",
+      "symbol": "AMZN",
+      "close": 219.57,
+      "changePercent": -1.17,
+      "dayHigh": 222.24,
+      "dayLow": 217.89
+    },
+    {
+      "name": "Meta Platforms",
+      "symbol": "META",
+      "close": 734.38,
+      "changePercent": -1.21,
+      "dayHigh": 742.97,
+      "dayLow": 726.30
+    },
+    {
+      "name": "NVIDIA",
+      "symbol": "NVDA",
+      "close": 186.58,
+      "changePercent": 2.60,
+      "dayHigh": 187.35,
+      "dayLow": 181.48,
+      "note": "AI çip talebinin güçlü olmasıyla teknoloji devleri arasında en iyi performansı sergiledi"
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+[
+  {
+    "query": "Clean chart visualization icons for financial data display",
+    "image_info": {
+      "url": "https://www.everviz.com/wp-content/uploads/2023/11/Crude-Oil-Price-Index-2022-Stock-chart.png",
+      "file_path": "/workspace/imgs/crude_oil_price_index_candlestick_chart_2022_financial_data_visualization.jpg",
+      "img_format": "PNG",
+      "mode": "RGBA",
+      "file_size": 47872,
+      "width": 1204,
+      "height": 858,
+      "total_pixels": 1033032,
+      "basic_score": 0.917825975252471
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 98.0,
+      "watermark_score": 100.0,
+      "overall_score": 96.0,
+      "explanation": "The image is highly relevant to the search query, depicting a clear candlestick chart for financial data. It aligns perfectly with the prompt's request for clean chart visualization for financial data display, showcasing a professional and easy-to-read layout without watermarks. The clarity is excellent, with all text and chart elements perfectly legible.",
+      "file_name": "crude_oil_price_index_candlestick_chart_2022_financial_data_visualization.jpg",
+      "caption": "A clean and professional candlestick chart visualizing the Crude Oil Price Index for the year 2022, spanning from January 3rd to April 29th. The chart displays daily trading prices with distinct red (bearish) and white (bullish) candlesticks, featuring a clear 'Trading Price, $' Y-axis and date-based X-axis. An interactive tooltip highlights specific financial data (Open, High, Low, Close) for Monday, April 11, 2022, showing values like Open: $98.4 and Close: $94.29. Zoom options and time ranges (1m, 3m, 6m, YTD, 1y, All) are visible at the top.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Clean chart visualization icons for financial data display",
+    "image_info": {
+      "url": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjdR_6H6i0y1zq_UxSZVq2PjgsxuPhUnvmo_Yc2_Uz3SGX1F_mh43EJrBCX1EmmfcOsOjvqblvJpL0DmlWYhHT_UvLVn_zGvxHGgB2ebETn1JLrGr5rljlWdAJxirxrqgRaWkUH/s1600/TwitsMap.jpg",
+      "file_path": "/workspace/imgs/stock_market_treemap_financial_data_visualization.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 85627,
+      "width": 846,
+      "height": 540,
+      "total_pixels": 456840,
+      "basic_score": 0.8418819864934106
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 90.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 90.0,
+      "explanation": "The image is a highly relevant and clear stock market treemap visualization, effectively displaying financial data across various sectors using red and green for performance. It fits the 'clean chart visualization' aspect well, although it's a complete chart rather than 'icons'. There are no watermarks, and the overall quality is excellent.",
+      "file_name": "stock_market_treemap_financial_data_visualization.jpg",
+      "caption": "A detailed treemap visualization representing stock market performance across various sectors, including Financial, Basic Materials, Consumer Goods, Healthcare, Technology, and Services. Each colored block signifies a component of the market, with green typically indicating positive performance and red indicating negative performance. The size of the blocks likely represents market capitalization or influence within their respective sectors, offering a clean and intuitive display of complex financial data.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Clean chart visualization icons for financial data display",
+    "image_info": {
+      "url": "https://www.fusioncharts.com/blog/wp-content/uploads/2024/10/image1-1024x748.png",
+      "file_path": "/workspace/imgs/anatomy_stock_chart_financial_data_visualization.jpg",
+      "img_format": "PNG",
+      "mode": "RGBA",
+      "file_size": 645079,
+      "width": 1024,
+      "height": 748,
+      "total_pixels": 765952,
+      "basic_score": 0.9417755735550658
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 98.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is highly relevant to both the search query 'stock market chart visualization' and the prompt 'Clean chart visualization icons for financial data display'. It clearly depicts and explains the anatomy of a stock chart using a clean, well-designed candlestick visualization. The clarity is excellent, and there are no watermarks.",
+      "file_name": "anatomy_stock_chart_financial_data_visualization.jpg",
+      "caption": "A clean and informative visualization illustrating the 'anatomy of a stock chart', explaining key elements like opening, highest, lowest, and closing prices, and the range of prices during a day's trading using a candlestick chart format. The chart uses teal and magenta candlesticks against a light grid background with clear labels and annotations for financial data display.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Clean chart visualization icons for financial data display",
+    "image_info": {
+      "url": "https://www.wallstreetzen.com/blog/wp-content/uploads/2023/01/best-stock-chart-apps.png",
+      "file_path": "/workspace/imgs/apple-stock-chart-visualization-financial-data-display.jpg",
+      "img_format": "PNG",
+      "mode": "P",
+      "file_size": 162367,
+      "width": 1630,
+      "height": 864,
+      "total_pixels": 1408320,
+      "basic_score": 0.8867843200558508
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 98.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is a clear and highly relevant visualization of an Apple Inc. stock market chart on a professional trading platform, featuring clean financial data display, multiple indicators, and associated tool icons. Its dark theme and crisp details make it an excellent example for the prompt.",
+      "file_name": "apple-stock-chart-visualization-financial-data-display.jpg",
+      "caption": "A high-resolution screenshot displaying an Apple Inc. (AAPL) stock market chart on a dark-themed trading platform. The chart prominently features candlestick patterns, Bollinger Bands, an Aroon indicator, and the Money Flow Index (MFI) for technical analysis. Various tool icons are visible on the left and top bars, showcasing a clean and professional financial data visualization interface.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Professional dark background for financial dashboard with subtle pattern",
+    "image_info": {
+      "url": "https://www.shutterstock.com/image-photo/3d-board-trading-candlesticks-check-600nw-2559687249.jpg",
+      "file_path": "/workspace/imgs/dark_financial_candlestick_chart_background_3d.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 47465,
+      "width": 600,
+      "height": 600,
+      "total_pixels": 360000,
+      "basic_score": 0.809107983986972
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 100.0,
+      "clarity_score": 100.0,
+      "watermark_score": 100.0,
+      "overall_score": 98.0,
+      "explanation": "The image perfectly matches both the search query and the prompt. It features a professional 3D-rendered candlestick chart, indicative of trading and financial analysis, set against a dark, subtly patterned background. The clarity is excellent, and there are no watermarks. Its composition and quality make it highly suitable for a financial dashboard or as a trading-themed wallpaper.",
+      "file_name": "dark_financial_candlestick_chart_background_3d.jpg",
+      "caption": "A high-quality 3D render depicting an orange glowing candlestick chart, commonly used in financial trading and analysis, set against a dark black, subtly grid-patterned background with reflective surfaces and grey checkmarks, suitable for a professional financial dashboard or trading wallpaper.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Professional dark background for financial dashboard with subtle pattern",
+    "image_info": {
+      "url": "https://img.freepik.com/premium-photo/chart-stock-trading-black-background-monitor_151992-2608.jpg",
+      "file_path": "/workspace/imgs/dark_financial_candlestick_chart_background.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 15967,
+      "width": 626,
+      "height": 417,
+      "total_pixels": 261042,
+      "basic_score": 0.7688028977020953
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 75.0,
+      "watermark_score": 100.0,
+      "overall_score": 88.0,
+      "explanation": "The image is highly relevant to both the search query and the prompt, perfectly depicting a dark financial trading chart that serves as a professional background with a subtle pattern. The selective focus enhances its suitability as a background rather than a primary data display, creating a sense of depth and professionalism. There are no watermarks.",
+      "file_name": "dark_financial_candlestick_chart_background.jpg",
+      "caption": "A close-up, dark and moody photograph of a financial candlestick chart, featuring red (bearish) and green (bullish) candles against a black background. The shallow depth of field creates a subtle, abstract pattern, making it an ideal professional background for a financial dashboard, trading application, or tech-themed wallpaper.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Professional dark background for financial dashboard with subtle pattern",
+    "image_info": {
+      "url": "https://img.freepik.com/free-vector/abstract-red-light-lines-pipe-speed-zoom-black-background-technology_1142-8971.jpg",
+      "file_path": "/workspace/imgs/dark_financial_dashboard_background_red_bar_pattern.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 20570,
+      "width": 626,
+      "height": 391,
+      "total_pixels": 244766,
+      "basic_score": 0.7604294117742364
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 95.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is highly relevant to both the search query and prompt. It provides a professional, dark background with a subtle abstract pattern of red-outlined bars, which effectively evokes a financial or data visualization theme suitable for a dashboard or trading interface. The clarity is excellent, and there are no watermarks.",
+      "file_name": "dark_financial_dashboard_background_red_bar_pattern.jpg",
+      "caption": "An abstract dark background featuring a dynamic pattern of varying vertical bars with subtle red outlines, creating a professional and modern aesthetic ideal for a financial dashboard, trading platform interface, or technology-themed wallpaper.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Modern minimalist financial icons for dashboard - stocks, charts, trend arrows",
+    "image_info": {
+      "url": "https://www.slideteam.net/media/catalog/product/cache/1280x720/s/h/share_market_dashboard_icon_with_financial_stock_chart_slide01.jpg",
+      "file_path": "/workspace/imgs/modern_financial_dashboard_icon_stock_chart_trend.jpg",
+      "img_format": "JPEG",
+      "mode": "RGB",
+      "file_size": 34745,
+      "width": 960,
+      "height": 720,
+      "total_pixels": 691200,
+      "basic_score": 0.8945385495545012
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 98.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is highly relevant to the search query and prompt, featuring a modern, minimalist financial dashboard icon with stock chart elements. It has excellent clarity, no watermarks, and a professional composition. The trend line effectively represents 'trend arrows' implicitly.",
+      "file_name": "modern_financial_dashboard_icon_stock_chart_trend.jpg",
+      "caption": "A modern, minimalist flat design icon representing a financial market dashboard. It features a golden coin with a dollar sign, an upward-trending red line graph, and a dark blue rectangular panel displaying both a list-like interface and a bar chart, all set against a clean white background. This graphic is ideal for illustrating financial data, stock market trends, or business analytics.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Modern minimalist financial icons for dashboard - stocks, charts, trend arrows",
+    "image_info": {
+      "url": "https://cdn-icons-png.flaticon.com/512/4573/4573150.png",
+      "file_path": "/workspace/imgs/modern_financial_dashboard_charts_icon.png",
+      "img_format": "PNG",
+      "mode": "RGBA",
+      "file_size": 13315,
+      "width": 512,
+      "height": 512,
+      "total_pixels": 262144,
+      "basic_score": 0.7603364628830493
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 95.0,
+      "clarity_score": 100.0,
+      "watermark_score": 100.0,
+      "overall_score": 95.0,
+      "explanation": "The image is highly relevant to 'financial market dashboard icons' and perfectly matches the 'modern minimalist' style requested in the prompt. It clearly depicts various charts suitable for a dashboard. The clarity is excellent, and there are no watermarks. While it includes charts, it doesn't explicitly show 'stocks' or 'trend arrows' as requested in the prompt, but the overall implication is strong enough for a high score.",
+      "file_name": "modern_financial_dashboard_charts_icon.png",
+      "caption": "A modern minimalist flat design icon featuring a laptop displaying a financial dashboard. The screen showcases a large yellow and light blue pie chart, multiple horizontal data lines, and colorful bar charts in red, blue, and light orange, signifying data visualization and analytics.",
+      "recommend": true,
+      "error": ""
+    }
+  },
+  {
+    "query": "Modern minimalist financial icons for dashboard - stocks, charts, trend arrows",
+    "image_info": {
+      "url": "https://media.istockphoto.com/id/1349756160/vector/fiscal-year-icons-classic-line-series.jpg?s=612x612&w=0&k=20&c=cHyzp1FaynGnCWfSLRnIKJHXwi0xLn4P8YGqIIV2X6A=",
+      "file_path": "/workspace/imgs/modern_minimalist_financial_dashboard_icons_charts_stocks.jpg",
+      "img_format": "JPEG",
+      "mode": "L",
+      "file_size": 23761,
+      "width": 612,
+      "height": 520,
+      "total_pixels": 318240,
+      "basic_score": 0.7851231823832386
+    },
+    "llm_score": {
+      "success": true,
+      "relevance_score": 98.0,
+      "clarity_score": 100.0,
+      "watermark_score": 100.0,
+      "overall_score": 97.0,
+      "explanation": "The image provides a highly relevant collection of modern minimalist line icons perfectly suited for a financial market dashboard. It includes various chart types (bar, line, pie), financial documents, currency symbols, and indicators of growth and analysis, aligning well with 'stocks, charts, trend arrows' and a 'modern minimalist' aesthetic. The clarity is excellent, and there are no watermarks.",
+      "file_name": "modern_minimalist_financial_dashboard_icons_charts_stocks.jpg",
+      "caption": "A collection of 16 modern minimalist outline icons designed for financial dashboards and market analysis. The set features clean line art representations of various financial and data elements including bar charts, line graphs, pie charts, financial documents with dollar signs, calculators, calendar with money, stacks of coins, and magnifying glasses over charts, all conveying concepts of stocks, trends, and financial performance.",
+      "recommend": true,
+      "error": ""
+    }
+  }
+]

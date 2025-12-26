@@ -1,0 +1,74 @@
+{
+  "date": "2025-09-30",
+  "marketSummary": {
+    "headline": "美股第三季度在积极氛围中收官",
+    "keyPoints": [
+      "道琼斯、标普500、纳斯达克均录得历史收盘新高",
+      "黄金一度触及约3900美元/盎司的纪录高位",
+      "科技、通信和工业板块领跑年内涨幅",
+      "英伟达上涨逮2%，特斯拉和微软小幅走高"
+    ],
+    "marketConcerns": [
+      "美国政府即将关门的风险",
+      "美联储政策不确定性",
+      "全球地缘政治紧张局势"
+    ],
+    "upcomingEvents": [
+      {
+        "event": "美国就业报告",
+        "date": "2025-10-03 08:30",
+        "note": "9月就业数据，如政府停摆可能被推迟"
+      },
+      {
+        "event": "美联储FOMC会议",
+        "date": "2025-10-28至2025-10-29",
+        "note": "市场关注利率前景和经济评估"
+      },
+      {
+        "event": "政府停摆截止日",
+        "date": "2025-10-01 00:01",
+        "note": "联邦政府资金到期，若未通过临时拨款法案将导致停摆"
+      }
+    ]
+  },
+  "topPerformers": [
+    {
+      "symbol": "PFE",
+      "name": "辉瑞",
+      "changePercent": 6.8,
+      "reason": "与政府达成降低药价协议"
+    },
+    {
+      "symbol": "MRK",
+      "name": "默克",
+      "changePercent": 6.8,
+      "reason": "欧洲监管机构对其RSV产品的积极推荐"
+    },
+    {
+      "symbol": "NVDA",
+      "name": "英伟达",
+      "changePercent": 2.6,
+      "reason": "AI芯片需求强劲"
+    }
+  ],
+  "worstPerformers": [
+    {
+      "symbol": "ALB",
+      "name": "Albemarle",
+      "changePercent": -6.7,
+      "reason": "智利监管机构罚款"
+    },
+    {
+      "symbol": "PYPL",
+      "name": "Paycom Software",
+      "changePercent": -4.0,
+      "reason": "OpenAI与Stripe合作推出购物功能，支付行业竞争加剧"
+    },
+    {
+      "symbol": "COF",
+      "name": "Capital One Financial",
+      "changePercent": -5.0,
+      "reason": "停摆风险损害消费者信心"
+    }
+  ]
+}

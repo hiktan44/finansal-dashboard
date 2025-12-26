@@ -1,0 +1,36 @@
+{
+  "home": {
+    "title": "Ana Sayfa",
+    "marketData": "Piyasa Verileri",
+    "marketStatus": "Piyasa Durumu",
+    "quickActions": "Hızlı İşlemler",
+    "priceAlert": "Fiyat Alarmı",
+    "myPortfolio": "Portföyüm",
+    "aiAnalysis": "AI Analiz",
+    "news": "Haberler"
+  },
+  "portfolio": {
+    "title": "Portföy",
+    "holdings": "Hisse Senetleri"
+  },
+  "alerts": {
+    "title": "Uyarılar",
+    "active": "Aktif"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Dil",
+    "settings": "Ayarlar",
+    "signOut": "Çıkış Yap",
+    "signOutConfirm": "Hesabınızdan çıkış yapmak istediğinizden emin misiniz?",
+    "languageChanged": "Dil başarıyla değiştirildi!",
+    "languageChangeError": "Dil değiştirilirken bir hata oluştu."
+  },
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "loading": "Yükleniyor",
+    "success": "Başarılı",
+    "error": "Hata"
+  }
+}

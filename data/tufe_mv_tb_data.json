@@ -1,0 +1,392 @@
+[
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"25\/01\/2025 Tarih ve 32793 Sayılı Resmi Gazete’de Yayımlanan “Sosyal Güvenlik Kurumu Sağlık Uygulama Tebliğindeki Değişiklik nedeniyle \"Diğer Hizmetler\" serisinin 2025\/Ocak ayına \"Seviye Değişimi (LS-Level Shift)\" aykırı değeri eklenmiştir.",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"(1) (p,d,q)(P,D,Q) şeklinde olan bir Arima modelinde, p standart AR (Otoregresif), P mevsimsel AR, q standart MA (Hareketli ortalama), Q mevsimsel MA polinomunun derecesini, d ve D sırasıyla kaçıncı dereceden düzenli ve mevsimsel farkların alındığını göstermektedir.",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"(2) AO toplamsal aykırı değeri, LS seviye değişimini, TC geçici değişimi temsil etmektedir. Aykırı değerlerden sonraki rakamlar ise aykırı değerlerin dönemini göstermektedir.",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"2016:12-2025:1 Dönemi Arasındaki 99 Gözlem ile Belirlenen ARIMA Modellerine İlişkin Bilgiler",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Seri Açıklama",
+    "Unnamed: 1":"Mevsim Etkisi",
+    "Unnamed: 2":"Takvim Etkisi",
+    "Unnamed: 3":"Takvim Açıklama",
+    "Unnamed: 4":"Log Dönüşümü",
+    "Unnamed: 5":"Sabit Terim",
+    "Unnamed: 6":"Arima Modeli",
+    "Unnamed: 7":"Aykırı Değerler"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Enerji",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Taze Meyve ve Sebze",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,1,1)(0,1,1)",
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer işlenmemiş gıda",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"Var",
+    "Unnamed: 6":"(0,1,1)(0,1,1)",
+    "Unnamed: 7":"LS (12-2021)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Ekmek ve tahıllar",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer işlenmiş gıda",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Giyim ve ayakkabı",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,1,1)(0,1,1)",
+    "Unnamed: 7":"LS (12-2021), LS (8-2023), AO (5-2021)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Dayanıklı mallar (Altın hariç)",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer temel mallar",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Alkollü içecekler ve tütün",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Mücevheratlar, saat ve kol saatleri",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Kira",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,2,0)(0,1,1)",
+    "Unnamed: 7":"AO (10-2021), AO (12-2023), AO (1-2023), TC (12-2022)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Lokanta ve oteller",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"Var",
+    "Unnamed: 6":"(1,1,1)(1,0,0)",
+    "Unnamed: 7":"AO (1-2022), LS (12-2021), LS (8-2023), LS (7-2023), AO (4-2023), LS (1-2024), LS (4-2022), TC (1-2023), LS (9-2018)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Ulaştırma hizmetleri",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(1,1,0)(0,1,0)",
+    "Unnamed: 7":"LS (8-2023)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Haberleşme hizmetleri",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer hizmetler",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"Var",
+    "Unnamed: 6":"(0,1,1)(0,1,0)",
+    "Unnamed: 7":"LS (9-2023), LS (12-2021), LS (8-2023), LS (7-2023), LS (1-2021), LS (1-2025), LS (1-2023), LS (9-2018)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":null,
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"2005:01-2016:12 Dönemi Arasındaki 144 Gözlem ile Belirlenen ARIMA Modellerine İlişkin Bilgiler",
+    "Unnamed: 1":null,
+    "Unnamed: 2":null,
+    "Unnamed: 3":null,
+    "Unnamed: 4":null,
+    "Unnamed: 5":null,
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Seri Açıklama",
+    "Unnamed: 1":"Mevsim Etkisi",
+    "Unnamed: 2":"Takvim Etkisi",
+    "Unnamed: 3":"Takvim Açıklama",
+    "Unnamed: 4":"Log Dönüşümü",
+    "Unnamed: 5":"Sabit Terim",
+    "Unnamed: 6":"Arima Modeli",
+    "Unnamed: 7":"Aykırı Değerler"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Enerji",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Taze Meyve ve Sebze",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(2,1,2)(0,1,1)",
+    "Unnamed: 7":"AO (5-2011)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer işlenmemiş gıda",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,1,1)(0,1,1)",
+    "Unnamed: 7":"LS (1-2014), LS (5-2008)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Ekmek ve tahıllar",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer işlenmiş gıda",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(1,1,0)(0,1,1)",
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Giyim ve ayakkabı",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,1,1)(0,1,1)",
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Dayanıklı mallar (Altın hariç)",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,1,2)(1,1,1)",
+    "Unnamed: 7":"LS (10-2009), TC (4-2009), LS (3-2009)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer temel mallar",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Alkollü içecekler ve tütün",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Mücevheratlar, saat ve kol saatleri",
+    "Unnamed: 1":"-",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":null,
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Kira",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"-",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(0,2,1)(1,0,0)",
+    "Unnamed: 7":null
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Lokanta ve oteller",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(1,1,0)(0,1,1)",
+    "Unnamed: 7":"LS (3-2005), LS (5-2006), TC (8-2015)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Ulaştırma hizmetleri",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"Var",
+    "Unnamed: 6":"(0,1,1)(0,1,1)",
+    "Unnamed: 7":"TC (12-2006), LS (1-2009)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Haberleşme hizmetleri",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"Var",
+    "Unnamed: 6":"(0,1,1)(1,0,0)",
+    "Unnamed: 7":"AO (3-2010), LS (8-2007), AO (6-2007)"
+  },
+  {
+    "Tablo 1 - Mevsim ve Takvim Etkilerinden Arındırılan Seriler ve ARIMA Modellerine İlişkin Bilgiler":"Diğer hizmetler",
+    "Unnamed: 1":"Var",
+    "Unnamed: 2":"-",
+    "Unnamed: 3":"-",
+    "Unnamed: 4":"Var",
+    "Unnamed: 5":"-",
+    "Unnamed: 6":"(1,1,0)(0,1,1)",
+    "Unnamed: 7":"LS (6-2013), AO (8-2005)"
+  }
+]

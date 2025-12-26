@@ -1,0 +1,74 @@
+{
+  "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+  "file_path": "/workspace/user_input_files/45685006-0af8-42de-806a-1b8b00a19057.pdf",
+  "file_size": 221535,
+  "format_type": "table_heavy",
+  "confidence": 0.6,
+  "characteristics": {
+    "high_text_ratio": true,
+    "many_tables": true,
+    "text_and_tables": true,
+    "structured_data": true
+  },
+  "recommendations": [
+    "tabula-py ile tablo çıkarımı yapın",
+    "pdfplumber'ın tablo çıkarma özelliklerini kullanın",
+    "Tablo verilerini CSV/Excel formatına dönüştürün"
+  ],
+  "analysis_details": {
+    "pypdf2": {
+      "has_text": true,
+      "text_extraction_possible": true,
+      "has_images": false,
+      "has_forms": false,
+      "page_count": 4,
+      "text_per_page_avg": 1570.25,
+      "has_encryption": false,
+      "metadata": {
+        "/Author": "Avni  Arıkan",
+        "/Creator": "Microsoft® Word 2019",
+        "/CreationDate": "D:20240417155204+03'00'",
+        "/ModDate": "D:20240417155204+03'00'",
+        "/Producer": "Microsoft® Word 2019"
+      }
+    },
+    "pdfplumber": {
+      "has_text": true,
+      "has_tables": true,
+      "table_count": 12,
+      "text_per_page_avg": 1485.25,
+      "table_density": 3.0,
+      "page_analysis": [
+        {
+          "page_number": 1,
+          "has_text": true,
+          "text_length": 122,
+          "has_tables": false,
+          "table_count": 0
+        },
+        {
+          "page_number": 2,
+          "has_text": true,
+          "text_length": 1770,
+          "has_tables": true,
+          "table_count": 4
+        },
+        {
+          "page_number": 3,
+          "has_text": true,
+          "text_length": 2194,
+          "has_tables": true,
+          "table_count": 4
+        },
+        {
+          "page_number": 4,
+          "has_text": true,
+          "text_length": 1855,
+          "has_tables": true,
+          "table_count": 4
+        }
+      ],
+      "page_count": 4
+    }
+  }
+}

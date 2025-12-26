@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "alerts": "Alerts",
+    "profile": "Profile"
+  },
+  "home": {
+    "title": "Financial Dashboard",
+    "marketStatus": "Market Status",
+    "lastUpdate": "Last Update: {{date}}",
+    "quickActions": "Quick Actions",
+    "priceAlert": "Price Alert",
+    "myPortfolio": "My Portfolio",
+    "aiAnalysis": "AI Analysis",
+    "news": "News",
+    "addStock": "Add Stock",
+    "viewPortfolio": "View Portfolio",
+    "getAnalysis": "Get Analysis",
+    "readNews": "Read News"
+  },
+  "portfolio": {
+    "title": "My Portfolio",
+    "totalValue": "Total Value",
+    "gainLoss": "Gain/Loss",
+    "holdings": "Holdings",
+    "addStock": "Add Stock",
+    "stockName": "Stock Name",
+    "quantity": "Quantity",
+    "purchasePrice": "Purchase Price",
+    "currentPrice": "Current Price",
+    "add": "Add",
+    "empty": "No stocks added yet"
+  },
+  "alerts": {
+    "title": "Alerts",
+    "createAlert": "Create Alert",
+    "stockSymbol": "Stock Symbol",
+    "priceTarget": "Target Price",
+    "alertType": "Alert Type",
+    "above": "Above",
+    "below": "Below",
+    "save": "Save",
+    "noAlerts": "No alerts set yet"
+  },
+  "profile": {
+    "title": "Profile",
+    "language": "Language",
+    "selectLanguage": "Select Language",
+    "signOut": "Sign Out",
+    "settings": "Settings",
+    "preferences": "Preferences"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "forgotPassword": "Forgot Password",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?"
+  }
+}

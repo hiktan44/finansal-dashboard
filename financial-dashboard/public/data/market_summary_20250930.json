@@ -1,0 +1,74 @@
+{
+  "date": "2025-09-30",
+  "marketSummary": {
+    "headline": "ABD hisseleri üçüncü çeyreği olumlu havada tamamladı",
+    "keyPoints": [
+      "Dow Jones, S&P 500 ve NASDAQ tarihi kapanış rekorları kırdı",
+      "Altın bir dönem 3900 dolar/ons rekor seviyesine ulaştı",
+      "Teknoloji, iletişim ve sanayi sektörleri yılbaşından bu yana en iyi performansı gösterdi",
+      "NVIDIA %2 yükseldi, Tesla ve Microsoft de hafif yükseliş gösterdi"
+    ],
+    "marketConcerns": [
+      "ABD hükümet kapanması riski",
+      "Federal Reserve politika belirsizliği",
+      "Küresel jeopolitik gerginlikler"
+    ],
+    "upcomingEvents": [
+      {
+        "event": "ABD İstihdam Raporu",
+        "date": "2025-10-03 08:30",
+        "note": "Eylül istihdam verileri, hükümet kapanması durumunda ertelenebilir"
+      },
+      {
+        "event": "Federal Reserve FOMC Toplantısı",
+        "date": "2025-10-28 - 2025-10-29",
+        "note": "Piyasalar faiz oranı görünümü ve ekonomik değerlendirmeye odaklanacak"
+      },
+      {
+        "event": "Hükümet Kapanması Son Tarihi",
+        "date": "2025-10-01 00:01",
+        "note": "Federal hükümet fonları bitiyor, geçici bütçe yasası geçmezse kapanma yaşanacak"
+      }
+    ]
+  },
+  "topPerformers": [
+    {
+      "symbol": "PFE",
+      "name": "Pfizer",
+      "changePercent": 6.8,
+      "reason": "Hükümetle ilaç fiyat indirimi anlaşması"
+    },
+    {
+      "symbol": "MRK",
+      "name": "Merck",
+      "changePercent": 6.8,
+      "reason": "Avrupa düzenleyici kurumlarının RSV ürünü için olumlu tavsiyesi"
+    },
+    {
+      "symbol": "NVDA",
+      "name": "NVIDIA",
+      "changePercent": 2.6,
+      "reason": "AI çip talebinin güçlü olması"
+    }
+  ],
+  "worstPerformers": [
+    {
+      "symbol": "ALB",
+      "name": "Albemarle",
+      "changePercent": -6.7,
+      "reason": "Şili düzenleyici kurumu cezası"
+    },
+    {
+      "symbol": "PYPL",
+      "name": "Paycom Software",
+      "changePercent": -4.0,
+      "reason": "OpenAI ve Stripe'ın alışveriş özelliği işbirliği, ödeme sektörü rekabeti arttı"
+    },
+    {
+      "symbol": "COF",
+      "name": "Capital One Financial",
+      "changePercent": -5.0,
+      "reason": "Kapanma riski tüketici güvenini zedeliyor"
+    }
+  ]
+}

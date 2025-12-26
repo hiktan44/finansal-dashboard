@@ -1,0 +1,395 @@
+{
+  "$schema": "https://design-tokens.com/schema/v1.0.0/token.json",
+  "platform-design-tokens": {
+    "color": {
+      "primary": {
+        "50": {
+          "$type": "color",
+          "$value": "#E6F0FF",
+          "$description": "Lightest primary - hover backgrounds, subtle highlights"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#CCE0FF",
+          "$description": "Light primary - accent backgrounds"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#0066FF",
+          "$description": "Main primary - CTA buttons, active links, focus rings"
+        },
+        "600": {
+          "$type": "color",
+          "$value": "#0052CC",
+          "$description": "Dark primary - hover states"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#003D99",
+          "$description": "Darkest primary - visited links, dark accents"
+        }
+      },
+      "neutral": {
+        "50": {
+          "$type": "color",
+          "$value": "#FAFAFA",
+          "$description": "Lightest background - page background"
+        },
+        "100": {
+          "$type": "color",
+          "$value": "#F5F5F5",
+          "$description": "Surface - card backgrounds"
+        },
+        "200": {
+          "$type": "color",
+          "$value": "#E5E5E5",
+          "$description": "Border - dividers, borders"
+        },
+        "500": {
+          "$type": "color",
+          "$value": "#A3A3A3",
+          "$description": "Disabled text, placeholders"
+        },
+        "700": {
+          "$type": "color",
+          "$value": "#404040",
+          "$description": "Secondary text - descriptions, captions"
+        },
+        "900": {
+          "$type": "color",
+          "$value": "#171717",
+          "$description": "Primary text - headings, body text"
+        }
+      },
+      "semantic": {
+        "success": {
+          "$type": "color",
+          "$value": "#10B981",
+          "$description": "Success state - positive changes, confirmations"
+        },
+        "warning": {
+          "$type": "color",
+          "$value": "#F59E0B",
+          "$description": "Warning state - alerts, cautions"
+        },
+        "error": {
+          "$type": "color",
+          "$value": "#EF4444",
+          "$description": "Error state - errors, negative changes"
+        },
+        "info": {
+          "$type": "color",
+          "$value": "#3B82F6",
+          "$description": "Info state - informational messages"
+        }
+      },
+      "background": {
+        "page": {
+          "$type": "color",
+          "$value": "#FAFAFA",
+          "$description": "Main page background (neutral-50)"
+        },
+        "surface": {
+          "$type": "color",
+          "$value": "#F5F5F5",
+          "$description": "Card/panel backgrounds (neutral-100), ≥5% contrast from page"
+        }
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "sans": {
+          "$type": "fontFamily",
+          "$value": "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          "$description": "Primary font stack"
+        }
+      },
+      "fontSize": {
+        "hero": {
+          "$type": "dimension",
+          "$value": "64px",
+          "$description": "Hero headlines - landing pages"
+        },
+        "h1": {
+          "$type": "dimension",
+          "$value": "48px",
+          "$description": "Section headers"
+        },
+        "h2": {
+          "$type": "dimension",
+          "$value": "36px",
+          "$description": "Subsection headers"
+        },
+        "h3": {
+          "$type": "dimension",
+          "$value": "28px",
+          "$description": "Card titles"
+        },
+        "body-lg": {
+          "$type": "dimension",
+          "$value": "20px",
+          "$description": "Intro paragraphs, important descriptions"
+        },
+        "body": {
+          "$type": "dimension",
+          "$value": "16px",
+          "$description": "Standard body text, UI text"
+        },
+        "small": {
+          "$type": "dimension",
+          "$value": "14px",
+          "$description": "Captions, helper text"
+        },
+        "caption": {
+          "$type": "dimension",
+          "$value": "12px",
+          "$description": "Metadata, timestamps"
+        }
+      },
+      "fontWeight": {
+        "regular": {
+          "$type": "fontWeight",
+          "$value": "400",
+          "$description": "Body text, descriptions"
+        },
+        "medium": {
+          "$type": "fontWeight",
+          "$value": "500",
+          "$description": "Nav links, subtle emphasis"
+        },
+        "semibold": {
+          "$type": "fontWeight",
+          "$value": "600",
+          "$description": "Card titles, active states"
+        },
+        "bold": {
+          "$type": "fontWeight",
+          "$value": "700",
+          "$description": "Page headings, CTA buttons"
+        }
+      },
+      "lineHeight": {
+        "tight": {
+          "$type": "number",
+          "$value": "1.1",
+          "$description": "Hero headings"
+        },
+        "heading": {
+          "$type": "number",
+          "$value": "1.2",
+          "$description": "H1, H2 headings"
+        },
+        "relaxed": {
+          "$type": "number",
+          "$value": "1.5",
+          "$description": "Body text, UI text"
+        },
+        "loose": {
+          "$type": "number",
+          "$value": "1.6",
+          "$description": "Long-form content, intro paragraphs"
+        }
+      },
+      "letterSpacing": {
+        "tighter": {
+          "$type": "dimension",
+          "$value": "-0.02em",
+          "$description": "Hero headlines (large text)"
+        },
+        "tight": {
+          "$type": "dimension",
+          "$value": "-0.01em",
+          "$description": "H1 headings"
+        },
+        "normal": {
+          "$type": "dimension",
+          "$value": "0",
+          "$description": "Most text elements"
+        },
+        "wide": {
+          "$type": "dimension",
+          "$value": "0.01em",
+          "$description": "Small text, captions"
+        }
+      }
+    },
+    "spacing": {
+      "8": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Tight inline - icon + text gap"
+      },
+      "12": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Small gaps - form label to input"
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Standard element spacing - button padding"
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "Related group spacing - card sections"
+      },
+      "32": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "Card padding MINIMUM"
+      },
+      "48": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "Section internal spacing - card groups"
+      },
+      "64": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "Section boundaries - major sections"
+      },
+      "96": {
+        "$type": "dimension",
+        "$value": "96px",
+        "$description": "Large section spacing - page sections"
+      },
+      "128": {
+        "$type": "dimension",
+        "$value": "128px",
+        "$description": "Dramatic spacing - hero sections (rare)"
+      }
+    },
+    "borderRadius": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "Small elements - badges, tags"
+      },
+      "base": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Buttons, inputs, nav tabs"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Cards, panels"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "Large modals, drawers"
+      },
+      "full": {
+        "$type": "dimension",
+        "$value": "9999px",
+        "$description": "Pills, avatars, circular"
+      }
+    },
+    "boxShadow": {
+      "sm": {
+        "$type": "shadow",
+        "$value": {
+          "offsetX": "0",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "0",
+          "color": "rgba(0,0,0,0.05)"
+        },
+        "$description": "Subtle border alternatives"
+      },
+      "card": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0",
+            "offsetY": "1px",
+            "blur": "3px",
+            "spread": "0",
+            "color": "rgba(0,0,0,0.1)"
+          },
+          {
+            "offsetX": "0",
+            "offsetY": "1px",
+            "blur": "2px",
+            "spread": "0",
+            "color": "rgba(0,0,0,0.06)"
+          }
+        ],
+        "$description": "Resting cards - subtle elevation"
+      },
+      "card-hover": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0",
+            "offsetY": "10px",
+            "blur": "15px",
+            "spread": "0",
+            "color": "rgba(0,0,0,0.1)"
+          },
+          {
+            "offsetX": "0",
+            "offsetY": "4px",
+            "blur": "6px",
+            "spread": "0",
+            "color": "rgba(0,0,0,0.05)"
+          }
+        ],
+        "$description": "Card hover state - lift effect"
+      },
+      "modal": {
+        "$type": "shadow",
+        "$value": [
+          {
+            "offsetX": "0",
+            "offsetY": "20px",
+            "blur": "25px",
+            "spread": "0",
+            "color": "rgba(0,0,0,0.1)"
+          },
+          {
+            "offsetX": "0",
+            "offsetY": "10px",
+            "blur": "10px",
+            "spread": "0",
+            "color": "rgba(0,0,0,0.04)"
+          }
+        ],
+        "$description": "Modals, prominent elements"
+      }
+    },
+    "animation": {
+      "duration": {
+        "fast": {
+          "$type": "duration",
+          "$value": "200ms",
+          "$description": "Button hover, subtle interactions"
+        },
+        "base": {
+          "$type": "duration",
+          "$value": "250ms",
+          "$description": "Standard transitions, card hover"
+        },
+        "slow": {
+          "$type": "duration",
+          "$value": "300ms",
+          "$description": "Modals, drawers, page transitions"
+        }
+      },
+      "easing": {
+        "out": {
+          "$type": "cubicBezier",
+          "$value": [0.0, 0.0, 0.2, 1],
+          "$description": "ease-out - natural deceleration (90% use)"
+        },
+        "in-out": {
+          "$type": "cubicBezier",
+          "$value": [0.4, 0.0, 0.2, 1],
+          "$description": "ease-in-out - smooth start/end (modals)"
+        }
+      }
+    }
+  }
+}

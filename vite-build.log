@@ -1,0 +1,13 @@
+file:///workspace/financial-dashboard/node_modules/.pnpm/vite@6.2.6_@types+node@22.14.1_jiti@1.21.7_yaml@2.7.1/node_modules/vite/dist/node/cli.js:445
+          throw new CACError(`Unknown option \`${name.length > 1 ? `--${name}` : `-${name}`}\``);
+                ^
+
+CACError: Unknown option `--force`
+    at Command.checkUnknownOptions (file:///workspace/financial-dashboard/node_modules/.pnpm/vite@6.2.6_@types+node@22.14.1_jiti@1.21.7_yaml@2.7.1/node_modules/vite/dist/node/cli.js:445:17)
+    at CAC.runMatchedCommand (file:///workspace/financial-dashboard/node_modules/.pnpm/vite@6.2.6_@types+node@22.14.1_jiti@1.21.7_yaml@2.7.1/node_modules/vite/dist/node/cli.js:643:13)
+    at CAC.parse (file:///workspace/financial-dashboard/node_modules/.pnpm/vite@6.2.6_@types+node@22.14.1_jiti@1.21.7_yaml@2.7.1/node_modules/vite/dist/node/cli.js:582:12)
+    at file:///workspace/financial-dashboard/node_modules/.pnpm/vite@6.2.6_@types+node@22.14.1_jiti@1.21.7_yaml@2.7.1/node_modules/vite/dist/node/cli.js:944:5
+    at ModuleJob.run (node:internal/modules/esm/module_job:195:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:336:24)
+
+Node.js v18.19.0

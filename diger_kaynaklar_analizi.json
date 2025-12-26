@@ -1,0 +1,742 @@
+{
+  "analysis_summary": {
+    "total_slides": 259,
+    "slides_with_tables": 105,
+    "other_sources_tables_count": 45,
+    "other_source_links_count": 26,
+    "empty_tables_count": 25
+  },
+  "other_sources_tables": [
+    {
+      "slide_number": 14,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 15,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 16,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 29,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 30,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 37,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 61,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 63,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 73,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 74,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 75,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 76,
+      "table_name": "Tablo 9",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 121,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 123,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 124,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 125,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 126,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 130,
+      "table_name": "3 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 130,
+      "table_name": "3 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 154,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 155,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 156,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 157,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 158,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 161,
+      "table_name": "İçerik Yer Tutucusu 5",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 172,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 174,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 175,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 176,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 177,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 178,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 213,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 214,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 217,
+      "table_name": "Tablo 2",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 218,
+      "table_name": "Tablo 2",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 221,
+      "table_name": "Tablo 5",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 222,
+      "table_name": "Tablo 5",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 228,
+      "table_name": "Tablo 5",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 229,
+      "table_name": "Tablo 5",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 230,
+      "table_name": "Tablo 5",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 233,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 237,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 238,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "is_empty": false
+    },
+    {
+      "slide_number": 247,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 249,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    }
+  ],
+  "other_source_links": [
+    {
+      "slide_number": 16,
+      "url": "www.bloomberght.com",
+      "context": "T.C. MERKEZ BANKASI ENFLASYON TAHMİN VE REVİZYONLARI \u000b(Kaynak: 23 Mayıs 2025 www.bloomberght.com )"
+    },
+    {
+      "slide_number": 16,
+      "url": "23 Mayıs 2025",
+      "context": "T.C. MERKEZ BANKASI ENFLASYON TAHMİN VE REVİZYONLARI \u000b(Kaynak: 23 Mayıs 2025 www.bloomberght.com )"
+    },
+    {
+      "slide_number": 61,
+      "url": "www.yigm.ktb.gov.tr",
+      "context": "TÜRKİYE TURİZM GELİRİ\n       (Kaynak: 1 Mayıs 2025 www.yigm.ktb.gov.tr)"
+    },
+    {
+      "slide_number": 61,
+      "url": "1 Mayıs 2025",
+      "context": "TÜRKİYE TURİZM GELİRİ\n       (Kaynak: 1 Mayıs 2025 www.yigm.ktb.gov.tr)"
+    },
+    {
+      "slide_number": 63,
+      "url": "www.kultur.gov.tr",
+      "context": "TÜRKİYE’ YE GELEN YABANCI TURİST SAYISI\n       (Kaynak: 26 Haziran 2025 www.kultur.gov.tr )"
+    },
+    {
+      "slide_number": 63,
+      "url": "26 Haziran 2025",
+      "context": "TÜRKİYE’ YE GELEN YABANCI TURİST SAYISI\n       (Kaynak: 26 Haziran 2025 www.kultur.gov.tr )"
+    },
+    {
+      "slide_number": 73,
+      "url": "www.investing.com",
+      "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 21 Ocak 2025  www.investing.com)"
+    },
+    {
+      "slide_number": 73,
+      "url": "21 Ocak 2025",
+      "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 21 Ocak 2025  www.investing.com)"
+    },
+    {
+      "slide_number": 74,
+      "url": "10 Nisan 2025",
+      "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 10 Nisan 2025  www.investing.com)"
+    },
+    {
+      "slide_number": 75,
+      "url": "3 Temmuz 2025",
+      "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 3 Temmuz 2025  www.investing.com)"
+    },
+    {
+      "slide_number": 121,
+      "url": "3 Temmuz 2025 )",
+      "context": "AYLIK  İFLAS  TABLOSU\u000b(Kaynak: 3 Temmuz 2025 )"
+    },
+    {
+      "slide_number": 123,
+      "url": "www.tbb.org.tr",
+      "context": "KARŞILIKSIZ ÇEKLER (2022 YILI) \u000b(Kaynak:www.tbb.org.tr )"
+    },
+    {
+      "slide_number": 125,
+      "url": "15 Ocak 2025",
+      "context": "KARŞILIKSIZ ÇEKLER (2024 YILI)\u000b(Kaynak: 15 Ocak 2025 www.tbb.org.tr )"
+    },
+    {
+      "slide_number": 126,
+      "url": "20 Haziran 2025",
+      "context": "KARŞILIKSIZ ÇEKLER (2025 YILI)\u000b(Kaynak: 20 Haziran 2025 www.tbb.org.tr )"
+    },
+    {
+      "slide_number": 130,
+      "url": "www.tr.investing.com",
+      "context": "TÜRKİYE İMALAT SANAYİ PMI                                                (Kaynak: 2 Temmuz 2025 www.tr.investing.com )"
+    },
+    {
+      "slide_number": 130,
+      "url": "2 Temmuz 2025",
+      "context": "TÜRKİYE İMALAT SANAYİ PMI                                                (Kaynak: 2 Temmuz 2025 www.tr.investing.com )"
+    },
+    {
+      "slide_number": 174,
+      "url": "26 Mayıs 2025",
+      "context": "2013-2025 YILI GÖSTERGE FAİZİ \n       (Kaynak: 26 Mayıs 2025 www.bloomberght.com)"
+    },
+    {
+      "slide_number": 176,
+      "url": "www.borsaistanbul.com",
+      "context": "TLREF Türk Lirası Gecelik Referans Faiz Oranı \n(Kaynak: 3 Şubat 2025 www.borsaistanbul.com)"
+    },
+    {
+      "slide_number": 176,
+      "url": "3 Şubat 2025",
+      "context": "TLREF Türk Lirası Gecelik Referans Faiz Oranı \n(Kaynak: 3 Şubat 2025 www.borsaistanbul.com)"
+    },
+    {
+      "slide_number": 177,
+      "url": "24 Nisan 2025",
+      "context": "TLREF Türk Lirası Gecelik Referans Faiz Oranı \n(Kaynak: 24 Nisan 2025 www.borsaistanbul.com)"
+    },
+    {
+      "slide_number": 217,
+      "url": "13 Mayıs 2025",
+      "context": "18. LONDRA METAL ENDEKSİ  (GÜNLÜK) \u000b(Bakır, Alüminyum, Çinko, Kurşun, Kalay, Nikel)\u000b(Kaynak: 13 Mayıs 2025 www.investing.com )"
+    },
+    {
+      "slide_number": 221,
+      "url": ": 29 Mayıs 2025",
+      "context": "21. BAKIR FİYAT TABLOSU\u000b(Kaynak: : 29 Mayıs 2025  www.investing.com )"
+    },
+    {
+      "slide_number": 222,
+      "url": ": 3 Temmuz 2025",
+      "context": "22. BAKIR FİYAT TABLOSU\u000b(Kaynak: : 3 Temmuz 2025  www.investing.com )"
+    },
+    {
+      "slide_number": 228,
+      "url": ": 22 Mart 2025",
+      "context": "9. ALÜMİNYUM FİYAT TABLOSU\u000b(Kaynak: : 22 Mart 2025  www.investing.com )"
+    },
+    {
+      "slide_number": 229,
+      "url": ": 21 Mayıs 2025",
+      "context": "10. ALÜMİNYUM FİYAT TABLOSU\u000b(Kaynak: : 21 Mayıs 2025  www.investing.com )"
+    },
+    {
+      "slide_number": 237,
+      "url": "28 Mart 2025",
+      "context": "20. DEMİR-ÇELİK ENDEKSİ  (GÜNLÜK) \u000b(Kaynak: 28 Mart 2025 www.investing.com )"
+    }
+  ],
+  "empty_tables": [
+    {
+      "slide_number": 15,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 16,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 21,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 24,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 25,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 26,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 37,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 38,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 39,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 40,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 41,
+      "table_name": "3 İçerik Yer Tutucusu",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 98,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 99,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 100,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 101,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 154,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 155,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 156,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 157,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 158,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 161,
+      "table_name": "İçerik Yer Tutucusu 5",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 170,
+      "table_name": "İçerik Yer Tutucusu 7",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 214,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 247,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    },
+    {
+      "slide_number": 249,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "is_empty": true,
+      "empty_reason": "Content Placeholder"
+    }
+  ],
+  "source_categories": {
+    "YIGM": [
+      {
+        "slide_number": 61,
+        "url": "www.yigm.ktb.gov.tr",
+        "context": "TÜRKİYE TURİZM GELİRİ\n       (Kaynak: 1 Mayıs 2025 www.yigm.ktb.gov.tr)"
+      }
+    ],
+    "Kultur": [
+      {
+        "slide_number": 63,
+        "url": "www.kultur.gov.tr",
+        "context": "TÜRKİYE’ YE GELEN YABANCI TURİST SAYISI\n       (Kaynak: 26 Haziran 2025 www.kultur.gov.tr )"
+      }
+    ],
+    "Investing": [
+      {
+        "slide_number": 73,
+        "url": "www.investing.com",
+        "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 21 Ocak 2025  www.investing.com)"
+      },
+      {
+        "slide_number": 130,
+        "url": "www.tr.investing.com",
+        "context": "TÜRKİYE İMALAT SANAYİ PMI                                                (Kaynak: 2 Temmuz 2025 www.tr.investing.com )"
+      }
+    ],
+    "Others": [
+      {
+        "slide_number": 16,
+        "url": "www.bloomberght.com",
+        "context": "T.C. MERKEZ BANKASI ENFLASYON TAHMİN VE REVİZYONLARI \u000b(Kaynak: 23 Mayıs 2025 www.bloomberght.com )"
+      },
+      {
+        "slide_number": 16,
+        "url": "23 Mayıs 2025",
+        "context": "T.C. MERKEZ BANKASI ENFLASYON TAHMİN VE REVİZYONLARI \u000b(Kaynak: 23 Mayıs 2025 www.bloomberght.com )"
+      },
+      {
+        "slide_number": 61,
+        "url": "1 Mayıs 2025",
+        "context": "TÜRKİYE TURİZM GELİRİ\n       (Kaynak: 1 Mayıs 2025 www.yigm.ktb.gov.tr)"
+      },
+      {
+        "slide_number": 63,
+        "url": "26 Haziran 2025",
+        "context": "TÜRKİYE’ YE GELEN YABANCI TURİST SAYISI\n       (Kaynak: 26 Haziran 2025 www.kultur.gov.tr )"
+      },
+      {
+        "slide_number": 73,
+        "url": "21 Ocak 2025",
+        "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 21 Ocak 2025  www.investing.com)"
+      },
+      {
+        "slide_number": 74,
+        "url": "10 Nisan 2025",
+        "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 10 Nisan 2025  www.investing.com)"
+      },
+      {
+        "slide_number": 75,
+        "url": "3 Temmuz 2025",
+        "context": "16- TÜRKİYE KREDİ RİSK PRİMİ (CDS) GÜNLÜK\n(Kaynak: 3 Temmuz 2025  www.investing.com)"
+      },
+      {
+        "slide_number": 121,
+        "url": "3 Temmuz 2025 )",
+        "context": "AYLIK  İFLAS  TABLOSU\u000b(Kaynak: 3 Temmuz 2025 )"
+      },
+      {
+        "slide_number": 123,
+        "url": "www.tbb.org.tr",
+        "context": "KARŞILIKSIZ ÇEKLER (2022 YILI) \u000b(Kaynak:www.tbb.org.tr )"
+      },
+      {
+        "slide_number": 125,
+        "url": "15 Ocak 2025",
+        "context": "KARŞILIKSIZ ÇEKLER (2024 YILI)\u000b(Kaynak: 15 Ocak 2025 www.tbb.org.tr )"
+      },
+      {
+        "slide_number": 126,
+        "url": "20 Haziran 2025",
+        "context": "KARŞILIKSIZ ÇEKLER (2025 YILI)\u000b(Kaynak: 20 Haziran 2025 www.tbb.org.tr )"
+      },
+      {
+        "slide_number": 130,
+        "url": "2 Temmuz 2025",
+        "context": "TÜRKİYE İMALAT SANAYİ PMI                                                (Kaynak: 2 Temmuz 2025 www.tr.investing.com )"
+      },
+      {
+        "slide_number": 174,
+        "url": "26 Mayıs 2025",
+        "context": "2013-2025 YILI GÖSTERGE FAİZİ \n       (Kaynak: 26 Mayıs 2025 www.bloomberght.com)"
+      },
+      {
+        "slide_number": 176,
+        "url": "www.borsaistanbul.com",
+        "context": "TLREF Türk Lirası Gecelik Referans Faiz Oranı \n(Kaynak: 3 Şubat 2025 www.borsaistanbul.com)"
+      },
+      {
+        "slide_number": 176,
+        "url": "3 Şubat 2025",
+        "context": "TLREF Türk Lirası Gecelik Referans Faiz Oranı \n(Kaynak: 3 Şubat 2025 www.borsaistanbul.com)"
+      },
+      {
+        "slide_number": 177,
+        "url": "24 Nisan 2025",
+        "context": "TLREF Türk Lirası Gecelik Referans Faiz Oranı \n(Kaynak: 24 Nisan 2025 www.borsaistanbul.com)"
+      },
+      {
+        "slide_number": 217,
+        "url": "13 Mayıs 2025",
+        "context": "18. LONDRA METAL ENDEKSİ  (GÜNLÜK) \u000b(Bakır, Alüminyum, Çinko, Kurşun, Kalay, Nikel)\u000b(Kaynak: 13 Mayıs 2025 www.investing.com )"
+      },
+      {
+        "slide_number": 221,
+        "url": ": 29 Mayıs 2025",
+        "context": "21. BAKIR FİYAT TABLOSU\u000b(Kaynak: : 29 Mayıs 2025  www.investing.com )"
+      },
+      {
+        "slide_number": 222,
+        "url": ": 3 Temmuz 2025",
+        "context": "22. BAKIR FİYAT TABLOSU\u000b(Kaynak: : 3 Temmuz 2025  www.investing.com )"
+      },
+      {
+        "slide_number": 228,
+        "url": ": 22 Mart 2025",
+        "context": "9. ALÜMİNYUM FİYAT TABLOSU\u000b(Kaynak: : 22 Mart 2025  www.investing.com )"
+      },
+      {
+        "slide_number": 229,
+        "url": ": 21 Mayıs 2025",
+        "context": "10. ALÜMİNYUM FİYAT TABLOSU\u000b(Kaynak: : 21 Mayıs 2025  www.investing.com )"
+      },
+      {
+        "slide_number": 237,
+        "url": "28 Mart 2025",
+        "context": "20. DEMİR-ÇELİK ENDEKSİ  (GÜNLÜK) \u000b(Kaynak: 28 Mart 2025 www.investing.com )"
+      }
+    ]
+  }
+}

@@ -1,0 +1,402 @@
+{
+  "tcmb_tables": [
+    {
+      "slide_number": 42,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "TÜRKİYE’NİN CARİ İŞLEMLER DENGESİ                           \n(Kaynak: 16 Haziran 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 48,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content_snippet": "M3 PARA ARZI                                                                      \n        (Kaynak: 20 Mart 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 49,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content_snippet": "M3 PARA ARZI                                                                      \n        (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 52,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "2017- 2024 YILI NET HATA VE NOKSAN                                          (Kaynak: :16 Haziran 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 54,
+      "table_name": "5 Tablo",
+      "table_type": "table",
+      "content_snippet": "TOPLAM MEVDUATLAR  (Kaynak: 23 Ağustos 2024 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 55,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "content_snippet": "TOPLAM MEVDUATLAR  (Kaynak: 12 EYLÜL 2024 www.tcmb.gov.tr)",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 56,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "content_snippet": "TOPLAM MEVDUATLAR  (Kaynak: 27 Şubat 2025 www.tcmb.gov.tr)",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 57,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "content_snippet": "TOPLAM MEVDUATLAR  (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr)",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 67,
+      "table_name": "5 Tablo",
+      "table_type": "table",
+      "content_snippet": "REEL EFEKTİF DÖVİZ KURU\n        (Kaynak: 5 Mart 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 68,
+      "table_name": "5 Tablo",
+      "table_type": "table",
+      "content_snippet": "REEL EFEKTİF DÖVİZ KURU\n        (Kaynak: 5 Mart 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 69,
+      "table_name": "5 Tablo",
+      "table_type": "table",
+      "content_snippet": "REEL EFEKTİF DÖVİZ KURU\n        (Kaynak: 17 EKİM 2023 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 70,
+      "table_name": "5 Tablo",
+      "table_type": "table",
+      "content_snippet": "REEL EFEKTİF DÖVİZ KURU-TÜFE BAZLI\n        (Kaynak: 5 Temmuz 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 83,
+      "table_name": "6 Tablo",
+      "table_type": "table",
+      "content_snippet": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ  MEVDUAT HESABI (Kaynak: 11 Ağustos 2022 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 84,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 16  Mart  2023 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 85,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "content_snippet": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak 22 Ocak 2024 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 86,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "content_snippet": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 10 Ekim 2024 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 87,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "content_snippet": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 90,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 25 Ağustos 2023 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 91,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 15 ŞUBAT 2024  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 92,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 16 Ağustos 2024  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 93,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 4 Ocak 2025  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 94,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 13 Haziran 2025  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 95,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "44-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 3 Temmuz 2025  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 98,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "content_snippet": "YURT İÇİ YAPILAN TOPLAM SWAP TUTARI (MİLYON $)\u000b(Kaynak: 27 MART 2024  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 99,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "content_snippet": "YURT İÇİ YAPILAN TOPLAM SWAP TUTARI (MİLYON $)\u000b(Kaynak: 24 MAYIS 2024  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 100,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "content_snippet": "YURT İÇİ YAPILAN TOPLAM SWAP TUTARI (MİLYON $)\u000b(Kaynak: 22 Ağustos 2024  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 101,
+      "table_name": "İçerik Yer Tutucusu 3",
+      "table_type": "table",
+      "content_snippet": "YURT İÇİ YAPILAN TOPLAM SWAP TUTARI (MİLYON $)\u000b(Kaynak: 3 Temmuz 2025  www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 104,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "YABANCILARIN DİBS VE HİSSE SENEDİ ALIŞ –SATIŞLARI\u000b(Kaynak: 11 Mayıs 2024 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 105,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "YABANCILARIN DİBS VE HİSSE SENEDİ ALIŞ –SATIŞLARI\u000b(Kaynak: 7 Kasım 2024 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 106,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "YABANCILARIN DİBS VE HİSSE SENEDİ ALIŞ –SATIŞLARI\u000b(Kaynak: 27 Mart 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 107,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content_snippet": "YABANCILARIN DİBS VE HİSSE SENEDİ ALIŞ –SATIŞLARI\u000b(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 170,
+      "table_name": "İçerik Yer Tutucusu 7",
+      "table_type": "table",
+      "content_snippet": "8- TİCARİ KREDİ FAİZ ORANLARI 2007-2025\u000b (BANKALARIN UYGULADIĞI  ORTALAMA AĞIRLIKLI FAİZ ORANI)\u000b(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 187,
+      "table_name": "3 Tablo",
+      "table_type": "table",
+      "content_snippet": "TC. MERKEZ BANKASI KONUT FİYAT ENDEKSİ\n        (Kaynak: 21 Ocak 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    },
+    {
+      "slide_number": 188,
+      "table_name": "3 Tablo",
+      "table_type": "table",
+      "content_snippet": "TC. MERKEZ BANKASI KONUT FİYAT ENDEKSİ\n        (Kaynak: 20 Haziran 2025 www.tcmb.gov.tr )",
+      "has_tcmb_source": true
+    }
+  ],
+  "tcmb_links": [
+    {
+      "slide_number": 42,
+      "source": "(Kaynak: 16 Haziran 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 48,
+      "source": "(Kaynak: 20 Mart 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 49,
+      "source": "(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 52,
+      "source": "(Kaynak: :16 Haziran 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 54,
+      "source": "(Kaynak: 23 Ağustos 2024 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 55,
+      "source": "(Kaynak: 12 EYLÜL 2024 www.tcmb.gov.tr)"
+    },
+    {
+      "slide_number": 56,
+      "source": "(Kaynak: 27 Şubat 2025 www.tcmb.gov.tr)"
+    },
+    {
+      "slide_number": 57,
+      "source": "(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr)"
+    },
+    {
+      "slide_number": 67,
+      "source": "(Kaynak: 5 Mart 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 68,
+      "source": "(Kaynak: 5 Mart 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 69,
+      "source": "(Kaynak: 17 EKİM 2023 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 70,
+      "source": "(Kaynak: 5 Temmuz 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 71,
+      "source": "(Kaynak: 7 Mayıs 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 83,
+      "source": "(Kaynak: 11 Ağustos 2022 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 84,
+      "source": "(Kaynak: 16  Mart  2023 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 86,
+      "source": "(Kaynak: 10 Ekim 2024 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 87,
+      "source": "(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 90,
+      "source": "(Kaynak: 25 Ağustos 2023 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 91,
+      "source": "(Kaynak: 15 ŞUBAT 2024  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 92,
+      "source": "(Kaynak: 16 Ağustos 2024  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 93,
+      "source": "(Kaynak: 4 Ocak 2025  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 94,
+      "source": "(Kaynak: 13 Haziran 2025  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 95,
+      "source": "(Kaynak: 3 Temmuz 2025  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 98,
+      "source": "(Kaynak: 27 MART 2024  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 99,
+      "source": "(Kaynak: 24 MAYIS 2024  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 100,
+      "source": "(Kaynak: 22 Ağustos 2024  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 101,
+      "source": "(Kaynak: 3 Temmuz 2025  www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 104,
+      "source": "(Kaynak: 11 Mayıs 2024 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 105,
+      "source": "(Kaynak: 7 Kasım 2024 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 106,
+      "source": "(Kaynak: 27 Mart 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 107,
+      "source": "(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 170,
+      "source": "(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 187,
+      "source": "(Kaynak: 21 Ocak 2025 www.tcmb.gov.tr )"
+    },
+    {
+      "slide_number": 188,
+      "source": "(Kaynak: 20 Haziran 2025 www.tcmb.gov.tr )"
+    }
+  ],
+  "empty_tables": [
+    {
+      "slide_number": 15,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "is_tcmb_related": false,
+      "content_snippet": "14 Ağustos 202519\u000b11\u000b14"
+    },
+    {
+      "slide_number": 16,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "is_tcmb_related": false,
+      "content_snippet": "T.C. MERKEZ BANKASI ENFLASYON TAHMİN VE REVİZYONLARI \u000b(Kaynak: 23 Mayıs 2025 www.bloomberght.com )"
+    }
+  ],
+  "analysis_summary": {
+    "total_slides_with_tcmb": 36,
+    "total_tcmb_tables": 34,
+    "total_empty_tables": 2,
+    "total_tcmb_links": 34
+  }
+}

@@ -1,0 +1,979 @@
+{
+  "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+  "file_path": "/workspace/user_input_files/45685006-0af8-42de-806a-1b8b00a19057.pdf",
+  "processing_timestamp": "2025-11-08T19:19:22.770217",
+  "strategy": "combined",
+  "format_detection": {
+    "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+    "file_path": "/workspace/user_input_files/45685006-0af8-42de-806a-1b8b00a19057.pdf",
+    "file_size": 221535,
+    "format_type": "table_heavy",
+    "confidence": 0.6,
+    "characteristics": {
+      "high_text_ratio": true,
+      "many_tables": true,
+      "text_and_tables": true,
+      "structured_data": true
+    },
+    "recommendations": [
+      "tabula-py ile tablo çıkarımı yapın",
+      "pdfplumber'ın tablo çıkarma özelliklerini kullanın",
+      "Tablo verilerini CSV/Excel formatına dönüştürün"
+    ],
+    "analysis_details": {
+      "pypdf2": {
+        "has_text": true,
+        "text_extraction_possible": true,
+        "has_images": false,
+        "has_forms": false,
+        "page_count": 4,
+        "text_per_page_avg": 1570.25,
+        "has_encryption": false,
+        "metadata": {
+          "/Author": "Avni  Arıkan",
+          "/Creator": "Microsoft® Word 2019",
+          "/CreationDate": "D:20240417155204+03'00'",
+          "/ModDate": "D:20240417155204+03'00'",
+          "/Producer": "Microsoft® Word 2019"
+        }
+      },
+      "pdfplumber": {
+        "has_text": true,
+        "has_tables": true,
+        "table_count": 12,
+        "text_per_page_avg": 1485.25,
+        "table_density": 3.0,
+        "page_analysis": [
+          {
+            "page_number": 1,
+            "has_text": true,
+            "text_length": 122,
+            "has_tables": false,
+            "table_count": 0
+          },
+          {
+            "page_number": 2,
+            "has_text": true,
+            "text_length": 1770,
+            "has_tables": true,
+            "table_count": 4
+          },
+          {
+            "page_number": 3,
+            "has_text": true,
+            "text_length": 2194,
+            "has_tables": true,
+            "table_count": 4
+          },
+          {
+            "page_number": 4,
+            "has_text": true,
+            "text_length": 1855,
+            "has_tables": true,
+            "table_count": 4
+          }
+        ],
+        "page_count": 4
+      }
+    }
+  },
+  "extraction_results": {
+    "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+    "file_path": "/workspace/user_input_files/45685006-0af8-42de-806a-1b8b00a19057.pdf",
+    "extraction_timestamp": "2025-11-08T19:19:23.371223",
+    "pypdf2_result": {
+      "method": "pypdf2",
+      "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+      "pages": [
+        {
+          "page_number": 1,
+          "text": " \n \n \nTÜRKİYE CUMHURİYET MERKEZ \nBANKASI  \n \n \n \n \nELEKTRONİK VERİ DAĞITIM SİSTEMİ  \n \nEVDS Verilerine PYTHON ile Erişim Kılavuzu (*) \n \nNisan 2024 \n  \n",
+          "text_length": 152
+        },
+        {
+          "page_number": 2,
+          "text": "EVDS - PYTHON  \nKurulum  \nevds paketini pip paket yöneticisi aracılığıyla kurabilirsiniz:  \npip install evds --upgrade \nKullanım  \n01-01-2019 - 01-01-2020 arası USD ve EUR alış kurlarına aşağıdaki şekilde erişilebilir.  \nfrom evds import evdsAPI \nevds = evdsAPI( 'EVDS_API_KEY' ) \nevds.get_data([ 'TP.DK.USD.A.YTL' ,'TP.DK.EUR.A.YTL' ], startdate =\"01-01-2019\", enddate=\"01-01-2020\") \nget_data fonksiyonu DataFrame return edecektir. İstenmesi halinde evds.data  komutu ile JSON formatında \nham veriye ulaşılabilir.  \nAPI Anahtarı Alma  \nevds paketini kullanmak için öncelikle EVDS sistemi üzerinden API Anahtarı almanız gerekmektedir. API \nAnahtarı almak için aşağıdaki adımları izleyiniz:  \n1. EVDS  sayfasına giriş yaptıktan sonra Giriş Yap ve Kayıt Ol bağlan tılarını izleyerek bir EVDS hesabı \noluşturun.  \n2. Ardından kullanıcı adınızın altında yer alan profil bağlantısına tıklayınız.  \n \n3. Profil sayfanızın alt kısmında yer alan \"API Anahtarı\" butonuna tıklayınız ve açılan kutucukta yer alan \ndeğeri kopyalayınız.  \n \n5 Nisan 2024 tarihinde yapılan değişiklik.  \nURL adresinden giden “key” parametresi artık http request header içinde gelmesi gerek mektedir . \nÖrnek;  \nimport requests  \n \nheaders = {'key':' *********** '}  \nresponse = requests.get('https://evds 2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A -TP.DK.EUR.A -\nTP.DK.CHF.A -TP.DK.GBP.A -TP.DK.JPY.A -TP.MK.F.BILESIK.TUM&startDate=31 -01-2024&endDate=31 -12-\n2024&type=xml', headers=headers)  \n \nprint(response.request.url)  \nprint(response.request.body)  \nprint(response.re quest.headers)  \nprint(response.content)  \n \nNot:  '*********** ' sizin API anahtarınızdır.  \n \nDetaylı Sorgulama  \nget_data  fonksiyonu aşağıdaki parametreleri alır:  \nseries  \nBu parametre liste olarak tanımlanmalıdır. Ayrıca birden fazla seri bu liste içerisinde tanımlanabilir. \nTanımlanması zorunludur.  \nstartdate  \n",
+          "text_length": 1870
+        },
+        {
+          "page_number": 3,
+          "text": "Seride yer alan verilerin hangi tarihten itibaren seçileceği bu parametre ile belirlenir. Tanımlanması zorunludur.  \nenddate  \nEğer seri üzerinde bir aralık seçimi yapılmak isteniyorsa aralığın bitiş tarihi bu  parametre ile belirtilir. \nTanımlanması ihtiyaridir. Tanımlanmadığı durumda startdate  değerine eşit olarak tanımlanır.  \naggregation_types  \nSeri içindeki verilerin getirilmesi esnasında kullanılacak olan toplululaştırma yöntemini ifade eder. \nTanımlanması ihti yaridir. Eğer tanımlanmamışsa seri için tanımlanan öntanımlı yöntem kullanılır. Ayrıca değer \nolarak string veya liste alabilir. String alması durumunda tüm seriler için aynı yöntem uygulanır. Liste olarak \ntanımlanırsa series  parametresinde tanımlanan seril ere sırasıyla belirtilen yöntemler uygulanır. Kullanılabilecek \nyöntemler aşağıdaki gibidir:  \nYöntem  Parametre \nDeğeri  \nOrtalama  avg \nEn düşük  min \nEn yüksek  max \nBaşlangıç  first \nBitiş last \nKümülatif  sum \nformulas  \nSeri içindeki verilerin getirilmesi esnasında uygulanacak formülü ifade eder. Tanımlanması ihtiyaridir. Eğer \ntanımlanmamışsa seri için tanımlanan öntanımlı formül kullanılır. Ayrıca değer olarak string veya liste alabilir. \nString alması durumunda tüm seril er için aynı formül uygulanır. Liste olarak tanımlanırsa series  \nparametresinde tanımlanan serilere sırasıyla belirtilen formüller uygulanır. Kullanılabilecek yöntemler aşağıdaki \ngibidir:  \nFormül  Değer  \nYüzde Değişim  1 \nFark 2 \nYıllık Yüzde Değişim  3 \nYıllık Fark 4 \nBir Önceki Yılın Sonuna Göre Yüzde Değişim  5 \nBir Önceki Yılın Sonuna Göre Fark  6 \nHareketli Ortalama  7 \nHareketli Toplam  8 \nfrequency  \nSeri içerisinde yer alan verilerin hangi sıklıkla getireceğini ifade eder. Tanımlanması ihtiyaridir. Eğer \ntanımlanmamışsa seri için tanımlanan öntanımlı yayımlanma sıklığı kullanılır.Aşağıdaki değerleri alabilir.  \nSıklık  Değer  \nGünlük  1 \nİşgünü  2 \nHaftalık  3 \nAyda 2 Kez  4 \nAylık  5 \n3 Aylık  6 \n6 Aylık  7 \nYıllık 8 \nMevcut Serileri Listeleme  \nEVDS üzerinde veri serileri sırasıyla Ana Kategori, Alt Kategori ve Seri hiyerarşisinde sunulmaktadır.  \nget_data  fonksiyonun kullanılması için aşağıda yer alan işlemlerin gerçekleştirilmesine gerek yoktur. Veri \nserisine ait kodun bilinmesi durumunda doğrudan get_data  fonksiyonu kullanılabilir.  ",
+          "text_length": 2288
+        },
+        {
+          "page_number": 4,
+          "text": "Ana kategorileri listeleme  \nPaket çağırıldığında otomatik olarak API aracı lığıyla ana veri kategorileri listelenmektedir.  \n... \nevds.main_categories  \nkomut ile ana kategorileri listeleyebilirsiniz.  \nCATEGORY_ID  TOPIC_TITLE_TR  \n1 PİYASA VERİLERİ  \n2 KURLAR  \n3 FAİZ İSTATİSTİKLERİ  \n4 PARA VE BANKA İSTATİSTİKLERİ  \n... ... \n \nAlt kategorileri listeleme  \nAna kategori altında yer alan alt kategorilere aşağıdaki şekilde ulaşabilirsiniz:  \nevds.get_sub_categories( 'Ana kategori ID' si veya Adı ') \nÖrnek kulllanım;  \n... \nevds.get_sub_categories( 6) \nCATEGORY_ID  DATAGROUP_CODE  DATAGROUP_NAME  \n6 bie_dbafod  Dış Borç Anapara ve Faiz Ödemeleri ile Diğer T...  \n6 bie_dbdborc  Dış Borçlar -Brüt (Hazine ve Maliye Bakanlığı)  \n6 bie_kvdbs  Kısa Vadeli Dış Borç Stoku (milyon ABD doları)  \n6 bie_yssk  Özel Sektörün Yurt Dışından Sağladığı Uzun Vad...  \nYukarıda yer alan örnekte 6'nolu kategori altında yer alan alt kategoriler listelenmiştir. Ayrıca \nget_sub_categories  fonksiyonunda CATEGORY_ID yerine doğrudan ana kategori adı ile kullanabilirsiniz. \nÖrneğin  \n... \nevds.get_sub_categories( \"KURLAR\" ) \nSerileri listeleme  \nAlt kategori altında yer alan veri serilerine aşağıdaki şekilde ulaşabilirsiniz:  \nevds.get_series( 'Alt kategori adı' ) \nÖrnek kulllanım;  \n... \nevds.get_series('bie_dbdborc')  \nSERIE_CODE  SERIE_NAME  START_DATE  \nTP.DB.B01  1:TÜRKİYE BRÜT DIŞ BORÇ STOKU  01-10-1989  \nTP.DB.B02  2:KISA VADELİ BORÇLAR (Borçluya Göre)  01-10-1989  \nTP.DB.B03  2A:KAMU (Borçluya Göre)  01-10-1989  \nTP.DB.B04  2A1:GENEL YÖNETİM (Borçluya Göre)  01-10-1989  \nTP.DB.B05  2A1a:Merkezi Yönetim  01-10-1989  \nget_data()  fonksiyonu aracılığıyla SERIE_CODE'u kullanarak serilere ait verilere ulaşabilirsiniz.  \n \n \n(*) EVDS - R kullanımı için,  Erol Taymaz (ODTÜ Ekonomi Profesörü) “CBRT: An R Package for Easy Access to the \nCBRT Database ” başlıklı portal sayfasına aşağıdaki link ile erişebilirsiniz.  \nhttp://users.metu.edu.tr/etaymaz/cbrt -2019.html  \n ",
+          "text_length": 1971
+        }
+      ],
+      "total_text_length": 6281,
+      "metadata": {
+        "title": "",
+        "author": "Avni  Arıkan",
+        "subject": "",
+        "creator": "Microsoft® Word 2019",
+        "producer": "Microsoft® Word 2019",
+        "creation_date": "D:20240417155204+03'00'",
+        "modification_date": "D:20240417155204+03'00'"
+      }
+    },
+    "pdfplumber_result": {
+      "method": "pdfplumber",
+      "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+      "pages": [
+        {
+          "page_number": 1,
+          "text": "TÜRKİYE CUMHURİYET MERKEZ\nBANKASI\nELEKTRONİK VERİ DAĞITIM SİSTEMİ\nEVDS Verilerine PYTHON ile Erişim Kılavuzu(*)\nNisan 2024",
+          "tables": [],
+          "text_length": 122
+        },
+        {
+          "page_number": 2,
+          "text": "EVDS - PYTHON\nKurulum\nevds paketini pip paket yöneticisi aracılığıyla kurabilirsiniz:\npip install evds --upgrade\nKullanım\n01-01-2019 - 01-01-2020 arası USD ve EUR alış kurlarına aşağıdaki şekilde erişilebilir.\nfrom evds import evdsAPI\nevds = evdsAPI('EVDS_API_KEY')\nevds.get_data(['TP.DK.USD.A.YTL','TP.DK.EUR.A.YTL'], startdate=\"01-01-2019\", enddate=\"01-01-2020\")\nget_data fonksiyonu DataFrame return edecektir. İstenmesi halinde evds.data komutu ile JSON formatında\nham veriye ulaşılabilir.\nAPI Anahtarı Alma\nevds paketini kullanmak için öncelikle EVDS sistemi üzerinden API Anahtarı almanız gerekmektedir. API\nAnahtarı almak için aşağıdaki adımları izleyiniz:\n1. EVDS sayfasına giriş yaptıktan sonra Giriş Yap ve Kayıt Ol bağlantılarını izleyerek bir EVDS hesabı\noluşturun.\n2. Ardından kullanıcı adınızın altında yer alan profil bağlantısına tıklayınız.\n3. Profil sayfanızın alt kısmında yer alan \"API Anahtarı\" butonuna tıklayınız ve açılan kutucukta yer alan\ndeğeri kopyalayınız.\n5 Nisan 2024 tarihinde yapılan değişiklik.\nURL adresinden giden “key” parametresi artık http request header içinde gelmesi gerekmektedir.\nÖrnek;\nimport requests\nheaders = {'key':'***********'}\nresponse = requests.get('https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A-TP.DK.EUR.A-\nTP.DK.CHF.A-TP.DK.GBP.A-TP.DK.JPY.A-TP.MK.F.BILESIK.TUM&startDate=31-01-2024&endDate=31-12-\n2024&type=xml', headers=headers)\nprint(response.request.url)\nprint(response.request.body)\nprint(response.request.headers)\nprint(response.content)\nNot: '***********' sizin API anahtarınızdır.\nDetaylı Sorgulama\nget_data fonksiyonu aşağıdaki parametreleri alır:\nseries\nBu parametre liste olarak tanımlanmalıdır. Ayrıca birden fazla seri bu liste içerisinde tanımlanabilir.\nTanımlanması zorunludur.\nstartdate",
+          "tables": [
+            {
+              "page_number": 2,
+              "table_index": 0,
+              "data": [
+                [
+                  "EVDS - PYTHON"
+                ],
+                [
+                  "Kurulum"
+                ],
+                [
+                  "evds paketini pip paket yöneticisi aracılığıyla kurabilirsiniz:"
+                ],
+                [
+                  "pip install evds --upgrade"
+                ],
+                [
+                  "Kullanım"
+                ],
+                [
+                  "01-01-2019 - 01-01-2020 arası USD ve EUR alış kurlarına aşağıdaki şekilde erişilebilir."
+                ],
+                [
+                  "from evds import evdsAPI"
+                ],
+                [
+                  "evds = evdsAPI('EVDS_API_KEY')"
+                ],
+                [
+                  "evds.get_data(['TP.DK.USD.A.YTL','TP.DK.EUR.A.YTL'], startdate=\"01-01-2019\", enddate=\"01-01-2020\")"
+                ],
+                [
+                  "get_data fonksiyonu DataFrame return edecektir. İstenmesi halinde evds.data komutu ile JSON formatında"
+                ],
+                [
+                  "ham veriye ulaşılabilir."
+                ],
+                [
+                  "API Anahtarı Alma"
+                ],
+                [
+                  "evds paketini kullanmak için öncelikle EVDS sistemi üzerinden API Anahtarı almanız gerekmektedir. API"
+                ],
+                [
+                  "Anahtarı almak için aşağıdaki adımları izleyiniz:"
+                ]
+              ],
+              "rows": 14,
+              "columns": 1
+            },
+            {
+              "page_number": 2,
+              "table_index": 1,
+              "data": [
+                [
+                  "1. EVDS sayfasına giriş yaptıktan sonra Giriş Yap ve Kayıt Ol bağlantılarını izleyerek bir EVDS hesabı"
+                ],
+                [
+                  "oluşturun."
+                ],
+                [
+                  "2. Ardından kullanıcı adınızın altında yer alan profil bağlantısına tıklayınız."
+                ]
+              ],
+              "rows": 3,
+              "columns": 1
+            },
+            {
+              "page_number": 2,
+              "table_index": 2,
+              "data": [
+                [
+                  "3. Profil sayfanızın alt kısmında yer alan \"API Anahtarı\" butonuna tıklayınız ve açılan kutucukta yer alan"
+                ],
+                [
+                  "değeri kopyalayınız."
+                ]
+              ],
+              "rows": 2,
+              "columns": 1
+            },
+            {
+              "page_number": 2,
+              "table_index": 3,
+              "data": [
+                [
+                  ""
+                ],
+                [
+                  "5 Nisan 2024 tarihinde yapılan değişiklik."
+                ],
+                [
+                  "URL adresinden giden “key” parametresi artık http request header içinde gelmesi gerekmektedir."
+                ],
+                [
+                  "Örnek;"
+                ],
+                [
+                  "import requests"
+                ],
+                [
+                  ""
+                ],
+                [
+                  "headers = {'key':'***********'}"
+                ],
+                [
+                  "response = requests.get('https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A-TP.DK.EUR.A-"
+                ],
+                [
+                  "TP.DK.CHF.A-TP.DK.GBP.A-TP.DK.JPY.A-TP.MK.F.BILESIK.TUM&startDate=31-01-2024&endDate=31-12-"
+                ],
+                [
+                  "2024&type=xml', headers=headers)"
+                ],
+                [
+                  ""
+                ],
+                [
+                  "print(response.request.url)"
+                ],
+                [
+                  "print(response.request.body)"
+                ],
+                [
+                  "print(response.request.headers)"
+                ],
+                [
+                  "print(response.content)"
+                ],
+                [
+                  ""
+                ],
+                [
+                  "Not: '***********' sizin API anahtarınızdır."
+                ],
+                [
+                  ""
+                ],
+                [
+                  "Detaylı Sorgulama"
+                ],
+                [
+                  "get_data fonksiyonu aşağıdaki parametreleri alır:"
+                ],
+                [
+                  "series"
+                ],
+                [
+                  "Bu parametre liste olarak tanımlanmalıdır. Ayrıca birden fazla seri bu liste içerisinde tanımlanabilir."
+                ],
+                [
+                  "Tanımlanması zorunludur."
+                ],
+                [
+                  "startdate"
+                ]
+              ],
+              "rows": 24,
+              "columns": 1
+            }
+          ],
+          "text_length": 1770
+        },
+        {
+          "page_number": 3,
+          "text": "Seride yer alan verilerin hangi tarihten itibaren seçileceği bu parametre ile belirlenir. Tanımlanması zorunludur.\nenddate\nEğer seri üzerinde bir aralık seçimi yapılmak isteniyorsa aralığın bitiş tarihi bu parametre ile belirtilir.\nTanımlanması ihtiyaridir. Tanımlanmadığı durumda startdate değerine eşit olarak tanımlanır.\naggregation_types\nSeri içindeki verilerin getirilmesi esnasında kullanılacak olan toplululaştırma yöntemini ifade eder.\nTanımlanması ihtiyaridir. Eğer tanımlanmamışsa seri için tanımlanan öntanımlı yöntem kullanılır. Ayrıca değer\nolarak string veya liste alabilir. String alması durumunda tüm seriler için aynı yöntem uygulanır. Liste olarak\ntanımlanırsa series parametresinde tanımlanan serilere sırasıyla belirtilen yöntemler uygulanır. Kullanılabilecek\nyöntemler aşağıdaki gibidir:\nParametre\nYöntem\nDeğeri\nOrtalama avg\nEn düşük min\nEn yüksek max\nBaşlangıç first\nBitiş last\nKümülatif sum\nformulas\nSeri içindeki verilerin getirilmesi esnasında uygulanacak formülü ifade eder. Tanımlanması ihtiyaridir. Eğer\ntanımlanmamışsa seri için tanımlanan öntanımlı formül kullanılır. Ayrıca değer olarak string veya liste alabilir.\nString alması durumunda tüm seriler için aynı formül uygulanır. Liste olarak tanımlanırsa series\nparametresinde tanımlanan serilere sırasıyla belirtilen formüller uygulanır. Kullanılabilecek yöntemler aşağıdaki\ngibidir:\nFormül Değer\nYüzde Değişim 1\nFark 2\nYıllık Yüzde Değişim 3\nYıllık Fark 4\nBir Önceki Yılın Sonuna Göre Yüzde Değişim 5\nBir Önceki Yılın Sonuna Göre Fark 6\nHareketli Ortalama 7\nHareketli Toplam 8\nfrequency\nSeri içerisinde yer alan verilerin hangi sıklıkla getireceğini ifade eder. Tanımlanması ihtiyaridir. Eğer\ntanımlanmamışsa seri için tanımlanan öntanımlı yayımlanma sıklığı kullanılır.Aşağıdaki değerleri alabilir.\nSıklık Değer\nGünlük 1\nİşgünü 2\nHaftalık 3\nAyda 2 Kez 4\nAylık 5\n3 Aylık 6\n6 Aylık 7\nYıllık 8\nMevcut Serileri Listeleme\nEVDS üzerinde veri serileri sırasıyla Ana Kategori, Alt Kategori ve Seri hiyerarşisinde sunulmaktadır.\nget_data fonksiyonun kullanılması için aşağıda yer alan işlemlerin gerçekleştirilmesine gerek yoktur. Veri\nserisine ait kodun bilinmesi durumunda doğrudan get_data fonksiyonu kullanılabilir.",
+          "tables": [
+            {
+              "page_number": 3,
+              "table_index": 0,
+              "data": [
+                [
+                  "Seride yer alan verilerin hangi tarihten itibaren seçileceği bu parametre ile belirlenir. Tanımlanması zorunludur."
+                ],
+                [
+                  "enddate"
+                ],
+                [
+                  "Eğer seri üzerinde bir aralık seçimi yapılmak isteniyorsa aralığın bitiş tarihi bu parametre ile belirtilir."
+                ],
+                [
+                  "Tanımlanması ihtiyaridir. Tanımlanmadığı durumda startdate değerine eşit olarak tanımlanır."
+                ],
+                [
+                  "aggregation_types"
+                ],
+                [
+                  "Seri içindeki verilerin getirilmesi esnasında kullanılacak olan toplululaştırma yöntemini ifade eder."
+                ],
+                [
+                  "Tanımlanması ihtiyaridir. Eğer tanımlanmamışsa seri için tanımlanan öntanımlı yöntem kullanılır. Ayrıca değer"
+                ],
+                [
+                  "olarak string veya liste alabilir. String alması durumunda tüm seriler için aynı yöntem uygulanır. Liste olarak"
+                ],
+                [
+                  "tanımlanırsa series parametresinde tanımlanan serilere sırasıyla belirtilen yöntemler uygulanır. Kullanılabilecek"
+                ],
+                [
+                  "yöntemler aşağıdaki gibidir:"
+                ]
+              ],
+              "rows": 10,
+              "columns": 1
+            },
+            {
+              "page_number": 3,
+              "table_index": 1,
+              "data": [
+                [
+                  "formulas"
+                ],
+                [
+                  "Seri içindeki verilerin getirilmesi esnasında uygulanacak formülü ifade eder. Tanımlanması ihtiyaridir. Eğer"
+                ],
+                [
+                  "tanımlanmamışsa seri için tanımlanan öntanımlı formül kullanılır. Ayrıca değer olarak string veya liste alabilir."
+                ],
+                [
+                  "String alması durumunda tüm seriler için aynı formül uygulanır. Liste olarak tanımlanırsa series"
+                ],
+                [
+                  "parametresinde tanımlanan serilere sırasıyla belirtilen formüller uygulanır. Kullanılabilecek yöntemler aşağıdaki"
+                ],
+                [
+                  "gibidir:"
+                ]
+              ],
+              "rows": 6,
+              "columns": 1
+            },
+            {
+              "page_number": 3,
+              "table_index": 2,
+              "data": [
+                [
+                  "frequency"
+                ],
+                [
+                  "Seri içerisinde yer alan verilerin hangi sıklıkla getireceğini ifade eder. Tanımlanması ihtiyaridir. Eğer"
+                ],
+                [
+                  "tanımlanmamışsa seri için tanımlanan öntanımlı yayımlanma sıklığı kullanılır.Aşağıdaki değerleri alabilir."
+                ]
+              ],
+              "rows": 3,
+              "columns": 1
+            },
+            {
+              "page_number": 3,
+              "table_index": 3,
+              "data": [
+                [
+                  "Mevcut Serileri Listeleme"
+                ],
+                [
+                  "EVDS üzerinde veri serileri sırasıyla Ana Kategori, Alt Kategori ve Seri hiyerarşisinde sunulmaktadır."
+                ],
+                [
+                  "get_data fonksiyonun kullanılması için aşağıda yer alan işlemlerin gerçekleştirilmesine gerek yoktur. Veri"
+                ],
+                [
+                  "serisine ait kodun bilinmesi durumunda doğrudan get_data fonksiyonu kullanılabilir."
+                ]
+              ],
+              "rows": 4,
+              "columns": 1
+            }
+          ],
+          "text_length": 2194
+        },
+        {
+          "page_number": 4,
+          "text": "Ana kategorileri listeleme\nPaket çağırıldığında otomatik olarak API aracılığıyla ana veri kategorileri listelenmektedir.\n...\nevds.main_categories\nkomut ile ana kategorileri listeleyebilirsiniz.\nCATEGORY_ID TOPIC_TITLE_TR\n1 PİYASA VERİLERİ\n2 KURLAR\n3 FAİZ İSTATİSTİKLERİ\n4 PARA VE BANKA İSTATİSTİKLERİ\n... ...\nAlt kategorileri listeleme\nAna kategori altında yer alan alt kategorilere aşağıdaki şekilde ulaşabilirsiniz:\nevds.get_sub_categories('Ana kategori ID'si veya Adı')\nÖrnek kulllanım;\n...\nevds.get_sub_categories(6)\nCATEGORY_ID DATAGROUP_CODE DATAGROUP_NAME\n6 bie_dbafod Dış Borç Anapara ve Faiz Ödemeleri ile Diğer T...\n6 bie_dbdborc Dış Borçlar-Brüt (Hazine ve Maliye Bakanlığı)\n6 bie_kvdbs Kısa Vadeli Dış Borç Stoku (milyon ABD doları)\n6 bie_yssk Özel Sektörün Yurt Dışından Sağladığı Uzun Vad...\nYukarıda yer alan örnekte 6'nolu kategori altında yer alan alt kategoriler listelenmiştir. Ayrıca\nget_sub_categories fonksiyonunda CATEGORY_ID yerine doğrudan ana kategori adı ile kullanabilirsiniz.\nÖrneğin\n...\nevds.get_sub_categories(\"KURLAR\")\nSerileri listeleme\nAlt kategori altında yer alan veri serilerine aşağıdaki şekilde ulaşabilirsiniz:\nevds.get_series('Alt kategori adı')\nÖrnek kulllanım;\n...\nevds.get_series('bie_dbdborc')\nSERIE_CODE SERIE_NAME START_DATE\nTP.DB.B01 1:TÜRKİYE BRÜT DIŞ BORÇ STOKU 01-10-1989\nTP.DB.B02 2:KISA VADELİ BORÇLAR (Borçluya Göre) 01-10-1989\nTP.DB.B03 2A:KAMU (Borçluya Göre) 01-10-1989\nTP.DB.B04 2A1:GENEL YÖNETİM (Borçluya Göre) 01-10-1989\nTP.DB.B05 2A1a:Merkezi Yönetim 01-10-1989\nget_data() fonksiyonu aracılığıyla SERIE_CODE'u kullanarak serilere ait verilere ulaşabilirsiniz.\n(*) EVDS - R kullanımı için, Erol Taymaz (ODTÜ Ekonomi Profesörü) “CBRT: An R Package for Easy Access to the\nCBRT Database” başlıklı portal sayfasına aşağıdaki link ile erişebilirsiniz.\nhttp://users.metu.edu.tr/etaymaz/cbrt-2019.html",
+          "tables": [
+            {
+              "page_number": 4,
+              "table_index": 0,
+              "data": [
+                [
+                  "Ana kategorileri listeleme"
+                ],
+                [
+                  "Paket çağırıldığında otomatik olarak API aracılığıyla ana veri kategorileri listelenmektedir."
+                ],
+                [
+                  "..."
+                ],
+                [
+                  "evds.main_categories"
+                ],
+                [
+                  "komut ile ana kategorileri listeleyebilirsiniz."
+                ]
+              ],
+              "rows": 5,
+              "columns": 1
+            },
+            {
+              "page_number": 4,
+              "table_index": 1,
+              "data": [
+                [
+                  ""
+                ],
+                [
+                  "Alt kategorileri listeleme"
+                ],
+                [
+                  "Ana kategori altında yer alan alt kategorilere aşağıdaki şekilde ulaşabilirsiniz:"
+                ],
+                [
+                  "evds.get_sub_categories('Ana kategori ID'si veya Adı')"
+                ],
+                [
+                  "Örnek kulllanım;"
+                ],
+                [
+                  "..."
+                ],
+                [
+                  "evds.get_sub_categories(6)"
+                ]
+              ],
+              "rows": 7,
+              "columns": 1
+            },
+            {
+              "page_number": 4,
+              "table_index": 2,
+              "data": [
+                [
+                  "Yukarıda yer alan örnekte 6'nolu kategori altında yer alan alt kategoriler listelenmiştir. Ayrıca"
+                ],
+                [
+                  "get_sub_categories fonksiyonunda CATEGORY_ID yerine doğrudan ana kategori adı ile kullanabilirsiniz."
+                ],
+                [
+                  "Örneğin"
+                ],
+                [
+                  "..."
+                ],
+                [
+                  "evds.get_sub_categories(\"KURLAR\")"
+                ],
+                [
+                  "Serileri listeleme"
+                ],
+                [
+                  "Alt kategori altında yer alan veri serilerine aşağıdaki şekilde ulaşabilirsiniz:"
+                ],
+                [
+                  "evds.get_series('Alt kategori adı')"
+                ],
+                [
+                  "Örnek kulllanım;"
+                ],
+                [
+                  "..."
+                ],
+                [
+                  "evds.get_series('bie_dbdborc')"
+                ]
+              ],
+              "rows": 11,
+              "columns": 1
+            },
+            {
+              "page_number": 4,
+              "table_index": 3,
+              "data": [
+                [
+                  "get_data() fonksiyonu aracılığıyla SERIE_CODE'u kullanarak serilere ait verilere ulaşabilirsiniz."
+                ],
+                [
+                  ""
+                ],
+                [
+                  ""
+                ],
+                [
+                  "(*) EVDS - R kullanımı için, Erol Taymaz (ODTÜ Ekonomi Profesörü) “CBRT: An R Package for Easy Access to the"
+                ],
+                [
+                  "CBRT Database” başlıklı portal sayfasına aşağıdaki link ile erişebilirsiniz."
+                ],
+                [
+                  "http://users.metu.edu.tr/etaymaz/cbrt-2019.html"
+                ],
+                [
+                  ""
+                ]
+              ],
+              "rows": 7,
+              "columns": 1
+            }
+          ],
+          "text_length": 1855
+        }
+      ],
+      "tables": [
+        {
+          "page_number": 2,
+          "table_index": 0,
+          "data": [
+            [
+              "EVDS - PYTHON"
+            ],
+            [
+              "Kurulum"
+            ],
+            [
+              "evds paketini pip paket yöneticisi aracılığıyla kurabilirsiniz:"
+            ],
+            [
+              "pip install evds --upgrade"
+            ],
+            [
+              "Kullanım"
+            ],
+            [
+              "01-01-2019 - 01-01-2020 arası USD ve EUR alış kurlarına aşağıdaki şekilde erişilebilir."
+            ],
+            [
+              "from evds import evdsAPI"
+            ],
+            [
+              "evds = evdsAPI('EVDS_API_KEY')"
+            ],
+            [
+              "evds.get_data(['TP.DK.USD.A.YTL','TP.DK.EUR.A.YTL'], startdate=\"01-01-2019\", enddate=\"01-01-2020\")"
+            ],
+            [
+              "get_data fonksiyonu DataFrame return edecektir. İstenmesi halinde evds.data komutu ile JSON formatında"
+            ],
+            [
+              "ham veriye ulaşılabilir."
+            ],
+            [
+              "API Anahtarı Alma"
+            ],
+            [
+              "evds paketini kullanmak için öncelikle EVDS sistemi üzerinden API Anahtarı almanız gerekmektedir. API"
+            ],
+            [
+              "Anahtarı almak için aşağıdaki adımları izleyiniz:"
+            ]
+          ],
+          "rows": 14,
+          "columns": 1
+        },
+        {
+          "page_number": 2,
+          "table_index": 1,
+          "data": [
+            [
+              "1. EVDS sayfasına giriş yaptıktan sonra Giriş Yap ve Kayıt Ol bağlantılarını izleyerek bir EVDS hesabı"
+            ],
+            [
+              "oluşturun."
+            ],
+            [
+              "2. Ardından kullanıcı adınızın altında yer alan profil bağlantısına tıklayınız."
+            ]
+          ],
+          "rows": 3,
+          "columns": 1
+        },
+        {
+          "page_number": 2,
+          "table_index": 2,
+          "data": [
+            [
+              "3. Profil sayfanızın alt kısmında yer alan \"API Anahtarı\" butonuna tıklayınız ve açılan kutucukta yer alan"
+            ],
+            [
+              "değeri kopyalayınız."
+            ]
+          ],
+          "rows": 2,
+          "columns": 1
+        },
+        {
+          "page_number": 2,
+          "table_index": 3,
+          "data": [
+            [
+              ""
+            ],
+            [
+              "5 Nisan 2024 tarihinde yapılan değişiklik."
+            ],
+            [
+              "URL adresinden giden “key” parametresi artık http request header içinde gelmesi gerekmektedir."
+            ],
+            [
+              "Örnek;"
+            ],
+            [
+              "import requests"
+            ],
+            [
+              ""
+            ],
+            [
+              "headers = {'key':'***********'}"
+            ],
+            [
+              "response = requests.get('https://evds2.tcmb.gov.tr/service/evds/series=TP.DK.USD.A-TP.DK.EUR.A-"
+            ],
+            [
+              "TP.DK.CHF.A-TP.DK.GBP.A-TP.DK.JPY.A-TP.MK.F.BILESIK.TUM&startDate=31-01-2024&endDate=31-12-"
+            ],
+            [
+              "2024&type=xml', headers=headers)"
+            ],
+            [
+              ""
+            ],
+            [
+              "print(response.request.url)"
+            ],
+            [
+              "print(response.request.body)"
+            ],
+            [
+              "print(response.request.headers)"
+            ],
+            [
+              "print(response.content)"
+            ],
+            [
+              ""
+            ],
+            [
+              "Not: '***********' sizin API anahtarınızdır."
+            ],
+            [
+              ""
+            ],
+            [
+              "Detaylı Sorgulama"
+            ],
+            [
+              "get_data fonksiyonu aşağıdaki parametreleri alır:"
+            ],
+            [
+              "series"
+            ],
+            [
+              "Bu parametre liste olarak tanımlanmalıdır. Ayrıca birden fazla seri bu liste içerisinde tanımlanabilir."
+            ],
+            [
+              "Tanımlanması zorunludur."
+            ],
+            [
+              "startdate"
+            ]
+          ],
+          "rows": 24,
+          "columns": 1
+        },
+        {
+          "page_number": 3,
+          "table_index": 0,
+          "data": [
+            [
+              "Seride yer alan verilerin hangi tarihten itibaren seçileceği bu parametre ile belirlenir. Tanımlanması zorunludur."
+            ],
+            [
+              "enddate"
+            ],
+            [
+              "Eğer seri üzerinde bir aralık seçimi yapılmak isteniyorsa aralığın bitiş tarihi bu parametre ile belirtilir."
+            ],
+            [
+              "Tanımlanması ihtiyaridir. Tanımlanmadığı durumda startdate değerine eşit olarak tanımlanır."
+            ],
+            [
+              "aggregation_types"
+            ],
+            [
+              "Seri içindeki verilerin getirilmesi esnasında kullanılacak olan toplululaştırma yöntemini ifade eder."
+            ],
+            [
+              "Tanımlanması ihtiyaridir. Eğer tanımlanmamışsa seri için tanımlanan öntanımlı yöntem kullanılır. Ayrıca değer"
+            ],
+            [
+              "olarak string veya liste alabilir. String alması durumunda tüm seriler için aynı yöntem uygulanır. Liste olarak"
+            ],
+            [
+              "tanımlanırsa series parametresinde tanımlanan serilere sırasıyla belirtilen yöntemler uygulanır. Kullanılabilecek"
+            ],
+            [
+              "yöntemler aşağıdaki gibidir:"
+            ]
+          ],
+          "rows": 10,
+          "columns": 1
+        },
+        {
+          "page_number": 3,
+          "table_index": 1,
+          "data": [
+            [
+              "formulas"
+            ],
+            [
+              "Seri içindeki verilerin getirilmesi esnasında uygulanacak formülü ifade eder. Tanımlanması ihtiyaridir. Eğer"
+            ],
+            [
+              "tanımlanmamışsa seri için tanımlanan öntanımlı formül kullanılır. Ayrıca değer olarak string veya liste alabilir."
+            ],
+            [
+              "String alması durumunda tüm seriler için aynı formül uygulanır. Liste olarak tanımlanırsa series"
+            ],
+            [
+              "parametresinde tanımlanan serilere sırasıyla belirtilen formüller uygulanır. Kullanılabilecek yöntemler aşağıdaki"
+            ],
+            [
+              "gibidir:"
+            ]
+          ],
+          "rows": 6,
+          "columns": 1
+        },
+        {
+          "page_number": 3,
+          "table_index": 2,
+          "data": [
+            [
+              "frequency"
+            ],
+            [
+              "Seri içerisinde yer alan verilerin hangi sıklıkla getireceğini ifade eder. Tanımlanması ihtiyaridir. Eğer"
+            ],
+            [
+              "tanımlanmamışsa seri için tanımlanan öntanımlı yayımlanma sıklığı kullanılır.Aşağıdaki değerleri alabilir."
+            ]
+          ],
+          "rows": 3,
+          "columns": 1
+        },
+        {
+          "page_number": 3,
+          "table_index": 3,
+          "data": [
+            [
+              "Mevcut Serileri Listeleme"
+            ],
+            [
+              "EVDS üzerinde veri serileri sırasıyla Ana Kategori, Alt Kategori ve Seri hiyerarşisinde sunulmaktadır."
+            ],
+            [
+              "get_data fonksiyonun kullanılması için aşağıda yer alan işlemlerin gerçekleştirilmesine gerek yoktur. Veri"
+            ],
+            [
+              "serisine ait kodun bilinmesi durumunda doğrudan get_data fonksiyonu kullanılabilir."
+            ]
+          ],
+          "rows": 4,
+          "columns": 1
+        },
+        {
+          "page_number": 4,
+          "table_index": 0,
+          "data": [
+            [
+              "Ana kategorileri listeleme"
+            ],
+            [
+              "Paket çağırıldığında otomatik olarak API aracılığıyla ana veri kategorileri listelenmektedir."
+            ],
+            [
+              "..."
+            ],
+            [
+              "evds.main_categories"
+            ],
+            [
+              "komut ile ana kategorileri listeleyebilirsiniz."
+            ]
+          ],
+          "rows": 5,
+          "columns": 1
+        },
+        {
+          "page_number": 4,
+          "table_index": 1,
+          "data": [
+            [
+              ""
+            ],
+            [
+              "Alt kategorileri listeleme"
+            ],
+            [
+              "Ana kategori altında yer alan alt kategorilere aşağıdaki şekilde ulaşabilirsiniz:"
+            ],
+            [
+              "evds.get_sub_categories('Ana kategori ID'si veya Adı')"
+            ],
+            [
+              "Örnek kulllanım;"
+            ],
+            [
+              "..."
+            ],
+            [
+              "evds.get_sub_categories(6)"
+            ]
+          ],
+          "rows": 7,
+          "columns": 1
+        },
+        {
+          "page_number": 4,
+          "table_index": 2,
+          "data": [
+            [
+              "Yukarıda yer alan örnekte 6'nolu kategori altında yer alan alt kategoriler listelenmiştir. Ayrıca"
+            ],
+            [
+              "get_sub_categories fonksiyonunda CATEGORY_ID yerine doğrudan ana kategori adı ile kullanabilirsiniz."
+            ],
+            [
+              "Örneğin"
+            ],
+            [
+              "..."
+            ],
+            [
+              "evds.get_sub_categories(\"KURLAR\")"
+            ],
+            [
+              "Serileri listeleme"
+            ],
+            [
+              "Alt kategori altında yer alan veri serilerine aşağıdaki şekilde ulaşabilirsiniz:"
+            ],
+            [
+              "evds.get_series('Alt kategori adı')"
+            ],
+            [
+              "Örnek kulllanım;"
+            ],
+            [
+              "..."
+            ],
+            [
+              "evds.get_series('bie_dbdborc')"
+            ]
+          ],
+          "rows": 11,
+          "columns": 1
+        },
+        {
+          "page_number": 4,
+          "table_index": 3,
+          "data": [
+            [
+              "get_data() fonksiyonu aracılığıyla SERIE_CODE'u kullanarak serilere ait verilere ulaşabilirsiniz."
+            ],
+            [
+              ""
+            ],
+            [
+              ""
+            ],
+            [
+              "(*) EVDS - R kullanımı için, Erol Taymaz (ODTÜ Ekonomi Profesörü) “CBRT: An R Package for Easy Access to the"
+            ],
+            [
+              "CBRT Database” başlıklı portal sayfasına aşağıdaki link ile erişebilirsiniz."
+            ],
+            [
+              "http://users.metu.edu.tr/etaymaz/cbrt-2019.html"
+            ],
+            [
+              ""
+            ]
+          ],
+          "rows": 7,
+          "columns": 1
+        }
+      ],
+      "total_text_length": 5941,
+      "metadata": {
+        "Author": "Avni  Arıkan",
+        "Creator": "Microsoft® Word 2019",
+        "CreationDate": "D:20240417155204+03'00'",
+        "ModDate": "D:20240417155204+03'00'",
+        "Producer": "Microsoft® Word 2019"
+      }
+    },
+    "tabula_result": {
+      "method": "tabula-py",
+      "file_name": "45685006-0af8-42de-806a-1b8b00a19057.pdf",
+      "tables": [],
+      "total_tables": 0,
+      "parameters": {
+        "pages": "all",
+        "area": null,
+        "guess": true,
+        "area_coords": null
+      },
+      "error": "[Errno 13] Permission denied: 'java'"
+    },
+    "summary": {
+      "total_pages": 4,
+      "total_text_length": 12222,
+      "total_tables": 12,
+      "extraction_methods": [
+        "pypdf2",
+        "pdfplumber"
+      ],
+      "file_size": 221535,
+      "extraction_success": true
+    }
+  },
+  "final_output": {
+    "extraction_method": "combined",
+    "format_detected": "table_heavy",
+    "confidence": 0.6,
+    "data_summary": {
+      "total_pages": 4,
+      "total_text_length": 12222,
+      "total_tables": 12,
+      "extraction_methods": [
+        "pypdf2",
+        "pdfplumber"
+      ],
+      "file_size": 221535,
+      "extraction_success": true
+    },
+    "recommendations": [
+      "tabula-py ile tablo çıkarımı yapın",
+      "pdfplumber'ın tablo çıkarma özelliklerini kullanın",
+      "Tablo verilerini CSV/Excel formatına dönüştürün"
+    ],
+    "output_files": []
+  },
+  "success": true
+}

@@ -1,0 +1,19 @@
+[36mvite v6.2.6 [32mbuilding for production...[36m[39m
+transforming...
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[32m✓[39m 3292 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                    [39m[1m[2m    0.35 kB[22m[1m[22m[2m │ gzip:   0.25 kB[22m
+[2mdist/[22m[2massets/[22m[35mindex-DPp-dLx_.css     [39m[1m[2m   34.98 kB[22m[1m[22m[2m │ gzip:   6.69 kB[22m
+[2mdist/[22m[2massets/[22m[36mpurify.es-B6FQ9oRL.js  [39m[1m[2m   22.57 kB[22m[1m[22m[2m │ gzip:   8.71 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex.es-CZHP6X28.js   [39m[1m[2m  159.31 kB[22m[1m[22m[2m │ gzip:  53.23 kB[22m
+[2mdist/[22m[2massets/[22m[36mindex-CSVESdZ9.js      [39m[1m[33m2,211.23 kB[39m[22m[2m │ gzip: 550.91 kB[22m
+[33m
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+[32m✓ built in 20.22s[39m

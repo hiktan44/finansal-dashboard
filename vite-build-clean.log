@@ -1,0 +1,14 @@
+[36mvite v6.2.6 [32mbuilding for production...[36m[39m
+transforming...
+Browserslist: browsers data (caniuse-lite) is 7 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+[32m✓[39m 71 modules transformed.
+[31m✗[39m Build failed in 5.56s
+[31merror during build:
+[31mCould not resolve "../context/AuthContext" from "src/components/auth/AuthModal.tsx"[31m
+file: [36m/workspace/financial-dashboard/src/components/auth/AuthModal.tsx[31m
+    at getRollupError (file:///workspace/financial-dashboard/node_modules/.pnpm/rollup@4.39.0/node_modules/rollup/dist/es/shared/parseAst.js:397:41)
+    at error (file:///workspace/financial-dashboard/node_modules/.pnpm/rollup@4.39.0/node_modules/rollup/dist/es/shared/parseAst.js:393:42)
+    at ModuleLoader.handleInvalidResolvedId (file:///workspace/financial-dashboard/node_modules/.pnpm/rollup@4.39.0/node_modules/rollup/dist/es/shared/node-entry.js:21289:24)
+    at file:///workspace/financial-dashboard/node_modules/.pnpm/rollup@4.39.0/node_modules/rollup/dist/es/shared/node-entry.js:21249:26[39m

@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "portfolio": "Portföy",
+    "alerts": "Alarmlar",
+    "profile": "Profil"
+  },
+  "home": {
+    "title": "Finansal Dashboard",
+    "marketStatus": "Piyasa Durumu",
+    "lastUpdate": "Son Güncelleme: {{date}}",
+    "quickActions": "Hızlı İşlemler",
+    "priceAlert": "Fiyat Alarmı",
+    "myPortfolio": "Portföyüm",
+    "aiAnalysis": "AI Analizi",
+    "news": "Haberler",
+    "addStock": "Hisse Ekle",
+    "viewPortfolio": "Portföyü Görüntüle",
+    "getAnalysis": "Analiz Al",
+    "readNews": "Haberleri Oku"
+  },
+  "portfolio": {
+    "title": "Portföyüm",
+    "totalValue": "Toplam Değer",
+    "gainLoss": "Kar/Zarar",
+    "holdings": "Hisseler",
+    "addStock": "Hisse Ekle",
+    "stockName": "Hisse Adı",
+    "quantity": "Adet",
+    "purchasePrice": "Alış Fiyatı",
+    "currentPrice": "Güncel Fiyat",
+    "add": "Ekle",
+    "empty": "Henüz hisse eklenmemiş"
+  },
+  "alerts": {
+    "title": "Alarmlar",
+    "createAlert": "Alarm Oluştur",
+    "stockSymbol": "Hisse Sembolü",
+    "priceTarget": "Hedef Fiyat",
+    "alertType": "Alarm Türü",
+    "above": "Üzerinde",
+    "below": "Altında",
+    "save": "Kaydet",
+    "noAlerts": "Henüz alarm kurulmamış"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Dil",
+    "selectLanguage": "Dil Seçin",
+    "signOut": "Çıkış Yap",
+    "settings": "Ayarlar",
+    "preferences": "Tercihler"
+  },
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "close": "Kapat",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı"
+  },
+  "auth": {
+    "signIn": "Giriş Yap",
+    "signUp": "Kayıt Ol",
+    "email": "E-posta",
+    "password": "Şifre",
+    "confirmPassword": "Şifre Tekrarı",
+    "forgotPassword": "Şifremi Unuttum",
+    "dontHaveAccount": "Hesabınız yok mu?",
+    "alreadyHaveAccount": "Zaten hesabınız var mı?"
+  }
+}
