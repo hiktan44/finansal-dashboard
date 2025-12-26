@@ -1,0 +1,14 @@
+{
+  "name": "finansal-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "install": "cd financial-dashboard-fixed && pnpm install --prefer-offline --frozen-lockfile",
+    "build": "cd financial-dashboard-fixed && pnpm run build",
+    "start": "npx serve -s financial-dashboard-fixed/dist -l 3000"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}

@@ -2,19 +2,13 @@
 nixPkgs = ["nodejs_22", "pnpm"]
 
 [phases.install]
-cmds = [
-  "cd financial-dashboard-fixed",
-  "pnpm install --prefer-offline --frozen-lockfile"
-]
+cmds = ["npm install"]
 
 [phases.build]
-cmds = [
-  "cd financial-dashboard-fixed",
-  "pnpm run build"
-]
+cmds = ["npm run build"]
 
 [start]
-cmd = "cd financial-dashboard-fixed && npx serve -s dist -l 3000"
+cmd = "npm start"
 
 [variables]
 NODE_ENV = "production"
