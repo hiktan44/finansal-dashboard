@@ -1,0 +1,85 @@
+version: '3.9'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: finansal-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      - SUPABASE_URL=${SUPABASE_URL:-http://supabase-kong:8000}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - FRED_API_KEY=${FRED_API_KEY}
+    restart: unless-stopped
+    depends_on:
+      - supabase-db
+    networks:
+      - finansal-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3001/health', (r) => process.exit(r.statusCode === 200 ? 0 : 1))"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend (Vite/React)
+  frontend:
+    build:
+      context: ./financial-dashboard
+      dockerfile: Dockerfile
+    container_name: finansal-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - VITE_API_URL=http://backend:3001
+      - VITE_SUPABASE_URL=${SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
+    restart: unless-stopped
+    depends_on:
+      - backend
+    networks:
+      - finansal-network
+
+  # Self-hosted Supabase (eğer varsa)
+  # Bu kısmı kendi Supabase kurulumuna göre düzenle
+  supabase-db:
+    image: supabase/postgres:15.1.0.147
+    container_name: finansal-supabase-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=your-password
+      - POSTGRES_DB=postgres
+    volumes:
+      - supabase-db-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - finansal-network
+
+  # Supabase Studio (optional)
+  # supabase-studio:
+  #   image: supabase/studio:20240326-2e3e22c
+  #   container_name: finansal-supabase-studio
+  #   ports:
+  #     - "3002:3000"
+  #   environment:
+  #     - STUDIO_PG_META_URL=http://supabase-db:5432
+  #     - STUDIO_DEFAULT_ORGANIZATION=default
+  #     - STUDIO_DEFAULT_PROJECT=default
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - supabase-db
+  #   networks:
+  #     - finansal-network
+
+networks:
+  finansal-network:
+    driver: bridge
+
+volumes:
+  supabase-db-data:
+    driver: local
