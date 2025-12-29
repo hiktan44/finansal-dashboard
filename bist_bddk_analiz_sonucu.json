@@ -1,0 +1,504 @@
+{
+  "analysis_date": "2025-11-09 14:47:57",
+  "total_slides": 259,
+  "bist_bddk_tables": [
+    {
+      "slide_number": 79,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 17 Aralık 2023 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 80,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 5 Eylül 2024 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 81,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 3 Temmuz 2025 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 136,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2022)  (Kaynak: 22 AĞUSTOS 2024)\n9) www.bddk.org.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 137,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2025)  (Kaynak:26 Haziran 2025)\n9) www.bddk.org.tr)"
+      ],
+      "title": ""
+    }
+  ],
+  "bist_bddk_links": [
+    {
+      "slide_number": 54,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "23 Ağustos 2024",
+      "content": "TOPLAM MEVDUATLAR  (Kaynak: 23 Ağustos 2024 www.tcmb.gov.tr )",
+      "table_name": "5 Tablo"
+    },
+    {
+      "slide_number": 55,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "12 EYLÜL 2024",
+      "content": "TOPLAM MEVDUATLAR  (Kaynak: 12 EYLÜL 2024 www.tcmb.gov.tr)",
+      "table_name": "Tablo 3"
+    },
+    {
+      "slide_number": 56,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "27 Şubat 2025",
+      "content": "TOPLAM MEVDUATLAR  (Kaynak: 27 Şubat 2025 www.tcmb.gov.tr)",
+      "table_name": "Tablo 3"
+    },
+    {
+      "slide_number": 57,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "3 Temmuz 2025",
+      "content": "TOPLAM MEVDUATLAR  (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr)",
+      "table_name": "Tablo 3"
+    },
+    {
+      "slide_number": 79,
+      "source": "BDDK",
+      "link": "https://www.bddk.org.tr",
+      "extracted_date": "17 Aralık 2023",
+      "content": "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 17 Aralık 2023 www.bddk.org.tr )",
+      "table_name": "4 Tablo"
+    },
+    {
+      "slide_number": 80,
+      "source": "BDDK",
+      "link": "https://www.bddk.org.tr",
+      "extracted_date": "5 Eylül 2024",
+      "content": "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 5 Eylül 2024 www.bddk.org.tr )",
+      "table_name": "4 Tablo"
+    },
+    {
+      "slide_number": 81,
+      "source": "BDDK",
+      "link": "https://www.bddk.org.tr",
+      "extracted_date": "3 Temmuz 2025",
+      "content": "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 3 Temmuz 2025 www.bddk.org.tr )",
+      "table_name": "4 Tablo"
+    },
+    {
+      "slide_number": 83,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "11 Ağustos 2022",
+      "content": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ  MEVDUAT HESABI (Kaynak: 11 Ağustos 2022 www.tcmb.gov.tr )",
+      "table_name": "6 Tablo"
+    },
+    {
+      "slide_number": 84,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "16  Mart  2023",
+      "content": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 16  Mart  2023 www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 86,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "10 Ekim 2024",
+      "content": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 10 Ekim 2024 www.tcmb.gov.tr )",
+      "table_name": "Tablo 4"
+    },
+    {
+      "slide_number": 87,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "3 Temmuz 2025",
+      "content": "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )",
+      "table_name": "Tablo 4"
+    },
+    {
+      "slide_number": 90,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "25 Ağustos 2023",
+      "content": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 25 Ağustos 2023 www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 91,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "15 ŞUBAT 2024",
+      "content": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 15 ŞUBAT 2024  www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 92,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "16 Ağustos 2024",
+      "content": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 16 Ağustos 2024  www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 93,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "4 Ocak 2025",
+      "content": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 4 Ocak 2025  www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 94,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "13 Haziran 2025",
+      "content": "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 13 Haziran 2025  www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 95,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "3 Temmuz 2025",
+      "content": "44-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 3 Temmuz 2025  www.tcmb.gov.tr )",
+      "table_name": "Tablo 1"
+    },
+    {
+      "slide_number": 136,
+      "source": "BDDK",
+      "link": "https://www.bddk.org.tr",
+      "extracted_date": "22 AĞUSTOS 2024",
+      "content": "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2022)  (Kaynak: 22 AĞUSTOS 2024)\n9) www.bddk.org.tr)",
+      "table_name": "4 Tablo"
+    },
+    {
+      "slide_number": 137,
+      "source": "BDDK",
+      "link": "https://www.bddk.org.tr",
+      "extracted_date": "26 Haziran 2025",
+      "content": "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2025)  (Kaynak:26 Haziran 2025)\n9) www.bddk.org.tr)",
+      "table_name": "4 Tablo"
+    },
+    {
+      "slide_number": 170,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "3 Temmuz 2025",
+      "content": "8- TİCARİ KREDİ FAİZ ORANLARI 2007-2025\u000b (BANKALARIN UYGULADIĞI  ORTALAMA AĞIRLIKLI FAİZ ORANI)\u000b(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )",
+      "table_name": "İçerik Yer Tutucusu 7"
+    },
+    {
+      "slide_number": 187,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "21 Ocak 2025",
+      "content": "TC. MERKEZ BANKASI KONUT FİYAT ENDEKSİ\n        (Kaynak: 21 Ocak 2025 www.tcmb.gov.tr )",
+      "table_name": "3 Tablo"
+    },
+    {
+      "slide_number": 188,
+      "source": "TCMB",
+      "link": "https://www.tcmb.gov.tr",
+      "extracted_date": "20 Haziran 2025",
+      "content": "TC. MERKEZ BANKASI KONUT FİYAT ENDEKSİ\n        (Kaynak: 20 Haziran 2025 www.tcmb.gov.tr )",
+      "table_name": "3 Tablo"
+    }
+  ],
+  "empty_tables": [
+    {
+      "slide_number": 15,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "content": [
+        "14 Ağustos 202519\u000b11\u000b14"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 16,
+      "table_name": "Content Placeholder 3",
+      "table_type": "table",
+      "content": [
+        "T.C. MERKEZ BANKASI ENFLASYON TAHMİN VE REVİZYONLARI \u000b(Kaynak: 23 Mayıs 2025 www.bloomberght.com )"
+      ],
+      "title": ""
+    }
+  ],
+  "all_tables_count": 0,
+  "bddk_tables": [
+    {
+      "slide_number": 54,
+      "table_name": "5 Tablo",
+      "table_type": "table",
+      "content": [
+        "TOPLAM MEVDUATLAR  (Kaynak: 23 Ağustos 2024 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 55,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "content": [
+        "TOPLAM MEVDUATLAR  (Kaynak: 12 EYLÜL 2024 www.tcmb.gov.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 56,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "content": [
+        "TOPLAM MEVDUATLAR  (Kaynak: 27 Şubat 2025 www.tcmb.gov.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 57,
+      "table_name": "Tablo 3",
+      "table_type": "table",
+      "content": [
+        "TOPLAM MEVDUATLAR  (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 79,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 17 Aralık 2023 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 79,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 17 Aralık 2023 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 80,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 5 Eylül 2024 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 80,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 5 Eylül 2024 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 81,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 3 Temmuz 2025 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 81,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "KUR KORUMALI TL MEVDUAT HESABI\nTOPLAM TUTAR (MİLYON TL)\n(Kaynak: 3 Temmuz 2025 www.bddk.org.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 83,
+      "table_name": "6 Tablo",
+      "table_type": "table",
+      "content": [
+        "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ  MEVDUAT HESABI (Kaynak: 11 Ağustos 2022 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 84,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 16  Mart  2023 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 86,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "content": [
+        "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 10 Ekim 2024 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 87,
+      "table_name": "Tablo 4",
+      "table_type": "table",
+      "content": [
+        "5- TÜRKİYE’DE YERLEŞİKLERİN TOPLAM DÖVİZ MEVDUAT HESABI (Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 90,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 25 Ağustos 2023 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 91,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 15 ŞUBAT 2024  www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 92,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 16 Ağustos 2024  www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 93,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 4 Ocak 2025  www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 94,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "43-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 13 Haziran 2025  www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 95,
+      "table_name": "Tablo 1",
+      "table_type": "table",
+      "content": [
+        "44-   MERKEZ BANKASI ALTIN VE DÖVİZ REZERVLERİ\n         (Kaynak: 3 Temmuz 2025  www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 136,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2022)  (Kaynak: 22 AĞUSTOS 2024)\n9) www.bddk.org.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 136,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2022)  (Kaynak: 22 AĞUSTOS 2024)\n9) www.bddk.org.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 137,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2025)  (Kaynak:26 Haziran 2025)\n9) www.bddk.org.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 137,
+      "table_name": "4 Tablo",
+      "table_type": "table",
+      "content": [
+        "9. TÜRKİYE BANKACILIK SEKTÖRÜNDE BRÜT TAKİPTEKİ ALACAKLAR (2014-2025)  (Kaynak:26 Haziran 2025)\n9) www.bddk.org.tr)"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 170,
+      "table_name": "İçerik Yer Tutucusu 7",
+      "table_type": "table",
+      "content": [
+        "8- TİCARİ KREDİ FAİZ ORANLARI 2007-2025\u000b (BANKALARIN UYGULADIĞI  ORTALAMA AĞIRLIKLI FAİZ ORANI)\u000b(Kaynak: 3 Temmuz 2025 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 187,
+      "table_name": "3 Tablo",
+      "table_type": "table",
+      "content": [
+        "TC. MERKEZ BANKASI KONUT FİYAT ENDEKSİ\n        (Kaynak: 21 Ocak 2025 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    },
+    {
+      "slide_number": 188,
+      "table_name": "3 Tablo",
+      "table_type": "table",
+      "content": [
+        "TC. MERKEZ BANKASI KONUT FİYAT ENDEKSİ\n        (Kaynak: 20 Haziran 2025 www.tcmb.gov.tr )"
+      ],
+      "title": ""
+    }
+  ],
+  "bist_tables": [],
+  "statistics": {
+    "total_tables": 106,
+    "empty_tables_count": 2,
+    "bist_bddk_tables_count": 10,
+    "bist_bddk_links_count": 27,
+    "bddk_tables_count": 27,
+    "bist_tables_count": 0
+  }
+}

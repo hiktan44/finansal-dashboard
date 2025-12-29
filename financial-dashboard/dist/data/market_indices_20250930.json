@@ -1,0 +1,37 @@
+{
+  "date": "2025-09-30",
+  "indices": [
+    {
+      "name": "Dow Jones Sanayi Ortalaması",
+      "symbol": "DJIA",
+      "close": 46397.89,
+      "change": 81.82,
+      "changePercent": 0.18,
+      "isNewHigh": true,
+      "monthlyChange": 1.87,
+      "note": "Yeniden tarihi rekor kırdı, Eylül ayında yaklaşık %1.87 yükseldi, 2019'dan bu yana en büyük Eylül ayı kazancı"
+    },
+    {
+      "name": "S&P 500 Endeksi",
+      "symbol": "SPX",
+      "close": 6688.46,
+      "change": 27.25,
+      "changePercent": 0.41,
+      "isNewHigh": true,
+      "monthlyChange": 3.53,
+      "quarterlyChange": 7.79,
+      "note": "Üst üste beşinci ay yükseldi, üçüncü çeyrekte %7.79 arttı, 2020'den bu yana en büyük üç aylık kazanç"
+    },
+    {
+      "name": "NASDAQ Bileşik Endeksi",
+      "symbol": "NASDAQ",
+      "close": 22660.01,
+      "change": 68.86,
+      "changePercent": 0.31,
+      "isNewHigh": true,
+      "monthlyChange": 5.61,
+      "quarterlyChange": 11.24,
+      "note": "Üst üste altıncı ay yükseldi, üçüncü çeyrekte %11.24 arttı"
+    }
+  ]
+}

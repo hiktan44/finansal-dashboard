@@ -1,0 +1,23 @@
+CREATE TABLE user_alerts (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL,
+    alert_type TEXT NOT NULL CHECK (alert_type IN ('price_target',
+    'percentage_change',
+    'volume_spike',
+    'technical_breakout',
+    'portfolio_value',
+    'loss_profit_threshold',
+    'market_movers',
+    'ai_prediction')),
+    symbol TEXT,
+    target_value DECIMAL(15,4),
+    threshold_percent DECIMAL(5,2),
+    condition TEXT CHECK (condition IN ('above',
+    'below',
+    'equals')),
+    is_active BOOLEAN DEFAULT true,
+    notification_channels JSONB DEFAULT '{"push": true,
+    "email": false}'::jsonb,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    updated_at TIMESTAMPTZ DEFAULT NOW()
+);

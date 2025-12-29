@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "portfolio": "Portefeuille",
+    "alerts": "Alertes",
+    "profile": "Profil"
+  },
+  "home": {
+    "title": "Tableau de Bord Financier",
+    "marketStatus": "État du Marché",
+    "lastUpdate": "Dernière Mise à Jour: {{date}}",
+    "quickActions": "Actions Rapides",
+    "priceAlert": "Alerte Prix",
+    "myPortfolio": "Mon Portefeuille",
+    "aiAnalysis": "Analyse IA",
+    "news": "Actualités",
+    "addStock": "Ajouter Action",
+    "viewPortfolio": "Voir Portefeuille",
+    "getAnalysis": "Obtenir Analyse",
+    "readNews": "Lire Actualités"
+  },
+  "portfolio": {
+    "title": "Mon Portefeuille",
+    "totalValue": "Valeur Totale",
+    "gainLoss": "Gain/Perte",
+    "holdings": "Détentions",
+    "addStock": "Ajouter Action",
+    "stockName": "Nom de l'Action",
+    "quantity": "Quantité",
+    "purchasePrice": "Prix d'Achat",
+    "currentPrice": "Prix Actuel",
+    "add": "Ajouter",
+    "empty": "Aucune action ajoutée"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Langue",
+    "selectLanguage": "Sélectionner Langue",
+    "signOut": "Se Déconnecter",
+    "settings": "Paramètres",
+    "preferences": "Préférences"
+  }
+}

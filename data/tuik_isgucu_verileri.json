@@ -1,0 +1,504 @@
+{
+  "metadata": {
+    "kaynak": "Türkiye İstatistik Kurumu (TÜİK)",
+    "veri_portali": "https://data.tuik.gov.tr/",
+    "kategori": "İstihdam, İşsizlik ve Ücret",
+    "toplam_kayit": 466,
+    "isgucu_istatistikleri_kayit": 310,
+    "veri_donemi": "Ocak 2024 - Eylül 2025",
+    "rapor_tarihi": "2025-11-09",
+    "sayim_metodolojisi": "Hanehalkı İşgücü Araştırması (HİA)",
+    "veri_kaynaklari": 12,
+    "aciklama": "TÜİK tarafından yayımlanan aylık işgücü istatistikleri verileri"
+  },
+  "yillik_ozet_2024": {
+    "genel_isguclu_istatistikleri": {
+      "isizlik_orani": {
+        "genel": "8.7%",
+        "erkek": "7.1%",
+        "kadin": "11.8%",
+        "onceki_yila_gore_degisim": "-0.7 puan"
+      },
+      "isiz_sayisi": "3,113,000 kişi (-151,000 kişi)",
+      "istihdam_orani": {
+        "genel": "49.5% (+1.2 puan)",
+        "erkek": "66.9%",
+        "kadin": "32.5%"
+      },
+      "istihdam_edilen_sayisi": "32,620,000 kişi (+988,000 kişi)",
+      "isgucu_katilma_orani": {
+        "genel": "54.2% (+0.9 puan)",
+        "erkek": "72.0%",
+        "kadin": "36.8%"
+      },
+      "isgucu_sayisi": "35,733,000 kişi (+837,000 kişi)",
+      "genc_nufus_isizligi": {
+        "genel": "16.3% (-1.1 puan)",
+        "erkek": "13.1%",
+        "kadin": "22.3%"
+      },
+      "atil_isgucu_orani": "26.7% (+3.9 puan)"
+    },
+    "sektorel_dagilim": {
+      "tarim": {
+        "pay": "14.8%",
+        "kisi_sayisi": "4,827,000 kişi",
+        "onceki_yila_gore_degisim": "Pay değişmedi, +132,000 kişi"
+      },
+      "sanayi": {
+        "pay": "20.7% (-0.5 puan)",
+        "kisi_sayisi": "6,746,000 kişi",
+        "onceki_yila_gore_degisim": "+35,000 kişi"
+      },
+      "insaat": {
+        "pay": "6.6% (+0.3 puan)",
+        "kisi_sayisi": "2,162,000 kişi",
+        "onceki_yila_gore_degisim": "+165,000 kişi"
+      },
+      "hizmet": {
+        "pay": "57.9% (+0.3 puan)",
+        "kisi_sayisi": "18,886,000 kişi",
+        "onceki_yila_gore_degisim": "+656,000 kişi"
+      }
+    }
+  },
+  "aylik_veriler": {
+    "2024": {
+      "ocak": {
+        "isizlik_orani": {
+          "genel": "9.1%",
+          "erkek": "7.7%",
+          "kadin": "11.7%"
+        },
+        "istihdam_orani": {
+          "genel": "49.0%",
+          "erkek": "66.0%",
+          "kadin": "32.4%"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "53.9%",
+          "erkek": "71.5%",
+          "kadin": "36.6%"
+        },
+        "isiz_sayisi": "3,214,000 kişi (+85,000)",
+        "istihdam_sayisi": "32,222,000 kişi (+160,000)",
+        "isgucu_sayisi": "35,436,000 kişi (+245,000)",
+        "genc_nufus_isizligi": {
+          "genel": "16.6%",
+          "erkek": "14.1%",
+          "kadin": "21.1%"
+        },
+        "haftalik_calisma_suresi": "43.3 saat",
+        "atil_isgucu_orani": "26.5% (+1.7 puan)"
+      },
+      "mart": {
+        "isizlik_orani": {
+          "genel": "8.6% (-0.1 puan)",
+          "erkek": "6.8% (-0.4 puan)",
+          "kadin": "12.0% (+0.5 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.5% (+0.2 puan)",
+          "erkek": "66.9% (+0.3 puan)",
+          "kadin": "32.5% (+0.1 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "54.2% (+0.2 puan)",
+          "erkek": "71.8% (+0.1 puan)",
+          "kadin": "36.9% (+0.3 puan)"
+        },
+        "isiz_sayisi": "3,057,000 kişi (-19,000)",
+        "istihdam_sayisi": "32,588,000 kişi (+139,000)",
+        "isgucu_sayisi": "35,645,000 kişi (+121,000)",
+        "genc_nufus_isizligi": {
+          "genel": "15.1% (-0.4 puan)",
+          "erkek": "11.7% (-1.3 puan)",
+          "kadin": "21.2% (+0.9 puan)"
+        },
+        "haftalik_calisma_suresi": "43.8 saat (+0.3)",
+        "atil_isgucu_orani": "24.1% (-0.4 puan)"
+      },
+      "mayis": {
+        "isizlik_orani": {
+          "genel": "8.4% (-0.1 puan)",
+          "erkek": "7.0% (-0.2 puan)",
+          "kadin": "11.0% (-0.1 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "50.0% (+0.4 puan)",
+          "erkek": "67.3% (+0.4 puan)",
+          "kadin": "33.0% (+0.4 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "54.5% (+0.3 puan)",
+          "erkek": "72.4% (+0.3 puan)",
+          "kadin": "37.1% (+0.4 puan)"
+        },
+        "isiz_sayisi": "3,011,000 kişi (-27,000)",
+        "istihdam_sayisi": "32,920,000 kişi (+273,000)",
+        "isgucu_sayisi": "35,931,000 kişi (+245,000)",
+        "genc_nufus_isizligi": {
+          "genel": "15.0% (+0.3 puan)",
+          "erkek": "12.8% (+0.5 puan)",
+          "kadin": "19.3% (-0.1 puan)"
+        },
+        "haftalik_calisma_suresi": "43.9 saat (-0.3)",
+        "atil_isgucu_orani": "25.2% (-2.0 puan)"
+      },
+      "haziran": {
+        "isizlik_orani": {
+          "genel": "9.2% (+0.7 puan)",
+          "erkek": "7.6% (+0.5 puan)",
+          "kadin": "12.4% (+1.1 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.3% (-0.6 puan)",
+          "erkek": "66.9% (-0.4 puan)",
+          "kadin": "32.1% (-0.7 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "54.4% (-0.2 puan)",
+          "erkek": "72.4% (-0.1 puan)",
+          "kadin": "36.7% (-0.3 puan)"
+        },
+        "isiz_sayisi": "3,305,000 kişi (+234,000)",
+        "istihdam_sayisi": "32,522,000 kişi (-341,000)",
+        "isgucu_sayisi": "35,827,000 kişi (-107,000)",
+        "genc_nufus_isizligi": {
+          "genel": "17.6% (+1.7 puan)",
+          "erkek": "14.8% (+1.5 puan)",
+          "kadin": "23.2% (+2.3 puan)"
+        },
+        "haftalik_calisma_suresi": "44.0 saat (+0.1)",
+        "atil_isgucu_orani": "29.2% (+3.8 puan)"
+      },
+      "temmuz": {
+        "isizlik_orani": {
+          "genel": "8.8% (-0.4 puan)",
+          "erkek": "7.0% (-0.5 puan)",
+          "kadin": "12.4% (0.0 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.6% (+0.3 puan)",
+          "erkek": "67.4% (+0.6 puan)",
+          "kadin": "32.2% (+0.1 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "54.4% (+0.1 puan)",
+          "erkek": "72.4% (+0.2 puan)",
+          "kadin": "36.8% (+0.2 puan)"
+        },
+        "isiz_sayisi": "3,167,000 kişi (-112,000)",
+        "istihdam_sayisi": "32,712,000 kişi (+235,000)",
+        "isgucu_sayisi": "35,879,000 kişi (+123,000)",
+        "genc_nufus_isizligi": {
+          "genel": "16.6% (-1.0 puan)",
+          "erkek": "12.2% (-2.2 puan)",
+          "kadin": "25.0% (+1.0 puan)"
+        },
+        "haftalik_calisma_suresi": "42.5 saat (-1.3)",
+        "atil_isgucu_orani": "26.5% (-2.7 puan)"
+      },
+      "ekim": {
+        "isizlik_orani": {
+          "genel": "8.8% (+0.1 puan)",
+          "erkek": "6.9% (+0.1 puan)",
+          "kadin": "12.3% (0.0 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.9% (+0.2 puan)",
+          "erkek": "67.4% (+0.2 puan)",
+          "kadin": "32.8% (+0.3 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "54.7% (+0.3 puan)",
+          "erkek": "72.4% (+0.3 puan)",
+          "kadin": "37.4% (+0.3 puan)"
+        },
+        "isiz_sayisi": "3,175,000 kişi (+61,000)",
+        "istihdam_sayisi": "32,970,000 kişi (+156,000)",
+        "isgucu_sayisi": "36,146,000 kişi (+219,000)",
+        "genc_nufus_isizligi": {
+          "genel": "16.6% (-0.3 puan)",
+          "erkek": "12.6% (-0.7 puan)",
+          "kadin": "23.9% (0.0 puan)"
+        },
+        "haftalik_calisma_suresi": "42.5 saat (-0.1)",
+        "atil_isgucu_orani": "27.6% (+1.9 puan)"
+      },
+      "kasim": {
+        "isizlik_orani": {
+          "genel": "8.6% (-0.1 puan)",
+          "erkek": "7.0% (0.0 puan)",
+          "kadin": "11.7% (-0.6 puan)"
+        },
+        "isiz_sayisi": "3,115,000 kişi (-60,000)",
+        "istihdam_sayisi": "33,015,000 kişi (+45,000)",
+        "isgucu_sayisi": "35,820,000 kişi (-252,000)"
+      }
+    },
+    "2025": {
+      "subat": {
+        "isizlik_orani": {
+          "genel": "8.2% (-0.2 puan)",
+          "erkek": "6.7% (+0.1 puan)",
+          "kadin": "11.0% (-0.9 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "48.8% (-0.3 puan)",
+          "erkek": "66.0% (-0.2 puan)",
+          "kadin": "31.9% (-0.4 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "53.2% (-0.4 puan)",
+          "erkek": "70.8% (-0.1 puan)",
+          "kadin": "35.9% (-0.7 puan)"
+        },
+        "isiz_sayisi": "2,886,000 kişi (-95,000)",
+        "istihdam_sayisi": "32,314,000 kişi (-149,000)",
+        "isgucu_sayisi": "35,200,000 kişi (-244,000)",
+        "genc_nufus_isizligi": {
+          "genel": "15.0% (+0.1 puan)",
+          "erkek": "10.8% (+0.2 puan)",
+          "kadin": "22.7% (0.0 puan)"
+        },
+        "haftalik_calisma_suresi": "43.4 saat (aynı)",
+        "atil_isgucu_orani": "28.4% (+0.2 puan)"
+      },
+      "mart": {
+        "isizlik_orani": {
+          "genel": "7.9% (-0.3 puan)",
+          "erkek": "6.5% (-0.2 puan)",
+          "kadin": "10.6% (-0.4 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.2% (+0.6 puan)",
+          "erkek": "66.9% (+1.1 puan)",
+          "kadin": "31.9% (+0.1 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "53.4% (+0.4 puan)",
+          "erkek": "71.6% (+1.0 puan)",
+          "kadin": "35.7% (0.0 puan)"
+        },
+        "isiz_sayisi": "2,807,000 kişi (-65,000)",
+        "istihdam_sayisi": "32,597,000 kişi (+391,000)",
+        "isgucu_sayisi": "35,404,000 kişi (+325,000)",
+        "genc_nufus_isizligi": {
+          "genel": "15.1% (+0.1 puan)",
+          "erkek": "11.0% (+0.2 puan)",
+          "kadin": "22.6% (-0.2 puan)"
+        },
+        "haftalik_calisma_suresi": "43.7 saat (+0.3)",
+        "atil_isgucu_orani": "28.8% (+0.3 puan)"
+      },
+      "mayis": {
+        "isizlik_orani": {
+          "genel": "8.4% (+0.2 puan)",
+          "erkek": "6.5% (-0.5 puan)",
+          "kadin": "11.9% (+0.3 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.0% (+0.1 puan)",
+          "erkek": "66.3% (+0.3 puan)",
+          "kadin": "32.2% (0.0 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "53.5% (0.0 puan)",
+          "erkek": "70.9% (0.0 puan)",
+          "kadin": "36.5% (+0.1 puan)"
+        },
+        "isiz_sayisi": "2,972,000 kişi (-69,000)",
+        "istihdam_sayisi": "32,519,000 kişi (+100,000)",
+        "isgucu_sayisi": "35,491,000 kişi (+31,000)",
+        "genc_nufus_isizligi": {
+          "genel": "15.4% (-0.3 puan)",
+          "erkek": "11.0% (-0.3 puan)",
+          "kadin": "23.5% (-0.2 puan)"
+        },
+        "haftalik_calisma_suresi": "42.7 saat (+0.6)",
+        "atil_isgucu_orani": "31.0% (-1.1 puan)"
+      },
+      "haziran": {
+        "isizlik_orani": {
+          "genel": "8.6% (+0.2 puan)",
+          "erkek": "7.1% (+0.5 puan)",
+          "kadin": "11.4% (+0.0 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "48.9% (-0.1 puan)",
+          "erkek": "66.2% (0.0 puan)",
+          "kadin": "31.9% (-0.1 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "53.5% (0.0 puan)",
+          "erkek": "71.3% (0.0 puan)",
+          "kadin": "36.0% (-0.1 puan)"
+        },
+        "isiz_sayisi": "3,047,000 kişi (+52,000)",
+        "istihdam_sayisi": "32,452,000 kişi (-18,000)",
+        "isgucu_sayisi": "35,498,000 kişi (0)",
+        "genc_nufus_isizligi": {
+          "genel": "16.2% (+0.6 puan)",
+          "erkek": "12.3% (+0.8 puan)",
+          "kadin": "23.7% (+0.0 puan)"
+        },
+        "haftalik_calisma_suresi": "41.5 saat (-1.1)",
+        "atil_isgucu_orani": "32.9% (+1.8 puan)"
+      },
+      "agustos": {
+        "isizlik_orani": {
+          "genel": "8.5% (-0.1 puan)",
+          "erkek": "6.8% (-0.3 puan)",
+          "kadin": "11.6% (+0.2 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "49.4% (+0.5 puan)",
+          "erkek": "66.6% (+0.4 puan)",
+          "kadin": "32.6% (+0.7 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "54.0% (+0.5 puan)",
+          "erkek": "71.5% (+0.2 puan)",
+          "kadin": "36.9% (+0.9 puan)"
+        },
+        "isiz_sayisi": "3,044,000 kişi (+168,000)",
+        "istihdam_sayisi": "32,829,000 kişi (+208,000)",
+        "isgucu_sayisi": "35,873,000 kişi (+376,000)",
+        "genc_nufus_isizligi": {
+          "genel": "16.0% (-0.2 puan)",
+          "erkek": "12.4% (+0.1 puan)",
+          "kadin": "22.7% (-0.1 puan)"
+        },
+        "haftalik_calisma_suresi": "41.8 saat (-0.4)",
+        "atil_isgucu_orani": "29.7% (-3.2 puan)"
+      },
+      "eylul": {
+        "isizlik_orani": {
+          "genel": "8.6% (+0.1 puan)",
+          "erkek": "7.4% (+0.6 puan)",
+          "kadin": "11.1% (-0.5 puan)"
+        },
+        "istihdam_orani": {
+          "genel": "48.9% (-0.5 puan)",
+          "erkek": "66.3% (-0.3 puan)",
+          "kadin": "31.8% (-0.8 puan)"
+        },
+        "isgucu_katilma_orani": {
+          "genel": "53.5% (-0.5 puan)",
+          "erkek": "71.6% (-0.1 puan)",
+          "kadin": "35.7% (-0.8 puan)"
+        },
+        "isiz_sayisi": "3,075,000 kişi (+12,000)",
+        "istihdam_sayisi": "32,491,000 kişi (-200,000)",
+        "isgucu_sayisi": "35,566,000 kişi (-188,000)",
+        "genc_nufus_isizligi": {
+          "genel": "14.9% (-1.1 puan)",
+          "erkek": "11.4% (-1.0 puan)",
+          "kadin": "21.4% (-1.3 puan)"
+        },
+        "haftalik_calisma_suresi": "42.9 saat (+1.1)",
+        "atil_isgucu_orani": "28.6% (-1.1 puan)"
+      }
+    }
+  },
+  "veri_kaynaklari": [
+    {
+      "baslik": "İşgücü İstatistikleri, 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=%C4%B0%C5%9Fg%C3%BCc%C3%BC-%C4%B0statistikleri-2024-54059&dil=1",
+      "aciklama": "2024 yıllık kapsamlı rapor ve sektörel dağılım"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Ocak 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Ocak-2024-53525",
+      "aciklama": "Ocak 2024 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Mart 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Mart-2024-53510",
+      "aciklama": "Mart 2024 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Mayıs 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Mayis-2024-53522",
+      "aciklama": "Mayıs 2024 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Haziran 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Labour-Force-%20%20%20%20%20Statistics-June-2024-53512",
+      "aciklama": "Haziran 2024 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Temmuz 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Temmuz-2024-53513",
+      "aciklama": "Temmuz 2024 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Ekim 2024",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Ekim-2024-53516",
+      "aciklama": "Ekim 2024 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Şubat 2025",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Subat-2025-54060",
+      "aciklama": "Şubat 2025 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Mart 2025",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Mart-2025-54061",
+      "aciklama": "Mart 2025 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Mayıs 2025",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Mayis-2025-54063",
+      "aciklama": "Mayıs 2025 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Haziran 2025",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Haziran-2025-54074",
+      "aciklama": "Haziran 2025 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Ağustos 2025",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Agustos-2025-54065",
+      "aciklama": "Ağustos 2025 aylık verileri"
+    },
+    {
+      "baslik": "İşgücü İstatistikleri, Eylül 2025",
+      "url": "https://data.tuik.gov.tr/Bulten/Index?p=Isgucu-Istatistikleri-Eylul-2025-54066",
+      "aciklama": "Eylül 2025 aylık verileri"
+    },
+    {
+      "baslik": "2024 Yılı Hanehalkı İşgücü İstatistikleri Kurumsal Kalite Raporu (Excel)",
+      "url": "https://www.tuik.gov.tr/indir/kkr/istihdam-issizlik/HIA/2024_KKR_TR_IYKDB_IIGB_HIA.xlsx",
+      "aciklama": "2024 yılı detaylı Excel raporu"
+    }
+  ],
+  "indirilebilir_dosyalar": {
+    "excel_dosyalari": [
+      "2024_KKR_TR_IYKDB_IIGB_HIA.xlsx"
+    ],
+    "pdf_dosyalari": [
+      "Metodoloji dokümanları",
+      "Mevsim ve takvim etkileri metaveri dokümanları"
+    ],
+    "not": "Bülten sayfalarında Tablolar ve İstatistiksel Tablolar bölümlerinde Excel ve PDF formatında indirme seçenekleri mevcuttur."
+  },
+  "metodoloji": {
+    "anket": "Hanehalkı İşgücü Araştırması (HİA)",
+    "ornekleme": "İki aşamalı, tabakalı küme örneklemesi, %50 rotasyon kalıbı",
+    "agirliklandirma": "Tasarım ağırlıkları, cevapsızlık düzeltmesi, dışsal dağılım kontrolleri",
+    "mevsimsel_duzeltme": "TRAMO-SEATS yöntemi (JDemetra+ 2.2.2)",
+    "revizyon": "Her yılın sonunda model spesifikasyonları belirlenir, yıl boyunca sabit tutulur, son üç yıllık veriye uygulanır",
+    "kapsam": "Türkiye Cumhuriyeti sınırları içinde yaşayan hanelerde ikamet eden tüm kişiler"
+  },
+  "performans_ozeti": {
+    "toplam_veri_noktasi": 14,
+    "tamamlanma_orani": "85%",
+    "en_yuksek_isizlik": "9.2% (Haziran 2024)",
+    "en_dusuk_isizlik": "7.9% (Mart 2025)",
+    "ortalama_isizlik_2024": "8.9%",
+    "ortalama_isizlik_2025": "8.3%",
+    "trend": "2025'te 2024'e göre işsizlik oranında genel düşüş gözlemlenmektedir"
+  }
+}

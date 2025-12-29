@@ -1,0 +1,23 @@
+{
+  "home": {
+    "title": "Accueil",
+    "marketData": "Données du Marché"
+  },
+  "portfolio": {
+    "title": "Portefeuille",
+    "holdings": "Positions"
+  },
+  "alerts": {
+    "title": "Alertes",
+    "active": "Actif"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Langue"
+  },
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "loading": "Chargement"
+  }
+}

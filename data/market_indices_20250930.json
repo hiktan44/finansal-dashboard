@@ -1,0 +1,37 @@
+{
+  "date": "2025-09-30",
+  "indices": [
+    {
+      "name": "道琼斯工业平均指数",
+      "symbol": "DJIA",
+      "close": 46397.89,
+      "change": 81.82,
+      "changePercent": 0.18,
+      "isNewHigh": true,
+      "monthlyChange": 1.87,
+      "note": "再创历史新高，9月上涨约1.87%，为2019年以来最大的9月涨幅"
+    },
+    {
+      "name": "标准普尔500指数",
+      "symbol": "SPX",
+      "close": 6688.46,
+      "change": 27.25,
+      "changePercent": 0.41,
+      "isNewHigh": true,
+      "monthlyChange": 3.53,
+      "quarterlyChange": 7.79,
+      "note": "连续第五个月上涨，第三季度上涨7.79%，为2020年以来最大的三季度涨幅"
+    },
+    {
+      "name": "纳斯达克综合指数",
+      "symbol": "NASDAQ",
+      "close": 22660.01,
+      "change": 68.86,
+      "changePercent": 0.31,
+      "isNewHigh": true,
+      "monthlyChange": 5.61,
+      "quarterlyChange": 11.24,
+      "note": "连续第六个月上涨，第三季度上涨11.24%"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "date": "2025-09-30",
+  "sectors": [
+    {
+      "name": "Teknoloji",
+      "symbol": "XLK",
+      "spWeight": 33.99,
+      "forwardPE": 31.71,
+      "expectedGrowth": 15.35,
+      "ytdReturn": 9.64,
+      "note": "Makul değerleme; yapay zeka odaklı rallinin sektörü desteklediği görülüyor"
+    },
+    {
+      "name": "Finans",
+      "symbol": "XLF",
+      "spWeight": 13.62,
+      "forwardPE": 18.03,
+      "expectedGrowth": 11.58,
+      "ytdReturn": 12.48,
+      "note": "İleriye dönük FD/K oranı 1.56 ile 'ucuz' olarak değerlendirilen sektör"
+    },
+    {
+      "name": "Tüketici Takdirine Bağlı",
+      "symbol": "XLY",
+      "spWeight": 10.68,
+      "forwardPE": 30.00,
+      "expectedGrowth": 7.74,
+      "ytdReturn": 3.81,
+      "note": "Yüksek değerleme; Tesla gibi yüksek büyüme gösteren şirketleri içeriyor"
+    },
+    {
+      "name": "İletişim Hizmetleri",
+      "symbol": "XLC",
+      "spWeight": 10.63,
+      "forwardPE": 20.75,
+      "expectedGrowth": 9.26,
+      "ytdReturn": 15.68,
+      "note": "Büyük internet ve medya şirketleri tarafından desteklenen güçlü yükseliş"
+    },
+    {
+      "name": "Sağlık",
+      "symbol": "XLV",
+      "spWeight": 8.83,
+      "forwardPE": 17.40,
+      "expectedGrowth": 9.43,
+      "ytdReturn": 0.77,
+      "note": "Düşük değerleme, ancak düzenleyici riskler sektör performansını baskılıyor"
+    },
+    {
+      "name": "Sanayi",
+      "symbol": "XLI",
+      "spWeight": 8.26,
+      "forwardPE": 26.85,
+      "expectedGrowth": 12.79,
+      "ytdReturn": 16.05,
+      "note": "İmalat sektörü genişlemesi ve altyapı harcamaları tarafından destekleniyor"
+    },
+    {
+      "name": "Tüketici Temel İhtiyaçları",
+      "symbol": "XLP",
+      "spWeight": 5.02,
+      "forwardPE": 20.07,
+      "expectedGrowth": 4.89,
+      "ytdReturn": 4.03,
+      "note": "Savunma amaçlı sektör, değerleme biraz yüksek"
+    },
+    {
+      "name": "Enerji",
+      "symbol": "XLE",
+      "spWeight": 2.93,
+      "forwardPE": 16.72,
+      "expectedGrowth": 10.07,
+      "ytdReturn": 7.18,
+      "note": "Cazip değerleme, ancak döngüsel özellik gösteriyor"
+    },
+    {
+      "name": "Kamu Hizmetleri",
+      "symbol": "XLU",
+      "spWeight": 8.07,
+      "forwardPE": 19.25,
+      "expectedGrowth": 8.07,
+      "ytdReturn": 13.01,
+      "note": "Stabil temettü, makul değerleme"
+    },
+    {
+      "name": "Gayrimenkul",
+      "symbol": "XLRE",
+      "spWeight": 1.92,
+      "forwardPE": 39.86,
+      "expectedGrowth": 9.32,
+      "ytdReturn": 4.01,
+      "note": "Sektörün en yüksek değerlemesi, faiz oranlarına duyarlı"
+    },
+    {
+      "name": "Malzemeler",
+      "symbol": "XLB",
+      "spWeight": 1.82,
+      "forwardPE": 20.21,
+      "expectedGrowth": 10.10,
+      "ytdReturn": 10.76,
+      "note": "Endüstriyel metal ve kimya talebi sektör performansını destekliyor"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "home": {
+    "title": "Home",
+    "marketData": "Market Data",
+    "marketStatus": "Market Status",
+    "quickActions": "Quick Actions",
+    "priceAlert": "Price Alert",
+    "myPortfolio": "My Portfolio",
+    "aiAnalysis": "AI Analysis",
+    "news": "News"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "holdings": "Holdings"
+  },
+  "alerts": {
+    "title": "Alerts",
+    "active": "Active"
+  },
+  "profile": {
+    "title": "Profile",
+    "language": "Language",
+    "settings": "Settings",
+    "signOut": "Sign Out",
+    "signOutConfirm": "Are you sure you want to sign out of your account?",
+    "languageChanged": "Language successfully changed!",
+    "languageChangeError": "An error occurred while changing the language."
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "loading": "Loading",
+    "success": "Success",
+    "error": "Error"
+  }
+}

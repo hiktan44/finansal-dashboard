@@ -1,0 +1,39 @@
+{
+  "date": "2025-09-30",
+  "commodities": [
+    {
+      "name": "西德克萨斯中质原油",
+      "symbol": "WTI",
+      "price": 62.50,
+      "unit": "美元/桶",
+      "changePercent": -1.5,
+      "note": "延续前一日4%的跌幅，市场预期OPEC+增产以及伊拉克出口恢复打压油价"
+    },
+    {
+      "name": "布伦特原油",
+      "symbol": "BRENT",
+      "price": 67.10,
+      "unit": "美元/桶",
+      "changePercent": -1.3,
+      "note": "日内跌幅约1.3%"
+    },
+    {
+      "name": "黄金",
+      "symbol": "GOLD",
+      "price": 3885,
+      "unit": "美元/盎司",
+      "changePercent": 0.7,
+      "intradayHigh": 3900,
+      "monthlyReturn": 10,
+      "note": "上涨0.7%，盘中一度刷新纪录至约3900美元，9月金价累计上涨超过10%"
+    },
+    {
+      "name": "比特币",
+      "symbol": "BTC",
+      "price": 114500,
+      "unit": "美元",
+      "changePercent": 0.1,
+      "note": "较前一交易日略有反弹，主要加密货币普遍回落"
+    }
+  ]
+}

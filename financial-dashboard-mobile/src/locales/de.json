@@ -1,0 +1,23 @@
+{
+  "home": {
+    "title": "Startseite",
+    "marketData": "Marktdaten"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "holdings": "Bestände"
+  },
+  "alerts": {
+    "title": "Benachrichtigungen",
+    "active": "Aktiv"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Sprache"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "loading": "Lädt"
+  }
+}

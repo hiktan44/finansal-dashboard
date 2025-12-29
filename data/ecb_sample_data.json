@@ -1,0 +1,91 @@
+{
+  "sample_eur_usd": [
+    {
+      "date": "2020-01",
+      "value": 1.11
+    },
+    {
+      "date": "2020-02",
+      "value": 1.09
+    },
+    {
+      "date": "2020-03",
+      "value": 1.1063
+    },
+    {
+      "date": "2020-04",
+      "value": 1.0862
+    },
+    {
+      "date": "2020-05",
+      "value": 1.0902
+    },
+    {
+      "date": "2020-06",
+      "value": 1.1255
+    },
+    {
+      "date": "2020-07",
+      "value": 1.1463
+    },
+    {
+      "date": "2020-08",
+      "value": 1.1828
+    },
+    {
+      "date": "2020-09",
+      "value": 1.1792
+    },
+    {
+      "date": "2020-10",
+      "value": 1.1775
+    },
+    {
+      "date": "2020-11",
+      "value": 1.1838
+    },
+    {
+      "date": "2020-12",
+      "value": 1.217
+    }
+  ],
+  "api_endpoints": {
+    "interest_rates": {
+      "deposit_facility": "FM.D.U2.EUR.4F.KR.DFR.LEV",
+      "main_refinancing": "FM.D.U2.EUR.4F.KR.MRR_FR.LEV",
+      "marginal_lending": "FM.D.U2.EUR.4F.KR.MLFR.LEV",
+      "description": "ECB Policy Interest Rates",
+      "unit": "Percent per annum"
+    },
+    "exchange_rates": {
+      "eur_usd": "EXR.M.USD.EUR.SP00.A",
+      "eur_gbp": "EXR.M.GBP.EUR.SP00.A",
+      "eur_jpy": "EXR.M.JPY.EUR.SP00.A",
+      "description": "EUR Exchange Rates",
+      "unit": "EUR per foreign currency"
+    },
+    "inflation": {
+      "hicp_general": "ICP.M.U2.N.000000.4.ANR",
+      "hicp_food": "ICP.M.U2.N.FOOD.4.ANR",
+      "hicp_energy": "ICP.M.U2.N.ENERGY.4.ANR",
+      "description": "Eurozone HICP Inflation Rates",
+      "unit": "Percentage change (year-on-year)"
+    },
+    "unemployment": {
+      "euro_area_20": "LFSI.M.I9.S.UNEHRT.TOTAL0.15_74.T",
+      "euro_area_19": "LFSI.M.I8.S.UNEHRT.TOTAL0.15_74.T",
+      "germany": "LFSI.M.DE.S.UNEHRT.TOTAL0.15_74.T",
+      "france": "LFSI.M.FR.S.UNEHRT.TOTAL0.15_74.T",
+      "italy": "LFSI.M.IT.S.UNEHRT.TOTAL0.15_74.T",
+      "spain": "LFSI.M.ES.S.UNEHRT.TOTAL0.15_74.T",
+      "description": "Unemployment Rates",
+      "unit": "Percentage"
+    },
+    "gdp_growth": {
+      "real_gdp_growth": "MNA.Q.Y.I9.W2.S1.S1.B.B1GQ._Z._Z._Z.EUR.LR.GY",
+      "description": "Euro Area Real GDP Growth",
+      "unit": "Percentage change (quarter-on-quarter)"
+    }
+  },
+  "note": "This is sample data showing the expected structure when API access is available"
+}

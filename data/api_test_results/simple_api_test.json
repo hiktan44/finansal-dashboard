@@ -1,0 +1,26 @@
+{
+  "test_timestamp": "2025-11-09T22:11:00.274281",
+  "oecd_industrial": {
+    "status": "success",
+    "observations": 0,
+    "data_sample": "{'meta': {'schema': 'https://raw.githubusercontent.com/sdmx-twg/sdmx-json/master/data-message/tools/schemas/2.0.0/sdmx-json-data-schema.json', 'id': 'IREF006978', 'prepared': '2025-11-09T13:02:52Z', '..."
+  },
+  "oecd_alternative": {
+    "https://stats.oecd.org/SDMX-JSON/data/MEI/USA.PRV.FS&lang=en&startTime=2020&endTime=2024": {
+      "status": 200,
+      "success": true
+    }
+  },
+  "fred_web_access": {
+    "FEDFUNDS": {
+      "status": 200,
+      "accessible": true,
+      "title_found": true
+    },
+    "UNRATE": {
+      "status": 200,
+      "accessible": true,
+      "title_found": true
+    }
+  }
+}

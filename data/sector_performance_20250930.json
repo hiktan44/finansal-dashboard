@@ -1,0 +1,104 @@
+{
+  "date": "2025-09-30",
+  "sectors": [
+    {
+      "name": "科技",
+      "symbol": "XLK",
+      "spWeight": 33.99,
+      "forwardPE": 31.71,
+      "expectedGrowth": 15.35,
+      "ytdReturn": 9.64,
+      "note": "估值适中；人工智能驱动的行情支撑板块"
+    },
+    {
+      "name": "金融",
+      "symbol": "XLF",
+      "spWeight": 13.62,
+      "forwardPE": 18.03,
+      "expectedGrowth": 11.58,
+      "ytdReturn": 12.48,
+      "note": "前瞻PEG为1.56，被视为'便宜'板块"
+    },
+    {
+      "name": "消费可选",
+      "symbol": "XLY",
+      "spWeight": 10.68,
+      "forwardPE": 30.00,
+      "expectedGrowth": 7.74,
+      "ytdReturn": 3.81,
+      "note": "估值偏高；包含特斯拉等高增长公司"
+    },
+    {
+      "name": "通信服务",
+      "symbol": "XLC",
+      "spWeight": 10.63,
+      "forwardPE": 20.75,
+      "expectedGrowth": 9.26,
+      "ytdReturn": 15.68,
+      "note": "受大型互联网和媒体公司推动，涨幅强劲"
+    },
+    {
+      "name": "医疗保健",
+      "symbol": "XLV",
+      "spWeight": 8.83,
+      "forwardPE": 17.40,
+      "expectedGrowth": 9.43,
+      "ytdReturn": 0.77,
+      "note": "估值较低，但监管风险压制板块表现"
+    },
+    {
+      "name": "工业",
+      "symbol": "XLI",
+      "spWeight": 8.26,
+      "forwardPE": 26.85,
+      "expectedGrowth": 12.79,
+      "ytdReturn": 16.05,
+      "note": "受制造业扩张和基础设施支出支撑"
+    },
+    {
+      "name": "消费必需",
+      "symbol": "XLP",
+      "spWeight": 5.02,
+      "forwardPE": 20.07,
+      "expectedGrowth": 4.89,
+      "ytdReturn": 4.03,
+      "note": "防御性板块，估值偏高"
+    },
+    {
+      "name": "能源",
+      "symbol": "XLE",
+      "spWeight": 2.93,
+      "forwardPE": 16.72,
+      "expectedGrowth": 10.07,
+      "ytdReturn": 7.18,
+      "note": "估值吸引，但具周期性"
+    },
+    {
+      "name": "公用事业",
+      "symbol": "XLU",
+      "spWeight": 8.07,
+      "forwardPE": 19.25,
+      "expectedGrowth": 8.07,
+      "ytdReturn": 13.01,
+      "note": "股息稳定，估值适中"
+    },
+    {
+      "name": "房地产",
+      "symbol": "XLRE",
+      "spWeight": 1.92,
+      "forwardPE": 39.86,
+      "expectedGrowth": 9.32,
+      "ytdReturn": 4.01,
+      "note": "行业估值最高，对利率敏感"
+    },
+    {
+      "name": "材料",
+      "symbol": "XLB",
+      "spWeight": 1.82,
+      "forwardPE": 20.21,
+      "expectedGrowth": 10.10,
+      "ytdReturn": 10.76,
+      "note": "工业金属和化工需求推动板块表现"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "portfolio": "Portfolio",
+    "alerts": "Benachrichtigungen",
+    "profile": "Profil"
+  },
+  "home": {
+    "title": "Finanz Dashboard",
+    "marketStatus": "Marktstatus",
+    "lastUpdate": "Letztes Update: {{date}}",
+    "quickActions": "Schnelle Aktionen",
+    "priceAlert": "Preisalarm",
+    "myPortfolio": "Mein Portfolio",
+    "aiAnalysis": "KI-Analyse",
+    "news": "Nachrichten",
+    "addStock": "Aktie hinzufügen",
+    "viewPortfolio": "Portfolio anzeigen",
+    "getAnalysis": "Analyse erhalten",
+    "readNews": "Nachrichten lesen"
+  },
+  "portfolio": {
+    "title": "Mein Portfolio",
+    "totalValue": "Gesamtwert",
+    "gainLoss": "Gewinn/Verlust",
+    "holdings": "Bestände",
+    "addStock": "Aktie hinzufügen",
+    "stockName": "Aktienname",
+    "quantity": "Menge",
+    "purchasePrice": "Kaufpreis",
+    "currentPrice": "Aktueller Preis",
+    "add": "Hinzufügen",
+    "empty": "Noch keine Aktien hinzugefügt"
+  },
+  "profile": {
+    "title": "Profil",
+    "language": "Sprache",
+    "selectLanguage": "Sprache auswählen",
+    "signOut": "Abmelden",
+    "settings": "Einstellungen",
+    "preferences": "Präferenzen"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "collection_timestamp": "2025-11-09T21:56:05.132780",
+  "api_tests": {
+    "oecd": {
+      "cpi_api_status": 404,
+      "industrial_production_api_status": 200,
+      "unemployment_api_status": 404,
+      "data_received": {
+        "cpi": false,
+        "industrial_production": true,
+        "unemployment": false
+      }
+    },
+    "fred": {
+      "status": "api_key_required",
+      "funds_status": 400,
+      "unemployment_status": 400
+    },
+    "ecb": {
+      "error": "HTTPSConnectionPool(host='sdw.ecb.europa.eu', port=443): Max retries exceeded with url: /SDMX_JSON/data/IRS/M.LL.L40.CI.AB.MN.R.EUR.4F.G_N.A.S.C.B.EUR._Z.L.BP (Caused by NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7fe467a57380>: Failed to resolve 'sdw.ecb.europa.eu' ([Errno -2] Name or service not known)\"))"
+    },
+    "imf": {
+      "error": "HTTPSConnectionPool(host='www.imf.org', port=443): Read timed out. (read timeout=30)"
+    }
+  }
+}
