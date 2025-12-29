@@ -1,0 +1,13 @@
+{
+  "name": "finansal-dashboard-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd financial-dashboard && pnpm install && pnpm build",
+    "start": "npx serve financial-dashboard/dist -s -l 3000"
+  },
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
