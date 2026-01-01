@@ -47,6 +47,17 @@ export interface Commodity {
   created_at?: string
 }
 
+export interface SectorIndex {
+  id?: string
+  symbol: string
+  name: string
+  last_price: number
+  change_percent: number
+  change_value?: number
+  data_date: string
+  created_at?: string
+}
+
 export interface MarketSummary {
   id?: number
   summary_text: string
@@ -60,7 +71,7 @@ export interface MarketSummary {
 export async function fetchLatestMarketData() {
   try {
     // Fetch all data without date filter to get the most recent entries
-    const [indicesResponse, stocksResponse, commoditiesResponse, summaryResponse] = await Promise.all([
+    const [indicesResponse, stocksResponse, commoditiesResponse, summaryResponse, sectorsResponse] = await Promise.all([
       supabase
         .from('market_indices')
         .select('*')
@@ -85,7 +96,13 @@ export async function fetchLatestMarketData() {
         .order('data_date', { ascending: false })
         .order('created_at', { ascending: false })
         .limit(1)
-        .maybeSingle()
+        .maybeSingle(),
+      supabase
+        .from('sector_indices')
+        .select('*')
+        .order('data_date', { ascending: false })
+        .order('created_at', { ascending: false })
+        .limit(20)
     ])
 
     // Check for errors
@@ -98,16 +115,19 @@ export async function fetchLatestMarketData() {
     const latestIndicesDate = indicesResponse.data?.[0]?.data_date
     const latestStocksDate = stocksResponse.data?.[0]?.data_date
     const latestCommoditiesDate = commoditiesResponse.data?.[0]?.data_date
+    const latestSectorsDate = sectorsResponse.data?.[0]?.data_date
 
     // Filter data to only include entries from their respective latest date
     const indicesData = indicesResponse.data?.filter((item: any) => item.data_date === latestIndicesDate) || []
     const stocksData = stocksResponse.data?.filter((item: any) => item.data_date === latestStocksDate) || []
     const commoditiesData = commoditiesResponse.data?.filter((item: any) => item.data_date === latestCommoditiesDate) || []
+    const sectorsData = sectorsResponse.data?.filter((item: any) => item.data_date === latestSectorsDate) || []
 
     return {
       indices: indicesData,
       techStocks: stocksData,
       commodities: commoditiesData,
+      sectors: sectorsData,
       summary: summaryResponse.data || null
     }
   } catch (error) {

@@ -13,6 +13,10 @@ import TurkishEconomicData from './TurkishEconomicData'
 import ComparisonDashboard from './ComparisonDashboard'
 import FonAnalizi from './FonAnalizi'
 import GunlukAnaliz from './GunlukAnaliz'
+import SectorHeatmap from './SectorHeatmap'
+import ScenarioSimulator from './ScenarioSimulator'
+import CorrelationMatrix from './CorrelationMatrix'
+import Footer from './Footer'
 import { Activity, TrendingUp, BarChart3, Coins, RefreshCw, WifiOff, Settings, LogIn, LogOut, User, Bell, Globe, MapPin, GitCompare, PieChart, Calendar } from 'lucide-react'
 import { fetchLatestMarketData, triggerDataSync, getCachedData, setCachedData } from '../lib/supabase'
 import { usePreferencesContext } from '../context/UserPreferencesContext'
@@ -134,7 +138,11 @@ const FinancialDashboard = () => {
           },
           topPerformers: data.summary.top_performers || [],
           worstPerformers: data.summary.worst_performers || []
-        } : staticSummary
+        } : staticSummary,
+
+        // Use real sector data if available, otherwise static
+        // @ts-ignore
+        realSectors: data.sectors || []
       }
 
       setMarketData(transformedData)
@@ -471,6 +479,7 @@ const FinancialDashboard = () => {
                 <MarketIndices data={marketData.indices} />
                 <TechGiants data={marketData.techGiants} />
                 <SectorPerformance data={marketData.sectors} />
+                <SectorHeatmap data={(marketData as any).realSectors || []} />
               </div>
 
               {/* Right Column */}
@@ -486,6 +495,12 @@ const FinancialDashboard = () => {
                 <Commodities data={marketData.commodities} />
                 <MarketSummary data={marketData.summary} />
               </div>
+            </div>
+
+            {/* Advanced Tools Section */}
+            <div className="mt-8 grid grid-cols-1 xl:grid-cols-2 gap-8">
+              <CorrelationMatrix />
+              <ScenarioSimulator />
             </div>
           </>
         )}
@@ -516,6 +531,7 @@ const FinancialDashboard = () => {
 
       {/* Settings Panel */}
       <SettingsPanel isOpen={showSettings} onClose={() => setShowSettings(false)} />
+      <Footer />
     </div>
   )
 }

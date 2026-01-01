@@ -187,6 +187,26 @@ CREATE TABLE IF NOT EXISTS market_summary (
     created_at TIMESTAMP DEFAULT NOW()
 );
 
+-- 11. Sector Indices (New Table)
+CREATE TABLE IF NOT EXISTS sector_indices (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    symbol TEXT NOT NULL,       -- XBANK, XUSIN etc.
+    name TEXT,                  -- Banka, Sanayi
+    last_price NUMERIC,
+    change_percent NUMERIC,
+    change_value NUMERIC,
+    data_date TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+CREATE TABLE IF NOT EXISTS market_summary (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    summary_text TEXT,
+    key_points TEXT[], -- Array of strings
+    market_sentiment TEXT,
+    data_date TIMESTAMP DEFAULT NOW(),
+    created_at TIMESTAMP DEFAULT NOW()
+);
+
 -- 10. Indicator Definitions (Catalog of all economic data points)
 CREATE TABLE IF NOT EXISTS indicator_definitions (
     code TEXT PRIMARY KEY,

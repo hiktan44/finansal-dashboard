@@ -13,7 +13,7 @@ interface ScrapedData {
     value_text?: string;
     period_date: string; // YYYY-MM-DD
     source_url: string;
-    table_target?: 'economic_data' | 'market_indices' | 'commodities' | 'tech_stocks'; // Added to direct data
+    table_target?: 'economic_data' | 'market_indices' | 'commodities' | 'tech_stocks' | 'sector_indices'; // Added to direct data
 }
 
 export class ScraperService {
@@ -29,7 +29,8 @@ export class ScraperService {
             this.scrapeInvestingEconomicData(),
             this.scrapeMarketIndices(),
             this.scrapeCommodities(),
-            this.scrapeTechStocks()
+            this.scrapeTechStocks(),
+            this.scrapeSectorIndices()
         ]);
 
         const flatResults: ScrapedData[] = [];
@@ -77,6 +78,24 @@ export class ScraperService {
             { code: 'DJI', name: 'Dow Jones', url: 'https://tr.investing.com/indices/us-30' }
         ];
         return this.scrapeGenericInstruments(targets, 'market_indices');
+    }
+
+    /**
+     * Scrapes Sector Indices (BIST Sectors)
+     */
+    async scrapeSectorIndices(): Promise<ScrapedData[]> {
+        const targets = [
+            { code: 'XBANK', name: 'Bankacılık', url: 'https://tr.investing.com/indices/ise-banka' },
+            { code: 'XUSIN', name: 'Sanayi', url: 'https://tr.investing.com/indices/ise-industrials' },
+            { code: 'XUTEK', name: 'Teknoloji', url: 'https://tr.investing.com/indices/ise-technology' },
+            { code: 'XULAS', name: 'Ulaştırma', url: 'https://tr.investing.com/indices/ise-transportation' },
+            { code: 'XTRZM', name: 'Turizm', url: 'https://tr.investing.com/indices/ise-tourism' },
+            { code: 'XHOLD', name: 'Holding', url: 'https://tr.investing.com/indices/ise-investment' },
+            { code: 'XGMYO', name: 'Gayrimenkul', url: 'https://tr.investing.com/indices/ise-real-estate-inv-trust' }
+        ];
+        // Note: We use 'market_indices' type but will save to sector_indices table in saveToDB
+        // or actually let's use a new type
+        return this.scrapeGenericInstruments(targets, 'sector_indices' as any);
     }
 
     /**
@@ -256,6 +275,21 @@ export class ScraperService {
                     name: item.name,
                     close_price: item.value,
                     change_percent: item.change_percent,
+                    data_date: new Date().toISOString()
+                }))
+            );
+        }
+
+        // 5. Save Sector Indices
+        const sectorIndices = data.filter(d => d.table_target === 'sector_indices');
+        if (sectorIndices.length > 0) {
+            await supabase.from('sector_indices').insert(
+                sectorIndices.map(item => ({
+                    symbol: item.code,
+                    name: item.name,
+                    last_price: item.value,
+                    change_percent: item.change_percent,
+                    change_value: item.change,
                     data_date: new Date().toISOString()
                 }))
             );

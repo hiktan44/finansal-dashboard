@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import ReactECharts from 'echarts-for-react'
 import { TrendingUp, TrendingDown, DollarSign, Percent, BarChart2, RefreshCw, Activity, MapPin, Target, Globe, AlertCircle } from 'lucide-react'
 import { fetchTurkeyEconomicIndicators, TurkeyEconomicIndicator, fetchTurkeyHistoricalData } from '../lib/supabase'
+import MacroCockpit from './MacroCockpit'
 
 const TurkishEconomicData = () => {
   const [indicators, setIndicators] = useState<TurkeyEconomicIndicator[]>([])
@@ -290,6 +291,8 @@ const TurkishEconomicData = () => {
           </button>
         </div>
       </div>
+
+      <MacroCockpit indicators={indicators} />
 
       {/* Category Filter */}
       <div className="flex flex-wrap gap-2">

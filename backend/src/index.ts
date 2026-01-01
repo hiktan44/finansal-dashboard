@@ -18,6 +18,7 @@ import alertsRoutes from './routes/alerts.js';
 import turkeyRoutes from './routes/turkey.js';
 import marketRoutes from './routes/market.js';
 import aiAnalystRoutes from './routes/ai-analyst.js';
+import analysisRoutes from './routes/analysis.js';
 
 // Services
 import { MarketAgent } from './services/MarketAgent.js';
@@ -77,6 +78,7 @@ async function build() {
   await fastify.register(turkeyRoutes, { prefix: '/api/turkey' });
   await fastify.register(marketRoutes, { prefix: '/api/market' });
   await fastify.register(aiAnalystRoutes, { prefix: '/api/agent' });
+  await fastify.register(analysisRoutes, { prefix: '/api/analysis' });
 
   // Global Sync Route
   fastify.post('/api/sync-all', async (request, reply) => {

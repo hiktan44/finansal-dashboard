@@ -158,6 +158,80 @@ export class MarketAgent {
     }
 
     /**
+     * 4. GENERATES "WHAT-IF" SCENARIO SIMULATION
+     * Uses Generative AI to predict market impact of a hypothetical scenario
+     */
+    async generateScenarioSimulation(scenario: string) {
+        console.log(`🧠 Agent Simulating Scenario: "${scenario}"`);
+
+        if (!process.env.OPENROUTER_API_KEY) {
+            throw new Error('OPENROUTER_API_KEY is missing');
+        }
+
+        const systemPrompt = `
+      You are an advanced AI Financial Risk Simulator.
+      Your job is to simulate the impact of a hypothetical economic/geopolitical scenario on Turkish and Global markets.
+      
+      SCENARIO: "${scenario}"
+      
+      Requirements:
+      1. Analyze the scenario's potential impact on:
+         - BIST 100 & Major Turkish Stocks
+         - USD/TRY & EUR/TRY
+         - Gold (XAU) & Commodities
+         - Turkish CDS & Bond Rates
+      2. Provide a realistic "Confidence Score" (0-100%) regarding the likelihood of these outcomes.
+      3. Assign an overall Risk Level (Low, Medium, High, Extreme).
+      4. Output MUST be valid JSON in the following format:
+      {
+        "scenario": "${scenario}",
+        "summary": "Detailed explanation of the chain reaction...",
+        "riskLevel": "High", 
+        "predictions": [
+          { "asset": "BIST 100", "predictedChange": "-5%", "confidence": 85, "reasoning": "Foreign outflow..." },
+          { "asset": "USD/TRY", "predictedChange": "+3%", "confidence": 90, "reasoning": "Central bank reaction..." }
+        ],
+        "opportunities": ["Sector X might benefit...", "Safe haven assets..."],
+        "disclaimer": "This is an AI simulation for educational purposes only."
+      }
+      
+      IMPORTANT:
+      - Reply ONLY with the JSON.
+      - Language: TURKISH (Türkçe).
+      - Be analytical and precise.
+    `;
+
+        try {
+            const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${process.env.OPENROUTER_API_KEY}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "model": "google/gemini-3-flash-preview",
+                    "messages": [
+                        { "role": "system", "content": systemPrompt },
+                        { "role": "user", "content": `Simulate this scenario: ${scenario}` }
+                    ],
+                    "temperature": 0.5
+                })
+            });
+
+            const json = await response.json() as any;
+            const content = json.choices[0].message.content;
+
+            // Clean JSON
+            const cleanJson = content.replace(/```json/g, '').replace(/```/g, '').trim();
+            return JSON.parse(cleanJson);
+
+        } catch (error) {
+            console.error('AI Simulation Failed:', error);
+            throw error;
+        }
+    }
+
+    /**
      * Main Orchestrator
      */
     async runDailyAnalysis() {
