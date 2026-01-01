@@ -1,0 +1,45 @@
+[
+    {
+        "id": "mock-analysis-2025-12-31",
+        "analysis_date": "2025-12-31T09:00:00Z",
+        "market_summary": "BIST 100 endeksi günü %1.2 artışla 10,450 puan seviyesinde tamamladı. Küresel piyasalardaki olumlu hava, özellikle teknoloji ve bankacılık hisselerine olan talebi artırdı. TCMB'nin faiz kararı sonrası piyasalarda volatilite azalırken, yabancı yatırımcı girişlerinde artış gözlemleniyor.",
+        "technical_analysis": "Endeks 10,200 destek seviyesinin üzerinde tutunmayı başardı ve 10,500 direnç seviyesini test ediyor. RSI indikatörü 65 seviyesinde, aşırı alım bölgesine henüz girmemiş durumda. Hareketli ortalamalar (50 ve 200 günlük) yukarı yönlü trendi destekliyor. Kısa vadede 10,350 seviyesi önemli bir destek noktası olarak öne çıkıyor.",
+        "sentiment_score": "7.8",
+        "volatility_index": "18.5",
+        "sector_highlights": "Bankacılık endeksi (XBANK) günü %2.1 artışla tamamlarken, teknoloji sektörü (XTEK) %1.8 değer kazandı. Havacılık sektörü ise petrol fiyatlarındaki artış nedeniyle hafif satıcılı bir seyir izledi. Enerji hisseleri, yenilenebilir enerji yatırımları haberleriyle hareketlendi.",
+        "market_forecast": "Yarınki seansta endeksin 10,500 direncini kırması durumunda 10,750 seviyeleri hedeflenebilir. Olası kâr satışlarında ise 10,300 - 10,350 bandı destek olarak çalışacaktır. Küresel piyasalardaki ABD enflasyon verisi beklentileri açılışta etkili olabilir.",
+        "top_movers": {
+            "gainers": [
+                {
+                    "symbol": "THYAO",
+                    "change": 3.4,
+                    "reason": "Güçlü bilanço beklentisi ve yeni uçak siparişleri."
+                },
+                {
+                    "symbol": "ASELS",
+                    "change": 2.8,
+                    "reason": "Yeni ihracat anlaşması haberi."
+                },
+                {
+                    "symbol": "AKBNK",
+                    "change": 2.5,
+                    "reason": "Yabancı aracı kurum raporunda hedef fiyat revizesi."
+                }
+            ],
+            "losers": [
+                {
+                    "symbol": "EREGL",
+                    "change": -1.2,
+                    "reason": "Demir cevheri fiyatlarındaki düşüş."
+                },
+                {
+                    "symbol": "SASAY",
+                    "change": -0.8,
+                    "reason": "Kâr realizasyonu satışları."
+                }
+            ]
+        },
+        "audio_file_path": "/audio/daily_analysis_20251231.mp3",
+        "created_at": "2025-12-31T09:00:00Z"
+    }
+]

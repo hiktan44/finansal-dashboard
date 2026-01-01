@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { 
+import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
   LineChart, Line, AreaChart, Area, PieChart, Pie, Legend
 } from 'recharts'
@@ -72,13 +72,13 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
           <p className="text-sm text-gray-300">
             <span className="text-gray-400">Değişim:</span>{' '}
             <span className={`font-medium ${data.change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-              {data.change >= 0 ? '+' : ''}{data.change?.toFixed(2)}
+              {data.change >= 0 ? '+' : ''}{(data.change ?? 0).toFixed(2)}
             </span>
           </p>
           <p className="text-sm text-gray-300">
             <span className="text-gray-400">Değişim %:</span>{' '}
             <span className={`font-medium ${data.value >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-              {data.value >= 0 ? '+' : ''}{data.value?.toFixed(2)}%
+              {data.value >= 0 ? '+' : ''}{(data.value ?? 0).toFixed(2)}%
             </span>
           </p>
           <p className="text-sm text-gray-300 border-t border-gray-700 mt-2 pt-2">
@@ -102,24 +102,24 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
       case 'line':
         return (
           <ResponsiveContainer {...commonProps}>
-            <LineChart>
+            <LineChart data={filteredData}>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
                 label={{ value: 'Değişim (%)', angle: -90, position: 'insideLeft', fill: '#9CA3AF' }}
               />
               <Tooltip content={<CustomTooltip />} />
               <Legend />
-              <Line 
-                type="monotone" 
-                dataKey="value" 
-                stroke="#3B82F6" 
+              <Line
+                type="monotone"
+                dataKey="value"
+                stroke="#3B82F6"
                 strokeWidth={2}
                 dot={{ fill: '#3B82F6', r: 4 }}
                 activeDot={{ r: 6 }}
@@ -132,24 +132,24 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
       case 'area':
         return (
           <ResponsiveContainer {...commonProps}>
-            <AreaChart>
+            <AreaChart data={filteredData}>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
               <Tooltip content={<CustomTooltip />} />
               <Legend />
-              <Area 
-                type="monotone" 
-                dataKey="value" 
-                stroke="#8B5CF6" 
-                fill="#8B5CF6" 
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#8B5CF6"
+                fill="#8B5CF6"
                 fillOpacity={0.3}
                 name="Günlük Değişim %"
               />
@@ -166,7 +166,7 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={(entry) => `${entry.name}: ${entry.value.toFixed(2)}%`}
+                label={(entry) => `${entry.name}: ${(entry.value ?? 0).toFixed(2)}%`}
                 outerRadius={100 * zoomLevel}
                 fill="#8884d8"
                 dataKey="value"
@@ -185,14 +185,14 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
       default:
         return (
           <ResponsiveContainer {...commonProps}>
-            <BarChart>
+            <BarChart data={filteredData}>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
                 label={{ value: 'Değişim (%)', angle: -90, position: 'insideLeft', fill: '#9CA3AF' }}
@@ -223,7 +223,7 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
           </div>
         </div>
         <div className="flex items-center space-x-3">
-          <AudioPlayer 
+          <AudioPlayer
             audioSrc="/audio/stock_indices.mp3"
             label="Ana Endeksler Oynat"
           />
@@ -245,30 +245,28 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
                 </span>
               )}
             </div>
-            
+
             <div className="space-y-1">
               <p className="text-2xl font-bold text-white">
                 {(index.close || 0).toLocaleString('tr-TR', { maximumFractionDigits: 2 })}
               </p>
-              
+
               <div className="flex items-center space-x-2">
                 {index.changePercent >= 0 ? (
                   <TrendingUp className="h-4 w-4 text-green-500" />
                 ) : (
                   <TrendingDown className="h-4 w-4 text-red-500" />
                 )}
-                <span className={`font-medium ${
-                  index.changePercent >= 0 ? 'text-green-500' : 'text-red-500'
-                }`}>
-                  {index.change >= 0 ? '+' : ''}{index.change.toFixed(2)}
+                <span className={`font-medium ${index.changePercent >= 0 ? 'text-green-500' : 'text-red-500'
+                  }`}>
+                  {index.change >= 0 ? '+' : ''}{(index.change ?? 0).toFixed(2)}
                 </span>
-                <span className={`font-medium ${
-                  index.changePercent >= 0 ? 'text-green-500' : 'text-red-500'
-                }`}>
-                  ({index.changePercent >= 0 ? '+' : ''}{index.changePercent.toFixed(2)}%)
+                <span className={`font-medium ${index.changePercent >= 0 ? 'text-green-500' : 'text-red-500'
+                  }`}>
+                  ({index.changePercent >= 0 ? '+' : ''}{(index.changePercent ?? 0).toFixed(2)}%)
                 </span>
               </div>
-              
+
               <p className="text-gray-400 text-xs mt-2">
                 Aylık: <span className="text-green-400">+{index.monthlyChange}%</span>
               </p>
@@ -318,7 +316,7 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
             />
           </div>
         </div>
-        
+
         <div className="overflow-x-auto">
           {renderChart()}
         </div>

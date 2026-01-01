@@ -38,16 +38,71 @@ const FREDEconomicData = () => {
       setError(null)
       setRefreshing(true)
 
-      const { data, error: funcError } = await supabase.functions.invoke('fetch-fred-data', {
-        body: {}
-      })
+      const seriesIds = ['FEDFUNDS', 'GDP', 'CPIAUCSL', 'UNRATE', 'DGS10']
+      const { data, error: dbError } = await supabase
+        .from('macro_data')
+        .select('*')
+        .eq('country', 'US')
+        .in('indicator', seriesIds)
+        .order('date', { ascending: true })
 
-      if (funcError) throw funcError
+      if (dbError) throw dbError
 
-      if (data?.data) {
-        setFredData(data.data)
+      if (data && data.length > 0) {
+        const seriesMap: Record<string, FREDSeries> = {}
+
+        seriesIds.forEach(id => {
+          const seriesData = data
+            .filter(item => item.indicator === id)
+            .map(item => ({
+              date: item.date,
+              value: item.value
+            }))
+
+          if (seriesData.length > 0) {
+            seriesMap[id] = {
+              series_id: id,
+              title: id, // Mapping name logically or keep ID
+              description: '', // Could be enhanced
+              frequency: 'Monthly',
+              units: id === 'GDP' ? 'Billion USD' : 'Percent',
+              data: seriesData,
+              record_count: seriesData.length
+            }
+          }
+        })
+
+        // Enhance titles for better display
+        const titles: Record<string, string> = {
+          'FEDFUNDS': 'Federal Fon Faiz Oranı',
+          'GDP': 'Gayri Safi Yurt İçi Hasıla',
+          'CPIAUCSL': 'Tüketici Fiyat Endeksi',
+          'UNRATE': 'İşsizlik Oranı',
+          'DGS10': '10 Yıllık Hazine Tahvili'
+        }
+
+        Object.keys(seriesMap).forEach(id => {
+          if (titles[id]) seriesMap[id].title = titles[id]
+        })
+
+        setFredData({
+          collection_info: {
+            collection_date: new Date().toISOString(),
+            start_date: data[0].date,
+            end_date: data[data.length - 1].date,
+            total_series: seriesIds.length,
+            successful_series: Object.keys(seriesMap).length,
+            total_records: data.length
+          },
+          series: seriesMap
+        })
       } else {
-        throw new Error('Veri alinamadi')
+        // Trigger backend fetch if no data
+        console.log('No US data found, triggering backend fetch...')
+        await fetch('http://localhost:3001/api/fred/fetch-all', { method: 'POST' })
+
+        // Retry once
+        setTimeout(loadFREDData, 2000)
       }
     } catch (err) {
       console.error('FRED veri yukle hatasi:', err)
@@ -278,7 +333,7 @@ const FREDEconomicData = () => {
 
       {/* Sesli Açıklama Kontrolü */}
       <div className="bg-gray-800 rounded-lg p-4">
-        <VoiceControl 
+        <VoiceControl
           sections={voiceSections}
           onSectionChange={(sectionId) => {
             // Bölüm değiştikçe ilgili seriyi seç
@@ -308,11 +363,10 @@ const FREDEconomicData = () => {
           return (
             <div
               key={indicator.id}
-              className={`bg-gray-800 rounded-lg p-4 cursor-pointer border-2 transition-all ${
-                selectedSeries === indicator.id
+              className={`bg-gray-800 rounded-lg p-4 cursor-pointer border-2 transition-all ${selectedSeries === indicator.id
                   ? 'border-blue-500'
                   : 'border-transparent hover:border-gray-600'
-              }`}
+                }`}
               onClick={() => setSelectedSeries(indicator.id)}
             >
               <div className="flex items-center justify-between mb-2">
@@ -363,11 +417,10 @@ const FREDEconomicData = () => {
             <button
               key={id}
               onClick={() => setSelectedSeries(id)}
-              className={`text-left p-3 rounded-lg transition-all ${
-                selectedSeries === id
+              className={`text-left p-3 rounded-lg transition-all ${selectedSeries === id
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-              }`}
+                }`}
             >
               <div className="font-semibold text-sm">{id}</div>
               <div className="text-xs opacity-75 line-clamp-1">{series.title}</div>

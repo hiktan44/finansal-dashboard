@@ -7,7 +7,7 @@ export default async function tefasRoutes(fastify: FastifyInstance) {
       // TEFAS genelde web scraping gerektirir
       // Basit implementasyon:
       const url = 'https://www.tefas.org.tr/api/funds';
-      
+
       const response = await fetch(url, {
         headers: {
           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
@@ -19,8 +19,8 @@ export default async function tefasRoutes(fastify: FastifyInstance) {
         throw new Error(`TEFAS API error: ${response.status}`);
       }
 
-      const data = await response.json();
-      
+      const data = await response.json() as any;
+
       return {
         success: true,
         count: data.length || 0,

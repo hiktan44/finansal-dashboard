@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import ReactECharts from 'echarts-for-react'
 import { TrendingUp, TrendingDown, DollarSign, Percent, BarChart2, RefreshCw, Activity, MapPin, Target, Globe, AlertCircle } from 'lucide-react'
-import { fetchTurkeyEconomicIndicators, TurkeyEconomicIndicator } from '../lib/supabase'
+import { fetchTurkeyEconomicIndicators, TurkeyEconomicIndicator, fetchTurkeyHistoricalData } from '../lib/supabase'
 
 const TurkishEconomicData = () => {
   const [indicators, setIndicators] = useState<TurkeyEconomicIndicator[]>([])
@@ -10,6 +10,27 @@ const TurkishEconomicData = () => {
   const [selectedIndicator, setSelectedIndicator] = useState<TurkeyEconomicIndicator | null>(null)
   const [refreshing, setRefreshing] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const [historicalData, setHistoricalData] = useState<any[]>([])
+  const [loadingHistorical, setLoadingHistorical] = useState(false)
+  const [chartType, setChartType] = useState<'line' | 'bar'>('line')
+
+  useEffect(() => {
+    if (selectedIndicator) {
+      loadHistoricalData(selectedIndicator.indicator_code)
+    }
+  }, [selectedIndicator])
+
+  const loadHistoricalData = async (code: string) => {
+    try {
+      setLoadingHistorical(true)
+      const data = await fetchTurkeyHistoricalData(code)
+      setHistoricalData(data)
+    } catch (err) {
+      console.error('Error loading historical Turkey data:', err)
+    } finally {
+      setLoadingHistorical(false)
+    }
+  }
 
   useEffect(() => {
     loadIndicators()
@@ -19,10 +40,10 @@ const TurkishEconomicData = () => {
     try {
       setLoading(true)
       setError(null)
-      
+
       const data = await fetchTurkeyEconomicIndicators()
       setIndicators(data)
-      
+
       if (data.length > 0 && !selectedIndicator) {
         setSelectedIndicator(data[0])
       }
@@ -67,8 +88,8 @@ const TurkishEconomicData = () => {
     return indicator.indicator_category
   }
 
-  const filteredIndicators = selectedCategory === 'all' 
-    ? indicators 
+  const filteredIndicators = selectedCategory === 'all'
+    ? indicators
     : indicators.filter(indicator => {
       const category = getCategoryForIndicator(indicator)
       console.log(`Filtering: category=${category}, selectedCategory=${selectedCategory}, match=${category === selectedCategory}`)
@@ -137,21 +158,27 @@ const TurkishEconomicData = () => {
 
   // Chart configuration for selected indicator
   const chartOption = selectedIndicator ? {
+    backgroundColor: 'transparent',
     title: {
-      text: selectedIndicator.indicator_name,
+      text: `${selectedIndicator.indicator_name} Trendi (Yıllık)`,
       left: 'center',
       textStyle: { color: '#ffffff', fontSize: 16 }
     },
-    backgroundColor: 'transparent',
     grid: {
-      left: '10%',
-      right: '10%',
+      left: '3%',
+      right: '4%',
+      bottom: '15%',
       top: '20%',
-      bottom: '15%'
+      containLabel: true
     },
     xAxis: {
       type: 'category',
-      data: ['Önceki Değer', 'Güncel Değer'],
+      data: historicalData.length > 0
+        ? historicalData.map(item => {
+          const d = new Date(item.period_date)
+          return d.toLocaleDateString('tr-TR', { month: 'short', year: '2-digit' })
+        })
+        : ['Önceki', 'Güncel'],
       axisLabel: { color: '#94a3b8' },
       axisLine: { lineStyle: { color: '#374151' } }
     },
@@ -162,34 +189,46 @@ const TurkishEconomicData = () => {
       splitLine: { lineStyle: { color: '#374151' } }
     },
     series: [{
-      data: [
-        {
-          value: selectedIndicator.previous_value || selectedIndicator.current_value * 0.95,
-          itemStyle: { color: '#64748b' }
-        },
-        {
-          value: selectedIndicator.current_value,
-          itemStyle: { 
-            color: getChangeValue(selectedIndicator) > 0 ? '#22c55e' : 
-                   getChangeValue(selectedIndicator) < 0 ? '#ef4444' : '#64748b'
-          }
+      data: historicalData.length > 0
+        ? historicalData.map(item => item.value)
+        : [
+          selectedIndicator.previous_value || selectedIndicator.current_value * 0.95,
+          selectedIndicator.current_value
+        ],
+      type: historicalData.length > 0 ? 'line' : 'bar',
+      smooth: true,
+      symbol: 'circle',
+      symbolSize: 8,
+      itemStyle: {
+        color: historicalData.length > 0
+          ? '#6366f1'
+          : (getChangeValue(selectedIndicator) > 0 ? '#22c55e' :
+            getChangeValue(selectedIndicator) < 0 ? '#ef4444' : '#64748b')
+      },
+      areaStyle: historicalData.length > 0 ? {
+        color: {
+          type: 'linear',
+          x: 0, y: 0, x2: 0, y2: 1,
+          colorStops: [
+            { offset: 0, color: 'rgba(99, 102, 241, 0.4)' },
+            { offset: 1, color: 'rgba(99, 102, 241, 0)' }
+          ]
         }
-      ],
-      type: 'bar',
-      barWidth: 60,
+      } : undefined,
       label: {
         show: true,
         position: 'top',
         color: '#ffffff',
-        formatter: (params: any) => `${formatValue(params.value, selectedIndicator.unit)} ${selectedIndicator.unit}`
-      }
+        formatter: (params: any) => `${formatValue(params.value, selectedIndicator.unit)}`
+      },
+      barWidth: '60%',
     }],
     tooltip: {
       trigger: 'axis',
       backgroundColor: '#1f2937',
       borderColor: '#374151',
       textStyle: { color: '#ffffff' },
-      formatter: function(params: any) {
+      formatter: function (params: any) {
         const item = params[0]
         const value = item.value
         return `${item.name}: ${formatValue(value, selectedIndicator.unit)} ${selectedIndicator.unit}`
@@ -258,11 +297,10 @@ const TurkishEconomicData = () => {
           <button
             key={category.id}
             onClick={() => setSelectedCategory(category.id)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-              selectedCategory === category.id
-                ? 'bg-indigo-600 text-white'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
-            }`}
+            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${selectedCategory === category.id
+              ? 'bg-indigo-600 text-white'
+              : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+              }`}
           >
             {getCategoryIcon(category.id)}
             {category.name}
@@ -277,11 +315,10 @@ const TurkishEconomicData = () => {
           return (
             <div
               key={indicator.id}
-              className={`p-4 bg-gray-800 rounded-lg border cursor-pointer transition-all ${
-                selectedIndicator?.id === indicator.id 
-                  ? 'border-blue-500 bg-gray-750 ring-1 ring-blue-500' 
-                  : 'border-gray-700 hover:border-gray-600 hover:bg-gray-750'
-              }`}
+              className={`p-4 bg-gray-800 rounded-lg border cursor-pointer transition-all ${selectedIndicator?.id === indicator.id
+                ? 'border-blue-500 bg-gray-750 ring-1 ring-blue-500'
+                : 'border-gray-700 hover:border-gray-600 hover:bg-gray-750'
+                }`}
               onClick={() => setSelectedIndicator(indicator)}
             >
               <div className="flex items-center justify-between mb-2">
@@ -291,7 +328,7 @@ const TurkishEconomicData = () => {
                 </div>
                 {getChangeIcon(changeValue)}
               </div>
-              
+
               <div className="space-y-1">
                 <h3 className="text-white font-semibold text-sm leading-tight">{indicator.indicator_name}</h3>
                 <div className="flex items-center gap-2">
@@ -302,9 +339,9 @@ const TurkishEconomicData = () => {
                 </div>
                 <div className="flex items-center gap-2 text-xs mt-1">
                   <span className="text-gray-400">
-                    {new Date(indicator.period_date).toLocaleDateString('tr-TR', { 
-                      year: 'numeric', 
-                      month: 'long' 
+                    {new Date(indicator.period_date).toLocaleDateString('tr-TR', {
+                      year: 'numeric',
+                      month: 'long'
                     })}
                   </span>
                   {changeValue !== 0 && (
@@ -325,12 +362,57 @@ const TurkishEconomicData = () => {
       {/* Chart */}
       {selectedIndicator && chartOption && (
         <div className="bg-gray-800 rounded-lg p-6">
-          <div className="mb-4">
-            <h3 className="text-white font-semibold mb-2">{selectedIndicator.indicator_name}</h3>
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-white font-semibold">{selectedIndicator.indicator_name}</h3>
 
+            {/* Chart Type Toggle */}
+            <div className="flex bg-gray-700 rounded-lg p-1">
+              <button
+                onClick={() => setChartType('line')}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${chartType === 'line'
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'text-gray-400 hover:text-white'
+                  }`}
+              >
+                <Activity className="h-4 w-4" />
+                Line
+              </button>
+              <button
+                onClick={() => setChartType('bar')}
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-medium transition-all ${chartType === 'bar'
+                  ? 'bg-indigo-600 text-white shadow-sm'
+                  : 'text-gray-400 hover:text-white'
+                  }`}
+              >
+                <BarChart2 className="h-4 w-4" />
+                Column
+              </button>
+            </div>
           </div>
           <ReactECharts
-            option={chartOption}
+            option={{
+              ...chartOption,
+              series: [{
+                ...chartOption.series[0],
+                type: chartType,
+                // Add specific styling for bar chart if needed
+                itemStyle: {
+                  ...chartOption.series[0].itemStyle,
+                  borderRadius: chartType === 'bar' ? [4, 4, 0, 0] : 0,
+                  // If bar chart, use different colors for each bar
+                  color: chartType === 'bar'
+                    ? (params: any) => {
+                      const colors = [
+                        '#6366f1', '#8b5cf6', '#d946ef', '#f43f5e',
+                        '#ef4444', '#f97316', '#eab308', '#84cc16',
+                        '#22c55e', '#10b981', '#14b8a6', '#06b6d4'
+                      ];
+                      return colors[params.dataIndex % colors.length];
+                    }
+                    : chartOption.series[0].itemStyle.color
+                }
+              }]
+            }}
             style={{ height: '400px' }}
             opts={{ renderer: 'canvas' }}
           />

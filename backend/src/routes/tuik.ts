@@ -32,7 +32,7 @@ export default async function tuikRoutes(fastify: FastifyInstance) {
   });
 
   // Enflasyon verisi
-  fastify.get('/inflation', async () => {
+  fastify.get('/inflation', async (request, reply) => {
     try {
       const data = await db.getMacroData('CPI', undefined, undefined);
       return { success: true, data };
@@ -44,7 +44,7 @@ export default async function tuikRoutes(fastify: FastifyInstance) {
   });
 
   // İşsizlik verisi
-  fastify.get('/unemployment', async () => {
+  fastify.get('/unemployment', async (request, reply) => {
     try {
       const data = await db.getMacroData('Unemployment Rate', undefined, undefined);
       return { success: true, data };

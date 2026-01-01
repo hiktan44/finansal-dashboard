@@ -66,7 +66,7 @@ export async function fetchLatestMarketData() {
         .select('*')
         .order('data_date', { ascending: false })
         .order('created_at', { ascending: false })
-        .limit(10),
+        .limit(20),
       supabase
         .from('tech_stocks')
         .select('*')
@@ -78,7 +78,7 @@ export async function fetchLatestMarketData() {
         .select('*')
         .order('data_date', { ascending: false })
         .order('created_at', { ascending: false })
-        .limit(10),
+        .limit(20),
       supabase
         .from('market_summary')
         .select('*')
@@ -94,15 +94,15 @@ export async function fetchLatestMarketData() {
     if (commoditiesResponse.error) throw commoditiesResponse.error
     if (summaryResponse.error) throw summaryResponse.error
 
-    // Get the latest date from the data
-    const latestDate = indicesResponse.data?.[0]?.data_date || 
-                       stocksResponse.data?.[0]?.data_date ||
-                       commoditiesResponse.data?.[0]?.data_date
+    // Get the latest date per category
+    const latestIndicesDate = indicesResponse.data?.[0]?.data_date
+    const latestStocksDate = stocksResponse.data?.[0]?.data_date
+    const latestCommoditiesDate = commoditiesResponse.data?.[0]?.data_date
 
-    // Filter data to only include entries from the latest date
-    const indicesData = indicesResponse.data?.filter((item: any) => item.data_date === latestDate) || []
-    const stocksData = stocksResponse.data?.filter((item: any) => item.data_date === latestDate) || []
-    const commoditiesData = commoditiesResponse.data?.filter((item: any) => item.data_date === latestDate) || []
+    // Filter data to only include entries from their respective latest date
+    const indicesData = indicesResponse.data?.filter((item: any) => item.data_date === latestIndicesDate) || []
+    const stocksData = stocksResponse.data?.filter((item: any) => item.data_date === latestStocksDate) || []
+    const commoditiesData = commoditiesResponse.data?.filter((item: any) => item.data_date === latestCommoditiesDate) || []
 
     return {
       indices: indicesData,
@@ -116,15 +116,25 @@ export async function fetchLatestMarketData() {
   }
 }
 
-// Trigger manual data sync via edge function
+// Trigger manual data sync
 export async function triggerDataSync() {
   try {
+    // Try local backend first
+    try {
+      const response = await fetch('http://localhost:3001/api/sync-all', { method: 'POST' })
+      if (response.ok) {
+        console.log('Local global sync triggered successfully')
+        return await response.json()
+      }
+    } catch (e) {
+      console.warn('Local sync failed, falling back to edge function')
+    }
+
     const { data, error } = await supabase.functions.invoke('market-data-sync', {
       body: {}
     })
 
     if (error) throw error
-
     return data
   } catch (error) {
     console.error('Error triggering data sync:', error)
@@ -187,34 +197,56 @@ export async function fetchHistoricalData(symbol: string) {
   }
 }
 
-// Trigger historical data fetch via edge function
+// Trigger historical data fetch
 export async function triggerHistoricalDataFetch(symbol: string, period: string = '1y') {
   try {
+    // Try local backend first
+    try {
+      const response = await fetch('http://localhost:3001/api/market/fetch-historical', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol, period })
+      })
+      if (response.ok) return await response.json()
+    } catch (e) {
+      console.warn('Local historical fetch failed, falling back to edge function')
+    }
+
     const { data, error } = await supabase.functions.invoke('fetch-historical-data', {
       body: { symbol, period }
     })
 
     if (error) throw error
-
     return data
   } catch (error) {
-    console.error('Error fetching historical data from API:', error)
+    console.error('Error fetching historical data:', error)
     throw error
   }
 }
 
-// Trigger AI analysis via edge function
+// Trigger AI analysis
 export async function triggerAIAnalysis(symbol: string) {
   try {
+    // Try local backend first
+    try {
+      const response = await fetch('http://localhost:3001/api/market/trigger-ai', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ symbol })
+      })
+      if (response.ok) return await response.json()
+    } catch (e) {
+      console.warn('Local AI analysis trigger failed, falling back to edge function')
+    }
+
     const { data, error } = await supabase.functions.invoke('ai-analysis', {
       body: { symbol }
     })
 
     if (error) throw error
-
     return data
   } catch (error) {
-    console.error('Error running AI analysis:', error)
+    console.error('Error triggering AI analysis:', error)
     throw error
   }
 }
@@ -242,7 +274,7 @@ export async function fetchAIPredictions(symbol: string) {
 export async function fetchAIInsights(symbol: string) {
   try {
     const today = new Date().toISOString().split('T')[0]
-    
+
     const { data, error } = await supabase
       .from('ai_insights')
       .select('*')
@@ -263,7 +295,7 @@ export async function fetchAIInsights(symbol: string) {
 export async function fetchMarketSignals(symbol: string) {
   try {
     const today = new Date().toISOString().split('T')[0]
-    
+
     const { data, error } = await supabase
       .from('market_signals')
       .select('*')
@@ -484,11 +516,11 @@ export async function getDividends(portfolioId: string) {
 // ALARM VE BİLDİRİM SİSTEMİ
 // ============================================
 
-import type { 
-  UserAlert, 
-  AlertTrigger, 
-  NotificationLog, 
-  AlertPreferences, 
+import type {
+  UserAlert,
+  AlertTrigger,
+  NotificationLog,
+  AlertPreferences,
   CreateAlertInput,
   AlertAnalysis,
   NotificationStats
@@ -614,7 +646,7 @@ export async function getAlertPreferences(userId: string): Promise<AlertPreferen
 
 // Bildirim tercihlerini güncelle
 export async function updateAlertPreferences(
-  userId: string, 
+  userId: string,
   preferences: Partial<AlertPreferences>
 ): Promise<void> {
   try {
@@ -651,7 +683,7 @@ export async function updateAlertPreferences(
 
 // Bildirim loglarını getir
 export async function getNotificationLogs(
-  userId: string, 
+  userId: string,
   limit: number = 50
 ): Promise<NotificationLog[]> {
   try {
@@ -756,8 +788,8 @@ export interface DailyAnalysis {
   technical_analysis: string
   sector_highlights: string
   top_movers: {
-    gainers: Array<{symbol: string, change: number, reason: string}>
-    losers: Array<{symbol: string, change: number, reason: string}>
+    gainers: Array<{ symbol: string, change: number, reason: string }>
+    losers: Array<{ symbol: string, change: number, reason: string }>
   }
   market_forecast: string
   sentiment_score: string
@@ -858,10 +890,10 @@ export async function fetchTurkeyEconomicIndicators(): Promise<TurkeyEconomicInd
       // No data found, trigger edge function
       console.log('No data found, triggering edge function...')
       await triggerTurkeyEconomicsDataFetch()
-      
+
       // Retry after a short delay
       await new Promise(resolve => setTimeout(resolve, 1000))
-      
+
       const { data: retryData, error: retryError } = await supabase
         .from('turkey_economics')
         .select('*')
@@ -870,7 +902,7 @@ export async function fetchTurkeyEconomicIndicators(): Promise<TurkeyEconomicInd
 
       if (!retryError && retryData && retryData.length > 0) {
         // Get unique indicators by indicator_code to prevent duplicates
-        const uniqueRetryIndicators = retryData.filter((indicator, index, self) => 
+        const uniqueRetryIndicators = retryData.filter((indicator, index, self) =>
           index === self.findIndex(i => i.indicator_code === indicator.indicator_code)
         )
 
@@ -893,7 +925,7 @@ export async function fetchTurkeyEconomicIndicators(): Promise<TurkeyEconomicInd
       }
     } else {
       // Get unique indicators by indicator_code to prevent duplicates
-      const uniqueIndicators = data.filter((indicator, index, self) => 
+      const uniqueIndicators = data.filter((indicator, index, self) =>
         index === self.findIndex(i => i.indicator_code === indicator.indicator_code)
       )
 
@@ -924,6 +956,23 @@ export async function fetchTurkeyEconomicIndicators(): Promise<TurkeyEconomicInd
   }
 }
 
+// Türkiye ekonomisi tarihsel verileri getir
+export async function fetchTurkeyHistoricalData(indicatorCode: string) {
+  try {
+    const { data, error } = await supabase
+      .from('economic_data')
+      .select('period_date, value')
+      .eq('indicator_code', indicatorCode)
+      .order('period_date', { ascending: true })
+
+    if (error) throw error
+    return data || []
+  } catch (error) {
+    console.error('Error fetching Turkey historical data:', error)
+    return []
+  }
+}
+
 // Trigger daily analysis generation
 export async function triggerDailyAnalysisGeneration(): Promise<void> {
   try {
@@ -949,11 +998,34 @@ export async function triggerTEFASDataFetch(): Promise<void> {
 // Trigger Turkey economics data fetch
 export async function triggerTurkeyEconomicsDataFetch(): Promise<void> {
   try {
+    // Try to call local backend first
+    try {
+      await fetch('http://localhost:3001/api/tcmb/fetch', { method: 'POST' })
+      console.log('Local TCMB fetch triggered')
+    } catch (e) {
+      console.warn('Local TCMB fetch failed, falling back to edge function')
+    }
+
     await supabase.functions.invoke('fetch-turkey-economics', {
       body: {}
     })
     console.log('Turkey economics data fetch triggered successfully')
   } catch (error) {
     console.error('Error triggering Turkey economics data fetch:', error)
+  }
+}
+
+// Trigger FRED data fetch
+export async function triggerFREDDataFetch(): Promise<void> {
+  try {
+    // Call local backend
+    await fetch('http://localhost:3001/api/fred/fetch-all', { method: 'POST' })
+    console.log('Local FRED fetch triggered')
+
+    await supabase.functions.invoke('fetch-fred-data', {
+      body: {}
+    })
+  } catch (error) {
+    console.error('Error triggering FRED data fetch:', error)
   }
 }

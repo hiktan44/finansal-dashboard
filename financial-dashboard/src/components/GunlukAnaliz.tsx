@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { TrendingUp, TrendingDown, Calendar, Target, BarChart3, AlertCircle, RefreshCw, Volume2, Users, Lightbulb } from 'lucide-react'
 import { fetchLatestDailyAnalysis, fetchDailyAnalysis, triggerDailyAnalysisGeneration, DailyAnalysis } from '../lib/supabase'
 
+import staticAnalysisData from '../data/daily_analysis_20251231.json'
+
 const GunlukAnaliz = () => {
   const [latestAnalysis, setLatestAnalysis] = useState<DailyAnalysis | null>(null)
   const [allAnalyses, setAllAnalyses] = useState<DailyAnalysis[]>([])
@@ -18,18 +20,28 @@ const GunlukAnaliz = () => {
     try {
       setLoading(true)
       setError(null)
-      
+
+      /*
+       * RESTORING REAL DATA FETCH
+       * User explicitly requested NO fake data.
+       */
       const [latest, all] = await Promise.all([
         fetchLatestDailyAnalysis(),
         fetchDailyAnalysis(10)
       ])
 
+      if (!latest) {
+        throw new Error('Analiz verisi bulunamadı')
+      }
+
       setLatestAnalysis(latest)
       setAllAnalyses(all)
       setSelectedAnalysis(latest)
     } catch (err) {
-      setError('Günlük analiz verileri yüklenirken bir hata oluştu.')
       console.error('Error loading analyses:', err)
+      setError('Günlük analiz verileri şu anda alınamıyor. Lütfen daha sonra tekrar deneyiniz.')
+      // DO NOT fallback to static data
+      setLatestAnalysis(null)
     } finally {
       setLoading(false)
     }
@@ -39,7 +51,7 @@ const GunlukAnaliz = () => {
     try {
       setRefreshing(true)
       await triggerDailyAnalysisGeneration()
-      
+
       // Wait a moment for the analysis to be generated
       setTimeout(() => {
         loadAnalyses()
@@ -151,11 +163,10 @@ const GunlukAnaliz = () => {
               <button
                 key={item.id}
                 onClick={() => setSelectedAnalysis(item)}
-                className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${
-                  selectedAnalysis?.id === item.id
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                className={`px-3 py-1 rounded-lg text-sm font-medium transition-colors ${selectedAnalysis?.id === item.id
+                  ? 'bg-indigo-600 text-white'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
               >
                 {formatDate(item.analysis_date).split(',')[0]}
               </button>
@@ -206,7 +217,7 @@ const GunlukAnaliz = () => {
       {/* Top Movers */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
         <h2 className="text-xl font-semibold text-gray-900 mb-6">Günün Öne Çıkanları</h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Gainers */}
           <div>

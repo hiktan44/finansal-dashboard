@@ -31,7 +31,7 @@ export default async function tcmbRoutes(fastify: FastifyInstance) {
       const dateMatch = xmlText.match(/Tarih="([^"]+)"/);
       const bulletinDate = dateMatch ? dateMatch[1] : new Date().toISOString().split('T')[0];
       const dateParts = bulletinDate.split('.');
-      const formattedDate = dateParts.length === 3 
+      const formattedDate = dateParts.length === 3
         ? `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`
         : new Date().toISOString().split('T')[0];
 
@@ -42,9 +42,10 @@ export default async function tcmbRoutes(fastify: FastifyInstance) {
             `<Currency[^>]*Kod="${currency}"[^>]*>[\\s\\S]*?<ForexSelling>([^<]+)</ForexSelling>`,
             'i'
           );
-          
+
           const match = xmlText.match(pattern);
           if (!match || !match[1]) {
+            console.log(`Failed to match regex for ${currency}. XML excerpt:`, xmlText.substring(0, 500)); // Debug log
             throw new Error(`Currency ${currency} not found`);
           }
 
@@ -67,12 +68,52 @@ export default async function tcmbRoutes(fastify: FastifyInstance) {
           };
 
           await db.upsertMacroData(macroData);
-          
+
+
+          // Calculate YoY Change for Currencies
+          // Fetch value from 1 year ago for accurate annual change
+          const oneYearAgo = new Date();
+          oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+          const oneYearAgoStr = oneYearAgo.toISOString().split('T')[0];
+
+          // Try to find a rate close to 1 year ago from database
+          const { data: histData } = await db.supabase
+            .from('economic_data')
+            .select('value')
+            .eq('indicator_code', `${currency}_TRY`)
+            .lte('period_date', oneYearAgoStr)
+            .order('period_date', { ascending: false })
+            .limit(1)
+            .single();
+
+          let previousValue = 0;
+          let changePercent = 0;
+
+          if (histData && histData.value) {
+            previousValue = histData.value;
+            changePercent = ((rate - previousValue) / previousValue) * 100;
+          }
+
+          // Also update turkey_economics for dashboard visibility
+          await db.upsertTurkeyEconomics({
+            indicator_code: `${currency}_TRY`,
+            indicator_name: `${currency}/TL Kuru`,
+            indicator_category: 'Para Politikası',
+            current_value: rate,
+            previous_value: previousValue, // Store actual previous year value
+            change_percent: Number(changePercent.toFixed(2)),
+            period_date: formattedDate,
+            unit: 'TL',
+            source: 'TCMB',
+            last_updated: new Date().toISOString()
+          });
+
           results.success++;
           results.data.push({ currency, rate: rate.toFixed(4) });
-        } catch (error) {
+        } catch (error: any) {
+          console.error(`TCMB Loop Error for ${currency}:`, error); // Log raw error
           results.failed++;
-          results.errors.push(`${currency}: ${error instanceof Error ? error.message : 'Unknown error'}`);
+          results.errors.push(`${currency}: ${error.message || JSON.stringify(error)}`);
         }
       }
 
@@ -96,7 +137,7 @@ export default async function tcmbRoutes(fastify: FastifyInstance) {
   });
 
   // Macro data getir
-  fastify.get('/data', async (request) => {
+  fastify.get('/data', async (request, reply) => {
     try {
       const { indicator, start_date, end_date } = request.query as any;
       const data = await db.getMacroData(indicator, start_date, end_date);

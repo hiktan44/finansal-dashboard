@@ -15,6 +15,7 @@ export const supabase = createClient(supabaseUrl, supabaseKey, {
 
 // Database helper functions
 export const db = {
+  supabase, // Expose supabase client directly
   // Assets tablosu
   async upsertAsset(data: any) {
     const { error } = await supabase
@@ -43,7 +44,7 @@ export const db = {
   async upsertMacroData(data: any) {
     const { error } = await supabase
       .from('macro_data')
-      .upsert(data, { onConflict: 'indicator,date' });
+      .upsert(data, { onConflict: 'country,indicator,date' });
     if (error) throw error;
   },
 
@@ -58,12 +59,49 @@ export const db = {
     return data;
   },
 
+  async upsertTurkeyEconomics(data: any) {
+    const { error } = await supabase
+      .from('turkey_economics')
+      .upsert(data, { onConflict: 'indicator_code' });
+    if (error) throw error;
+  },
+
+  async upsertEconomicData(data: any | any[]) {
+    const { error } = await supabase
+      .from('economic_data')
+      .upsert(data, { onConflict: 'indicator_code,period_date' });
+    if (error) throw error;
+  },
+
   // Market data
   async upsertMarketData(table: string, data: any) {
     const { error } = await supabase
       .from(table)
-      .upsert(data, { onConflict: 'symbol,date' });
+      .upsert(data, { onConflict: 'symbol,data_date' });
     if (error) throw error;
+  },
+
+  async upsertMarketSummary(data: any) {
+    const { error } = await supabase
+      .from('market_summary')
+      .upsert(data, { onConflict: 'data_date' });
+    if (error) throw error;
+  },
+
+  async upsertHistoricalData(data: any[]) {
+    const { error } = await supabase
+      .from('historical_data')
+      .upsert(data, { onConflict: 'symbol,data_date' });
+    if (error) throw error;
+  },
+
+  async getMarketData(table: string, symbol?: string) {
+    let query = supabase.from(table).select('*');
+    if (symbol) query = query.eq('symbol', symbol);
+    query = query.order('data_date', { ascending: false });
+    const { data, error } = await query;
+    if (error) throw error;
+    return data;
   },
 
   // Portfolio

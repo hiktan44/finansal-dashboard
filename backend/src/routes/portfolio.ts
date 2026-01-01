@@ -3,17 +3,17 @@ import { db } from '../utils/db.js';
 
 export default async function portfolioRoutes(fastify: FastifyInstance) {
   // Portföy getir
-  fastify.get<{ Querystring: { user_id?: string } }>('/', async (request) => {
+  fastify.get<{ Querystring: { user_id?: string } }>('/', async (request, reply) => {
     try {
       const { user_id } = request.query;
-      
+
       if (!user_id) {
         reply.code(400);
         return { error: 'user_id gerekli' };
       }
 
       const holdings = await db.getPortfolioHoldings(user_id);
-      
+
       return {
         success: true,
         portfolio: holdings
@@ -39,7 +39,7 @@ export default async function portfolioRoutes(fastify: FastifyInstance) {
 
       // Basit analiz
       const totalValue = holdings.reduce((sum, h) => sum + (h.quantity * h.average_price), 0);
-      
+
       const analysis = {
         total_value: totalValue,
         holdings_count: holdings.length,

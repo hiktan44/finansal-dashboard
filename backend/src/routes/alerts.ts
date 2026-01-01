@@ -29,7 +29,7 @@ export default async function alertsRoutes(fastify: FastifyInstance) {
   });
 
   // Alertleri getir
-  fastify.get<{ Querystring: { user_id?: string } }>('/', async (request) => {
+  fastify.get<{ Querystring: { user_id?: string } }>('/', async (request, reply) => {
     try {
       const { user_id } = request.query;
 

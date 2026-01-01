@@ -11,15 +11,15 @@ export default async function marketDataRoutes(fastify: FastifyInstance) {
 
       if (assetType === 'bist') {
         const bistSymbols = symbols || ['THYAO.IS', 'GARAN.IS', 'AKBNK.IS', 'EREGL.IS', 'TCELL.IS'];
-        
+
         for (const symbol of bistSymbols) {
-          const data = await fetchYahooFinanceData(symbol);
+          const data = await fetchYahooFinanceData(symbol) as any;
           if (data) {
             data.asset_type = 'bist';
             data.exchange = 'BIST';
             data.name = symbol.replace('.IS', '');
             results.push(data);
-            
+
             // DB'ye kaydet
             await db.upsertAsset(data);
             await db.addPriceHistory({
@@ -33,14 +33,14 @@ export default async function marketDataRoutes(fastify: FastifyInstance) {
         }
       } else if (assetType === 'crypto') {
         const cryptoSymbols = symbols || ['BTC-USD', 'ETH-USD', 'BNB-USD'];
-        
+
         for (const symbol of cryptoSymbols) {
-          const data = await fetchYahooFinanceData(symbol);
+          const data = await fetchYahooFinanceData(symbol) as any;
           if (data) {
             data.asset_type = 'crypto';
             data.exchange = 'Crypto';
             results.push(data);
-            
+
             await db.upsertAsset(data);
             await db.addPriceHistory({
               symbol: data.symbol,
@@ -53,7 +53,7 @@ export default async function marketDataRoutes(fastify: FastifyInstance) {
         }
       } else if (assetType === 'currency') {
         results = await fetchTCMBRates();
-        
+
         for (const asset of results) {
           await db.upsertAsset(asset);
         }
@@ -63,15 +63,15 @@ export default async function marketDataRoutes(fastify: FastifyInstance) {
           'GC=F': 'Altın',
           'SI=F': 'Gümüş'
         };
-        
+
         for (const symbol of metalSymbols) {
-          const data = await fetchYahooFinanceData(symbol);
+          const data = await fetchYahooFinanceData(symbol) as any;
           if (data) {
             data.asset_type = 'metal';
             data.exchange = 'Commodity';
             data.name = nameMap[symbol] || symbol;
             results.push(data);
-            
+
             await db.upsertAsset(data);
             await db.addPriceHistory({
               symbol: data.symbol,
@@ -100,7 +100,7 @@ export default async function marketDataRoutes(fastify: FastifyInstance) {
   });
 
   // Tüm varlıkları getir
-  fastify.get('/assets', async () => {
+  fastify.get('/assets', async (request, reply) => {
     try {
       const assets = await db.getAssets();
       return { success: true, data: assets };
@@ -112,7 +112,7 @@ export default async function marketDataRoutes(fastify: FastifyInstance) {
   });
 
   // Belirli bir varlık getir
-  fastify.get<{ Params: { symbol: string } }>('/assets/:symbol', async (request) => {
+  fastify.get<{ Params: { symbol: string } }>('/assets/:symbol', async (request, reply) => {
     try {
       const { symbol } = request.params;
       const assets = await db.getAssets(symbol);

@@ -6,7 +6,7 @@ export default async function bistRoutes(fastify: FastifyInstance) {
   // BIST100 verisi çek
   fastify.post('/fetch', async (request, reply) => {
     try {
-      const { symbols } = request.body as any;
+      const { symbols } = (request.body || {}) as any;
       const bistSymbols = symbols || [
         'XU100.IS',
         'XU030.IS',
@@ -18,7 +18,7 @@ export default async function bistRoutes(fastify: FastifyInstance) {
       const results = [];
 
       for (const symbol of bistSymbols) {
-        const data = await fetchYahooFinanceData(symbol);
+        const data = await fetchYahooFinanceData(symbol) as any;
         if (data) {
           data.asset_type = 'index';
           data.exchange = 'BIST';
@@ -28,11 +28,9 @@ export default async function bistRoutes(fastify: FastifyInstance) {
           await db.upsertMarketData('market_indices', {
             symbol: data.symbol,
             name: data.symbol.replace('.IS', ''),
-            value: data.price,
+            close_price: data.price,
             change_percent: data.change_percent,
-            volume: data.volume,
-            date: new Date().toISOString().split('T')[0],
-            last_updated: data.last_updated
+            data_date: new Date().toISOString().split('T')[0]
           });
         }
       }
@@ -53,12 +51,13 @@ export default async function bistRoutes(fastify: FastifyInstance) {
   });
 
   // BIST endeksleri getir
-  fastify.get('/indices', async () => {
+  fastify.get('/indices', async (request, reply) => {
     try {
       // Market indices tablosundan getir
+      const data = await db.getMarketData('market_indices');
       return {
         success: true,
-        message: 'BIST indices - implementasyon gerekli'
+        data
       };
     } catch (error) {
       fastify.log.error(error);

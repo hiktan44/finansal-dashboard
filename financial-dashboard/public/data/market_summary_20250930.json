@@ -1,74 +1,74 @@
 {
-  "date": "2025-09-30",
+  "date": "2025-12-31",
   "marketSummary": {
-    "headline": "ABD hisseleri üçüncü çeyreği olumlu havada tamamladı",
+    "headline": "2025 Yılı Rekorlarla Tamamlandı: Piyasalar 2026'ya Odaklandı",
     "keyPoints": [
-      "Dow Jones, S&P 500 ve NASDAQ tarihi kapanış rekorları kırdı",
-      "Altın bir dönem 3900 dolar/ons rekor seviyesine ulaştı",
-      "Teknoloji, iletişim ve sanayi sektörleri yılbaşından bu yana en iyi performansı gösterdi",
-      "NVIDIA %2 yükseldi, Tesla ve Microsoft de hafif yükseliş gösterdi"
+      "S&P 500 ve NASDAQ yılı tarihi zirvelere yakın kapattı",
+      "Federal Reserve'in faiz indirim döngüsü piyasaları destekliyor",
+      "Yapay zeka ve teknoloji hisseleri 2025'in kazananı oldu",
+      "Emtia piyasalarında altın ve gümüş güvenli liman talebiyle yükselişte"
     ],
     "marketConcerns": [
-      "ABD hükümet kapanması riski",
-      "Federal Reserve politika belirsizliği",
-      "Küresel jeopolitik gerginlikler"
+      "Küresel ekonomik büyümede yavaşlama sinyalleri",
+      "Enerji fiyatlarındaki dalgalanma",
+      "Jeopolitik risklerin devam etmesi"
     ],
     "upcomingEvents": [
       {
-        "event": "ABD İstihdam Raporu",
-        "date": "2025-10-03 08:30",
-        "note": "Eylül istihdam verileri, hükümet kapanması durumunda ertelenebilir"
+        "event": "ABD Tarım Dışı İstihdam",
+        "date": "2026-01-05 15:30",
+        "note": "Aralık ayı istihdam verisi Fed'in faiz rotası için kritik"
       },
       {
-        "event": "Federal Reserve FOMC Toplantısı",
-        "date": "2025-10-28 - 2025-10-29",
-        "note": "Piyasalar faiz oranı görünümü ve ekonomik değerlendirmeye odaklanacak"
+        "event": "Fed FOMC Tutanakları",
+        "date": "2026-01-08 22:00",
+        "note": "Son toplantının detayları ve 2026 projeksiyonları izlenecek"
       },
       {
-        "event": "Hükümet Kapanması Son Tarihi",
-        "date": "2025-10-01 00:01",
-        "note": "Federal hükümet fonları bitiyor, geçici bütçe yasası geçmezse kapanma yaşanacak"
+        "event": "ABD Enflasyon (TÜFE)",
+        "date": "2026-01-12 15:30",
+        "note": "Enflasyonun %2 hedefine yakınsaması bekleniyor"
       }
     ]
   },
   "topPerformers": [
     {
-      "symbol": "PFE",
-      "name": "Pfizer",
-      "changePercent": 6.8,
-      "reason": "Hükümetle ilaç fiyat indirimi anlaşması"
-    },
-    {
-      "symbol": "MRK",
-      "name": "Merck",
-      "changePercent": 6.8,
-      "reason": "Avrupa düzenleyici kurumlarının RSV ürünü için olumlu tavsiyesi"
-    },
-    {
       "symbol": "NVDA",
       "name": "NVIDIA",
-      "changePercent": 2.6,
-      "reason": "AI çip talebinin güçlü olması"
+      "changePercent": 4.2,
+      "reason": "Yeni nesil AI çipleri için güçlü talep beklentisi"
+    },
+    {
+      "symbol": "AMD",
+      "name": "Advanced Micro Devices",
+      "changePercent": 3.5,
+      "reason": "Veri merkezi pazar payı artışı analist raporları"
+    },
+    {
+      "symbol": "TSLA",
+      "name": "Tesla",
+      "changePercent": 2.8,
+      "reason": "Yıl sonu teslimat rakamları beklentilerin üzerinde"
     }
   ],
   "worstPerformers": [
     {
-      "symbol": "ALB",
-      "name": "Albemarle",
-      "changePercent": -6.7,
-      "reason": "Şili düzenleyici kurumu cezası"
+      "symbol": "XOM",
+      "name": "Exxon Mobil",
+      "changePercent": -1.2,
+      "reason": "Petrol fiyatlarındaki geri çekilme"
     },
     {
-      "symbol": "PYPL",
-      "name": "Paycom Software",
-      "changePercent": -4.0,
-      "reason": "OpenAI ve Stripe'ın alışveriş özelliği işbirliği, ödeme sektörü rekabeti arttı"
+      "symbol": "CVX",
+      "name": "Chevron",
+      "changePercent": -1.0,
+      "reason": "Enerji sektörü genelinde kar satışları"
     },
     {
-      "symbol": "COF",
-      "name": "Capital One Financial",
-      "changePercent": -5.0,
-      "reason": "Kapanma riski tüketici güvenini zedeliyor"
+      "symbol": "PFE",
+      "name": "Pfizer",
+      "changePercent": -0.8,
+      "reason": "Bazı ilaç patent süreleri endişesi"
     }
   ]
 }

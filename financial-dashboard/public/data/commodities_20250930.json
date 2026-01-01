@@ -1,39 +1,39 @@
 {
-  "date": "2025-09-30",
+  "date": "2025-12-31",
   "commodities": [
     {
       "name": "Batı Teksas Ham Petrolü",
       "symbol": "WTI",
-      "price": 62.50,
+      "price": 68.50,
       "unit": "USD/varil",
-      "changePercent": -1.5,
-      "note": "Önceki günün %4'lük düşüşünün ardından gerileme devam ediyor. OPEC+ üretim artışı ve Irak ihracat iyileşmesi beklentileri petrol fiyatlarına baskı yapıyor"
+      "changePercent": 1.2,
+      "note": "Küresel talep beklentileri ile hafif toparlanma"
     },
     {
       "name": "Brent Ham Petrolü",
       "symbol": "BRENT",
-      "price": 67.10,
+      "price": 72.10,
       "unit": "USD/varil",
-      "changePercent": -1.3,
-      "note": "Günlük yaklaşık %1.3 gerileme"
+      "changePercent": 1.1,
+      "note": "OPEC+ kısıtlamalarının devam etmesi fiyatı destekliyor"
     },
     {
       "name": "Altın",
       "symbol": "GOLD",
-      "price": 3885,
+      "price": 2850.40,
       "unit": "USD/ons",
-      "changePercent": 0.7,
-      "intradayHigh": 3900,
-      "monthlyReturn": 10,
-      "note": "%0.7 yükseliş ile rekor seviyeye yaklaştı. Gün içinde 3900 dolara kadar yükseldi. Eylül ayında %10'un üzerinde kazanç sağladı"
+      "changePercent": 0.45,
+      "intradayHigh": 2865.00,
+      "monthlyReturn": 3.2,
+      "note": "Güvenli liman talebi ve faiz indirim beklentileriyle tarihi zirvelere yakın seyrediyor"
     },
     {
       "name": "Bitcoin",
       "symbol": "BTC",
-      "price": 114500,
+      "price": 98500,
       "unit": "USD",
-      "changePercent": 0.1,
-      "note": "Önceki işlem gününe göre hafif toparlanma. Büyük kripto paralar genel olarak gerilemekte"
+      "changePercent": -1.5,
+      "note": "100.000$ direncinden kar satışları"
     }
   ]
 }

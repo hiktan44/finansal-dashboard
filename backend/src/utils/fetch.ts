@@ -13,7 +13,7 @@ export async function fetchYahooFinanceData(symbol: string) {
       return null;
     }
 
-    const data = await response.json();
+    const data = await response.json() as any;
     const quote = data?.chart?.result?.[0];
 
     if (!quote) return null;
@@ -32,11 +32,65 @@ export async function fetchYahooFinanceData(symbol: string) {
       volume: meta.regularMarketVolume || 0,
       market_cap: meta.marketCap || 0,
       currency: meta.currency || 'USD',
-      last_updated: new Date().toISOString()
+      last_updated: new Date().toISOString(),
+      dayHigh: meta.regularMarketDayHigh || currentPrice,
+      dayLow: meta.regularMarketDayLow || currentPrice
     };
   } catch (error) {
     console.error(`Error fetching Yahoo Finance data for ${symbol}:`, error);
     return null;
+  }
+}
+
+export async function fetchHistoricalYahooFinanceData(symbol: string, period: string = '1y') {
+  try {
+    const rangeObj: Record<string, string> = {
+      '1d': '1d',
+      '5d': '5d',
+      '1m': '1mo',
+      '3m': '3mo',
+      '6m': '6mo',
+      '1y': '1y',
+      '2y': '2y',
+      '5y': '5y',
+      'max': 'max'
+    };
+
+    const range = rangeObj[period] || '1y';
+    const interval = range === '1d' || range === '5d' ? '1h' : '1d';
+
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?range=${range}&interval=${interval}`;
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+      }
+    });
+
+    if (!response.ok) return [];
+
+    const data = await response.json() as any;
+    const result = data?.chart?.result?.[0];
+    if (!result) return [];
+
+    const timestamps = result.timestamp;
+    const quotes = result.indicators.quote[0];
+    const historicalData = [];
+
+    for (let i = 0; i < timestamps.length; i++) {
+      if (quotes.close[i]) {
+        historicalData.push({
+          symbol,
+          data_date: new Date(timestamps[i] * 1000).toISOString().split('T')[0],
+          price: quotes.close[i],
+          volume: quotes.volume[i] || 0
+        });
+      }
+    }
+
+    return historicalData;
+  } catch (error) {
+    console.error(`Error fetching historical Yahoo Finance data for ${symbol}:`, error);
+    return [];
   }
 }
 
