@@ -1,7 +1,11 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = "http://supabasekong-ew8s8kw4w00csw4co448gc00.65.108.77.26.sslip.io"
-const supabaseAnonKey = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc2Njc2MzA2MCwiZXhwIjo0OTIyNDM2NjYwLCJyb2xlIjoiYW5vbiJ9.VcHE7K5yC_rofM-dZhkCy01Nvj33yGFBMh1ES9iuRZw"
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || ''
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || ''
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error("WARNING: Supabase URL or Anon Key is missing. Please check your .env file or Coolify environment variables.")
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
 
