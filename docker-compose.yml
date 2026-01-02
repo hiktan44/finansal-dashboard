@@ -12,12 +12,11 @@ services:
     environment:
       - PORT=3001
       - NODE_ENV=production
-      - SUPABASE_URL=${SUPABASE_URL:-http://supabase-kong:8000}
+      - SUPABASE_URL=${SUPABASE_URL}
       - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
       - FRED_API_KEY=${FRED_API_KEY}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
     restart: unless-stopped
-    depends_on:
-      - supabase-db
     networks:
       - finansal-network
     healthcheck:
@@ -28,6 +27,8 @@ services:
 
   # Frontend (Vite/React)
   frontend:
+    # Not: Coolify'da Nixpacks kullanıyorsanız bu servisi comment out yapabilirsiniz, 
+    # ancak tam stack deploy ediyorsanız bu şekilde kalabilir.
     build:
       context: ./financial-dashboard
       dockerfile: Dockerfile
@@ -35,7 +36,10 @@ services:
     ports:
       - "3000:80"
     environment:
-      - VITE_API_URL=http://backend:3001
+      # Coolify internal network üzerinden backend'e erişim için (Client-side çalışmaz, SSR için)
+      # React Client-side olduğu için VITE_API_URL public domain olmalı.
+      # Coolify'da bu değeri manuel girmeniz gerekecektir.
+      - VITE_API_URL=${VITE_API_URL} 
       - VITE_SUPABASE_URL=${SUPABASE_URL}
       - VITE_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY}
     restart: unless-stopped
@@ -44,42 +48,6 @@ services:
     networks:
       - finansal-network
 
-  # Self-hosted Supabase (eğer varsa)
-  # Bu kısmı kendi Supabase kurulumuna göre düzenle
-  supabase-db:
-    image: supabase/postgres:15.1.0.147
-    container_name: finansal-supabase-db
-    ports:
-      - "5432:5432"
-    environment:
-      - POSTGRES_PASSWORD=your-password
-      - POSTGRES_DB=postgres
-    volumes:
-      - supabase-db-data:/var/lib/postgresql/data
-    restart: unless-stopped
-    networks:
-      - finansal-network
-
-  # Supabase Studio (optional)
-  # supabase-studio:
-  #   image: supabase/studio:20240326-2e3e22c
-  #   container_name: finansal-supabase-studio
-  #   ports:
-  #     - "3002:3000"
-  #   environment:
-  #     - STUDIO_PG_META_URL=http://supabase-db:5432
-  #     - STUDIO_DEFAULT_ORGANIZATION=default
-  #     - STUDIO_DEFAULT_PROJECT=default
-  #   restart: unless-stopped
-  #   depends_on:
-  #     - supabase-db
-  #   networks:
-  #     - finansal-network
-
 networks:
   finansal-network:
     driver: bridge
-
-volumes:
-  supabase-db-data:
-    driver: local
