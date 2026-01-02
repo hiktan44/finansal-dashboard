@@ -39,17 +39,23 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
    * RESTORING REAL DATA FETCH
    * User explicitly requested NO fake data.
    */
-  const supabaseUrl = 'http://supabasekong-ew8s8kw4w00csw4co448gc00.65.108.77.26.sslip.io'
+  // Use environment variables or fallback to empty string (which will fail gracefully)
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+  const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
 
   const fetchTefasData = async () => {
     try {
       setLoading(true)
       setError(null)
 
+      if (!supabaseUrl || !supabaseKey) {
+        throw new Error('Supabase yapılandırması (URL/Key) eksik. Lütfen sistem yöneticisine başvurun.')
+      }
+
       const response = await fetch(`${supabaseUrl}/rest/v1/tefas_funds?order=${sortBy}.desc`, {
         headers: {
-          'apikey': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc2Njc2MzA2MCwiZXhwIjo0OTIyNDM2NjYwLCJyb2xlIjoiYW5vbiJ9.VcHE7K5yC_rofM-dZhkCy01Nvj33yGFBMh1ES9iuRZw',
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTc2Njc2MzA2MCwiZXhwIjo0OTIyNDM2NjYwLCJyb2xlIjoiYW5vbiJ9.VcHE7K5yC_rofM-dZhkCy01Nvj33yGFBMh1ES9iuRZw'
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`
         }
       })
 
