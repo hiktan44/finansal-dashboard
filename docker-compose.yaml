@@ -1,5 +1,7 @@
 version: '3.9'
 
+# Last updated for Coolify Sync check
+
 services:
   # Backend API
   backend:
