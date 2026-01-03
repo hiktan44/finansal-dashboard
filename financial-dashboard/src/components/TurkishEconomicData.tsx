@@ -135,8 +135,30 @@ const TurkishEconomicData = () => {
     }
   }
 
+  const formatCompactNumber = (number: number) => {
+    if (Math.abs(number) >= 1_000_000_000_000) {
+      return (number / 1_000_000_000_000).toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Tr'
+    }
+    if (Math.abs(number) >= 1_000_000_000) {
+      return (number / 1_000_000_000).toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' Mr'
+    }
+    if (Math.abs(number) >= 1_000_000) {
+      return (number / 1_000_000).toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' M'
+    }
+    if (Math.abs(number) >= 1_000) {
+      return (number / 1_000).toLocaleString('tr-TR', { maximumFractionDigits: 1 }) + ' B'
+    }
+    return number.toLocaleString('tr-TR', { maximumFractionDigits: 2 })
+  }
+
   const formatValue = (value: number, unit: string): string => {
     if (value === undefined || value === null || isNaN(value)) return '--'
+
+    // Check if value is very large (likely absolute GSYH or similar) regardless of unit
+    if (Math.abs(value) > 1_000_000_000) {
+      return formatCompactNumber(value)
+    }
+
     if (unit === 'Milyar USD' || unit === 'Milyar TL') {
       return value.toLocaleString('tr-TR', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
     }
@@ -166,9 +188,9 @@ const TurkishEconomicData = () => {
       textStyle: { color: '#ffffff', fontSize: 16 }
     },
     grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '15%',
+      left: '5%',
+      right: '5%',
+      bottom: '10%',
       top: '20%',
       containLabel: true
     },
@@ -180,12 +202,20 @@ const TurkishEconomicData = () => {
           return d.toLocaleDateString('tr-TR', { month: 'short', year: '2-digit' })
         })
         : ['Önceki', 'Güncel'],
-      axisLabel: { color: '#94a3b8' },
+      axisLabel: {
+        color: '#94a3b8',
+        rotate: 45,
+        interval: 'auto',
+        hideOverlap: true
+      },
       axisLine: { lineStyle: { color: '#374151' } }
     },
     yAxis: {
       type: 'value',
-      axisLabel: { color: '#94a3b8', formatter: (value: number) => value?.toLocaleString('tr-TR') || '--' },
+      axisLabel: {
+        color: '#94a3b8',
+        formatter: (value: number) => formatCompactNumber(value)
+      },
       axisLine: { lineStyle: { color: '#374151' } },
       splitLine: { lineStyle: { color: '#374151' } }
     },
@@ -220,7 +250,11 @@ const TurkishEconomicData = () => {
         show: true,
         position: 'top',
         color: '#ffffff',
-        formatter: (params: any) => `${formatValue(params.value, selectedIndicator.unit)}`
+        rotate: historicalData.length > 10 ? 90 : 0,
+        align: historicalData.length > 10 ? 'left' : 'center',
+        verticalAlign: historicalData.length > 10 ? 'middle' : 'bottom',
+        distance: 10,
+        formatter: (params: any) => formatCompactNumber(params.value)
       },
       barWidth: '60%',
     }],
@@ -232,7 +266,8 @@ const TurkishEconomicData = () => {
       formatter: function (params: any) {
         const item = params[0]
         const value = item.value
-        return `${item.name}: ${formatValue(value, selectedIndicator.unit)} ${selectedIndicator.unit}`
+        // Use full format for tooltip for precision
+        return `${item.name}<br/>${selectedIndicator.indicator_name}: <b>${value.toLocaleString('tr-TR')}</b> ${selectedIndicator.unit}`
       }
     }
   } : null

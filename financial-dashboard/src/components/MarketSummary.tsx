@@ -77,8 +77,8 @@ const MarketSummary: React.FC<MarketSummaryProps> = ({ data }) => {
             </div>
           </div>
           <div className="bg-gray-700/30 rounded-lg p-1">
-            <AudioPlayer 
-              audioSrc="/audio/market_summary.mp3"
+            <AudioPlayer
+              text={`${data.marketSummary.headline}. Anahtar noktalar: ${data.marketSummary.keyPoints.join('. ')}. ${data.marketSummary.marketConcerns?.length ? 'Piyasa endişeleri: ' + data.marketSummary.marketConcerns.join('. ') : ''}`}
               label="Piyasa Özeti Oynat"
             />
           </div>
@@ -168,7 +168,7 @@ const MarketSummary: React.FC<MarketSummaryProps> = ({ data }) => {
                 </div>
                 <h3 className="text-lg font-bold text-white">Bugün En İyi Performans Gösterenler</h3>
               </div>
-              
+
               <div className="space-y-3">
                 {data.topPerformers.map((performer, index) => (
                   <div key={performer.symbol} className="bg-green-500/10 border border-green-500/30 rounded-lg p-3">
@@ -197,7 +197,7 @@ const MarketSummary: React.FC<MarketSummaryProps> = ({ data }) => {
                 </div>
                 <h3 className="text-lg font-bold text-white">Bugün En Kötü Performans Gösterenler</h3>
               </div>
-              
+
               <div className="space-y-3">
                 {data.worstPerformers.map((performer, index) => (
                   <div key={performer.symbol} className="bg-red-500/10 border border-red-500/30 rounded-lg p-3">

@@ -22,34 +22,38 @@ const MacroCockpit: React.FC<MacroCockpitProps> = ({ indicators }) => {
         {
             title: 'Enflasyon (TÜFE)',
             icon: <Percent className="h-5 w-5 text-red-400" />,
-            data: findIndicator(['TR_CPI', 'Tüketici Fiyat', 'TP.FG.J0']),
+            data: findIndicator(['TUFE', 'TR_CPI']),
             format: (val: number) => `%${val.toFixed(2)}`,
             color: 'text-red-400',
-            desc: 'Yıllık Tüketici Enflasyonu'
+            desc: 'Tüketici Enflasyonu',
+            frequency: 'Yıllık'
         },
         {
             title: 'Büyüme (GSYİH)',
             icon: <TrendingUp className="h-5 w-5 text-blue-400" />,
-            data: findIndicator(['TP.GSYIH', 'Gayrisafi Yurt İçi Hasıla', 'Growth']),
+            data: findIndicator(['GDP', 'GSYİH']),
             format: (val: number) => `%${val.toFixed(1)}`,
             color: 'text-blue-400',
-            desc: 'Çeyreklik Büyüme'
+            desc: 'GSYİH Büyümesi',
+            frequency: 'Çeyreklik'
         },
         {
             title: 'İşsizlik Oranı',
             icon: <Briefcase className="h-5 w-5 text-orange-400" />,
-            data: findIndicator(['TR_UNEMP', 'İşsizlik', 'Unemployment']),
+            data: findIndicator(['UNEMPLOYMENT_RATE']), // Strict match first
             format: (val: number) => `%${val.toFixed(1)}`,
             color: 'text-orange-400',
-            desc: 'Mevsimsellikten Arındırılmış'
+            desc: 'Mevsimsellikten Arındırılmış',
+            frequency: 'Aylık'
         },
         {
             title: 'Cari Denge',
             icon: <Scale className="h-5 w-5 text-purple-400" />,
-            data: findIndicator(['TR_CURR_ACC', 'Cari İşlemler', 'Current Account']),
-            format: (val: number) => `${(val / 1000).toFixed(1)}M USD`, // Assuming raw is M USD or similar, adjusting formatting is tricky without knowing scale
+            data: findIndicator(['TR_CURR_ACC', 'Cari İşlemler']),
+            format: (val: number) => `${val.toFixed(1)} Mrd USD`, // Data is in Billion USD
             color: 'text-purple-400',
-            desc: 'Aylık Cari Denge'
+            desc: 'Cari Denge',
+            frequency: 'Aylık'
         },
         {
             title: 'CDS Primi',
@@ -57,15 +61,17 @@ const MacroCockpit: React.FC<MacroCockpitProps> = ({ indicators }) => {
             data: findIndicator(['TR_CDS', 'CDS']),
             format: (val: number) => `${val.toFixed(0)}`,
             color: 'text-yellow-400',
-            desc: '5 Yıllık Kredi Risk Primi'
+            desc: 'Kredi Risk Primi',
+            frequency: 'Günlük'
         },
         {
             title: 'Merkez Bankası Rezervleri',
             icon: <DollarSign className="h-5 w-5 text-green-400" />,
-            data: findIndicator(['TR_RES_GOLD', 'Rezerv', 'Reserves']),
-            format: (val: number) => `${(val / 1000).toFixed(1)} Mrd USD`,
+            data: findIndicator(['TR_RES_GOLD', 'Brüt Rezervler']),
+            format: (val: number) => `${val.toFixed(1)} Mrd USD`, // Data is in Billion USD
             color: 'text-green-400',
-            desc: 'Brüt Rezervler'
+            desc: 'Brüt Rezervler',
+            frequency: 'Haftalık'
         }
     ]
 
@@ -83,29 +89,33 @@ const MacroCockpit: React.FC<MacroCockpitProps> = ({ indicators }) => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
                 {keyIndicators.map((item, index) => (
-                    <div key={index} className="bg-gray-750/50 p-4 rounded-lg border border-gray-700 group hover:border-gray-600 transition-all">
-                        <div className="flex items-center justify-between mb-3">
+                    <div key={index} className="bg-gray-750/50 p-4 rounded-lg border border-gray-700 group hover:border-gray-600 transition-all relative overflow-hidden">
+                        <div className="flex items-center justify-between mb-2">
                             <span className="text-gray-400 text-xs font-medium uppercase tracking-wider">{item.title}</span>
                             {item.icon}
                         </div>
 
                         {item.data ? (
                             <div>
-                                <div className={`text-2xl font-bold font-mono py-1 ${item.color}`}>
-                                    {item.format(item.data.current_value)}
+                                <div className="flex items-baseline justify-between">
+                                    <div className={`text-2xl font-bold font-mono py-1 ${item.color}`}>
+                                        {item.format(item.data.current_value)}
+                                    </div>
+                                    <div className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-gray-700 text-gray-300">
+                                        {item.frequency}
+                                    </div>
                                 </div>
 
                                 <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-700/50">
-                                    <span className="text-[10px] text-gray-500 truncate max-w-[80px]" title={item.desc}>{item.desc}</span>
+                                    <span className="text-[10px] text-gray-400 font-medium">
+                                        {new Date(item.data.period_date).toLocaleDateString('tr-TR', { month: 'long', year: 'numeric' })}
+                                    </span>
                                     {item.data.change_percent !== undefined && (
                                         <div className={`flex items-center text-xs font-medium ${item.data.change_percent > 0 ? 'text-green-400' : item.data.change_percent < 0 ? 'text-red-400' : 'text-gray-500'}`}>
                                             {item.data.change_percent > 0 ? <TrendingUp className="h-3 w-3 mr-1" /> : <TrendingDown className="h-3 w-3 mr-1" />}
                                             %{Math.abs(item.data.change_percent).toFixed(1)}
                                         </div>
                                     )}
-                                </div>
-                                <div className="text-[10px] text-gray-600 mt-1 text-right">
-                                    {new Date(item.data.period_date).toLocaleDateString('tr-TR', { month: 'short', year: '2-digit' })}
                                 </div>
                             </div>
                         ) : (

@@ -136,7 +136,13 @@ export class ScraperService {
         for (const target of targets) {
             try {
                 const response = await axios.get(target.url, {
-                    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                        'Accept-Language': 'en-US,en;q=0.9,tr;q=0.8',
+                        'Referer': 'https://www.google.com/',
+                        'Upgrade-Insecure-Requests': '1'
+                    }
                 });
                 const $ = cheerio.load(response.data);
                 let priceText = $(target.selector).first().text().trim();
@@ -169,7 +175,13 @@ export class ScraperService {
         for (const target of targets) {
             try {
                 const response = await axios.get(target.url, {
-                    headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36' }
+                    headers: {
+                        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
+                        'Accept-Language': 'en-US,en;q=0.9,tr;q=0.8',
+                        'Referer': 'https://www.google.com/',
+                        'Upgrade-Insecure-Requests': '1'
+                    }
                 });
                 const $ = cheerio.load(response.data);
 

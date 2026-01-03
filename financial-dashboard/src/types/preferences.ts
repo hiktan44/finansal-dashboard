@@ -31,6 +31,7 @@ export interface AudioPreferences {
   sectionMutes: {
     [key: string]: boolean
   }
+  activeVoiceId: string
 }
 
 // Tema ve Görsel Ayarlar
@@ -92,7 +93,8 @@ export const DEFAULT_PREFERENCES: UserPreferences = {
     globalMute: false,
     volume: 70,
     autoPlay: false,
-    sectionMutes: {}
+    sectionMutes: {},
+    activeVoiceId: 'analist_erkek'
   },
   visual: {
     theme: 'dark',

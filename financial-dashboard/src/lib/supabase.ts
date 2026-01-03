@@ -816,6 +816,20 @@ export interface DailyAnalysis {
     losers: Array<{ symbol: string, change: number, reason: string }>
   }
   market_forecast: string
+  next_week_outcome?: string
+  long_term_outcome?: {
+    "3_months": string
+    "6_months": string
+    "1_year": string
+  }
+  economic_calendar?: Array<{
+    date: string
+    time: string
+    event: string
+    importance: string
+    expectation: string
+    previous: string
+  }>
   sentiment_score: string
   volatility_index: string
   audio_file_path?: string
@@ -1024,7 +1038,7 @@ export async function triggerTurkeyEconomicsDataFetch(): Promise<void> {
   try {
     // Try to call local backend first
     try {
-      await fetch('http://localhost:3001/api/tcmb/fetch', { method: 'POST' })
+      await fetch('http://localhost:3001/api/turkey/init', { method: 'POST' })
       console.log('Local TCMB fetch triggered')
     } catch (e) {
       console.warn('Local TCMB fetch failed, falling back to edge function')

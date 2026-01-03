@@ -270,8 +270,8 @@ const FinancialDashboard = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
-      {/* Header */}
-      <header className="bg-gray-800/50 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-50">
+      {/* Header - Static (Not Fixed/Sticky) & High Z-Index */}
+      <header className="relative bg-gray-800/95 backdrop-blur-md border-b border-gray-700 z-[9999] shadow-lg">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
@@ -315,7 +315,10 @@ const FinancialDashboard = () => {
                   <span>Giriş Yap</span>
                 </button>
               )}
-              <GlobalAudioControl />
+              <GlobalAudioControl
+                summaryData={marketData?.summary}
+                allData={marketData}
+              />
               <div className="text-right">
                 <p className="text-gray-400 text-sm">Son Güncelleme</p>
                 <p className="text-white font-mono text-sm">{lastUpdate?.toLocaleTimeString('tr-TR') || '--:--'}</p>
@@ -333,7 +336,7 @@ const FinancialDashboard = () => {
                 className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <RefreshCw className={`h-4 w-4 ${syncing ? 'animate-spin' : ''}`} />
-                <span>{syncing ? 'Senkronize Ediliyor...' : 'Manuel Senkronizasyon'}</span>
+                <span>{syncing ? 'Senkronize...' : 'Manuel Senk.'}</span>
               </button>
               <button
                 onClick={refreshData}
@@ -341,7 +344,7 @@ const FinancialDashboard = () => {
                 className="bg-yellow-500 hover:bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50"
               >
                 <Activity className="h-4 w-4" />
-                <span>Verileri Yenile</span>
+                <span>Yenile</span>
               </button>
             </div>
           </div>

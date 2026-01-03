@@ -7,7 +7,7 @@ dotenv.config();
 
 const RSS_FEEDS = [
     { name: 'Bloomberg HT', url: 'https://www.bloomberght.com/rss' },
-    { name: 'TRT Haber Ekonomi', url: 'https://www.trthaber.com/xml_mobile.php?tur=xml_genel&kategori=ekonomi' },
+    { name: 'TRT Haber Ekonomi', url: 'https://www.trthaber.com/rss/ekonomi.rss' },
     { name: 'Dünya Gazetesi', url: 'https://www.dunya.com/rss' },
     { name: 'Investing.com TR', url: 'https://tr.investing.com/rss/news.rss' }, // Genel Finans
     { name: 'Investing TR Forex', url: 'https://tr.investing.com/rss/news_1.rss' }, // Forex
@@ -113,6 +113,15 @@ export class MarketAgent {
         "technical_analysis": "Technical levels, supports/resistances for BIST/USDTRY...",
         "sector_highlights": "Which sectors are moving and why?",
         "market_forecast": "Predictions for the next session...",
+        "next_week_outcome": "Detailed expectations for the upcoming week, focusing on key data releases and trend continuations...",
+        "long_term_outcome": {
+            "3_months": "Outlook for the next quarter...",
+            "6_months": "Mid-term trend analysis...",
+            "1_year": "Long-term structural expectations..."
+        },
+        "economic_calendar": [
+            { "date": "2025-10-15", "time": "10:00", "event": "TÜİK İşsizlik Oranı", "importance": "High", "expectation": "8.5%", "previous": "8.6%" }
+        ],
         "sentiment_score": "7.5", // 0-10 string
         "volatility_index": "High", // or number string
         "top_movers": {
@@ -249,6 +258,9 @@ export class MarketAgent {
                 technical_analysis: analysisResult.technical_analysis,
                 sector_highlights: analysisResult.sector_highlights,
                 market_forecast: analysisResult.market_forecast,
+                next_week_outcome: analysisResult.next_week_outcome, // New Field
+                long_term_outcome: analysisResult.long_term_outcome, // New Field
+                economic_calendar: analysisResult.economic_calendar, // New Field
                 sentiment_score: analysisResult.sentiment_score,
                 volatility_index: analysisResult.volatility_index,
                 top_movers: analysisResult.top_movers,

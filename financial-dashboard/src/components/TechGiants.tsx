@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { 
+import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell,
   LineChart, Line, AreaChart, Area, RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis
 } from 'recharts'
@@ -101,20 +101,20 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
           <ResponsiveContainer {...commonProps}>
             <LineChart>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
               <Tooltip content={<CustomTooltip />} />
-              <Line 
-                type="monotone" 
-                dataKey="value" 
-                stroke="#3B82F6" 
+              <Line
+                type="monotone"
+                dataKey="value"
+                stroke="#3B82F6"
                 strokeWidth={2}
                 dot={{ fill: '#3B82F6', r: 4 }}
                 activeDot={{ r: 6 }}
@@ -128,21 +128,21 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
           <ResponsiveContainer {...commonProps}>
             <AreaChart>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
               <Tooltip content={<CustomTooltip />} />
-              <Area 
-                type="monotone" 
-                dataKey="value" 
-                stroke="#8B5CF6" 
-                fill="#8B5CF6" 
+              <Area
+                type="monotone"
+                dataKey="value"
+                stroke="#8B5CF6"
+                fill="#8B5CF6"
                 fillOpacity={0.3}
               />
             </AreaChart>
@@ -155,12 +155,12 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
           <ResponsiveContainer {...commonProps}>
             <BarChart margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="name" 
+              <XAxis
+                dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
                 stroke="#4B5563"
               />
@@ -189,8 +189,8 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
           </div>
         </div>
         <div className="bg-gray-700/30 rounded-lg p-1">
-          <AudioPlayer 
-            audioSrc="/audio/tech_giants.mp3"
+          <AudioPlayer
+            text={`Teknoloji Devleri Özeti. ${data.companies.map(c => `${c.symbol} hissesi ${c.close} dolar seviyesinden kapanmış, günlük yüzde ${Math.abs(c.changePercent).toFixed(2)} ${c.changePercent >= 0 ? 'değer kazanmıştır' : 'değer kaybetmiştir'}. ${c.note || ''}`).join('. ')}`}
             label="Teknoloji Devleri Oynat"
           />
         </div>
@@ -199,11 +199,10 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
       {/* Company Performance Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
         {data.companies.map((company) => (
-          <div 
-            key={company.symbol} 
-            className={`rounded-lg p-4 border transition-all hover:scale-105 ${
-              getBgColor(company.changePercent)
-            }`}
+          <div
+            key={company.symbol}
+            className={`rounded-lg p-4 border transition-all hover:scale-105 ${getBgColor(company.changePercent)
+              }`}
           >
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-white font-bold">{company.symbol}</h3>
@@ -213,32 +212,30 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
                 <TrendingDown className="h-4 w-4 text-red-500" />
               )}
             </div>
-            
+
             <p className="text-gray-400 text-xs mb-2">{company.name}</p>
-            
+
             <div className="space-y-2">
               <p className="text-xl font-bold text-white">
                 ${company.close.toFixed(2)}
               </p>
-              
+
               <div className="flex items-center space-x-2">
-                <span className={`font-bold text-sm ${
-                  company.changePercent >= 0 ? 'text-green-500' : 'text-red-500'
-                }`}>
+                <span className={`font-bold text-sm ${company.changePercent >= 0 ? 'text-green-500' : 'text-red-500'
+                  }`}>
                   {company.changePercent >= 0 ? '+' : ''}{company.changePercent.toFixed(2)}%
                 </span>
               </div>
-              
+
               <div className="text-xs text-gray-400">
                 <div className="flex justify-between">
                   <span>Yüksek: ${company.dayHigh.toFixed(2)}</span>
                   <span>Düşük: ${company.dayLow.toFixed(2)}</span>
                 </div>
                 <div className="w-full bg-gray-600 rounded-full h-1 mt-1">
-                  <div 
-                    className={`h-1 rounded-full ${
-                      company.changePercent >= 0 ? 'bg-green-500' : 'bg-red-500'
-                    }`}
+                  <div
+                    className={`h-1 rounded-full ${company.changePercent >= 0 ? 'bg-green-500' : 'bg-red-500'
+                      }`}
                     style={{
                       width: `${Math.min(Math.abs(company.changePercent) * 10, 100)}%`,
                     }}
@@ -246,7 +243,7 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
                 </div>
               </div>
             </div>
-            
+
             {company.note && (
               <p className="text-xs text-yellow-400 mt-2 bg-yellow-500/10 rounded p-2">
                 {company.note}
@@ -297,7 +294,7 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
             />
           </div>
         </div>
-        
+
         <div className="overflow-x-auto">
           {renderChart()}
         </div>
@@ -308,25 +305,25 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
         <div className="bg-gray-700/20 rounded-lg p-3">
           <p className="text-gray-400 text-sm">En İyi Performans</p>
           <p className="text-green-500 font-bold">
-            {(data.companies || []).length > 0 ? data.companies.reduce((best, company) => 
+            {(data.companies || []).length > 0 ? data.companies.reduce((best, company) =>
               company.changePercent > best.changePercent ? company : best
-            ).symbol + ' ' : ''}{(data.companies || []).length > 0 ? '+' : ''}{(data.companies || []).length > 0 ? data.companies.reduce((best, company) => 
+            ).symbol + ' ' : ''}{(data.companies || []).length > 0 ? '+' : ''}{(data.companies || []).length > 0 ? data.companies.reduce((best, company) =>
               company.changePercent > best.changePercent ? company : best
             ).changePercent.toFixed(2) : '0.00'}%
           </p>
         </div>
-        
+
         <div className="bg-gray-700/20 rounded-lg p-3">
           <p className="text-gray-400 text-sm">En Kötü Performans</p>
           <p className="text-red-500 font-bold">
-            {(data.companies || []).length > 0 ? data.companies.reduce((worst, company) => 
+            {(data.companies || []).length > 0 ? data.companies.reduce((worst, company) =>
               company.changePercent < worst.changePercent ? company : worst
-            ).symbol : 'N/A'} {(data.companies || []).length > 0 ? data.companies.reduce((worst, company) => 
+            ).symbol : 'N/A'} {(data.companies || []).length > 0 ? data.companies.reduce((worst, company) =>
               company.changePercent < worst.changePercent ? company : worst
             ).changePercent.toFixed(2) : '0.00'}%
           </p>
         </div>
-        
+
         <div className="bg-gray-700/20 rounded-lg p-3">
           <p className="text-gray-400 text-sm">Ortalama Değişim Oranı</p>
           <p className="text-white font-bold">

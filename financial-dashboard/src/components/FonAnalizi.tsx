@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { TrendingUp, TrendingDown, Award, Target, BarChart3, Coins, Filter, X, Info } from 'lucide-react'
+import { TrendingUp, TrendingDown, Award, Target, BarChart3, Coins, Filter, X, Info, Search } from 'lucide-react'
 import AudioPlayer from './AudioPlayer'
 import staticFunds from '../data/tefas_funds_20251231.json'
 import ReactECharts from 'echarts-for-react'
@@ -30,6 +30,8 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
   const [selectedFilter, setSelectedFilter] = useState<string>('ALL')
   const [sortBy, setSortBy] = useState<string>('performance_1y')
   const [selectedFund, setSelectedFund] = useState<TefasFund | null>(null)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState<TefasFund[]>([])
 
   useEffect(() => {
     fetchTefasData()
@@ -52,7 +54,19 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
         throw new Error('Supabase yapılandırması (URL/Key) eksik. Lütfen sistem yöneticisine başvurun.')
       }
 
-      const response = await fetch(`${supabaseUrl}/rest/v1/tefas_funds?order=${sortBy}.desc`, {
+      // Map frontend sort keys to DB column names
+      const sortMap: Record<string, string> = {
+        'performance_1y': 'yearly_change_percent',
+        'performance_6m': 'performance_6m',
+        'performance_3m': 'performance_3m',
+        'risk_score': 'risk_score',
+        'expense_ratio': 'expense_ratio',
+        'volume': 'volume'
+      }
+
+      const dbSortColumn = sortMap[sortBy] || 'yearly_change_percent'
+
+      const response = await fetch(`${supabaseUrl}/rest/v1/tefas_funds?order=${dbSortColumn}.desc`, {
         headers: {
           'apikey': supabaseKey,
           'Authorization': `Bearer ${supabaseKey}`
@@ -65,11 +79,25 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
 
       const data = await response.json()
 
-      if (!data || data.length === 0) {
+      // Map DB columns to Frontend Interface
+      const mappedData = (data || []).map((dbFund: any) => ({
+        ...dbFund,
+        price: dbFund.current_price,
+        performance_1m: dbFund.monthly_change_percent,
+        performance_3m: dbFund.performance_3m,
+        performance_6m: dbFund.performance_6m,
+        performance_1y: dbFund.yearly_change_percent,
+        category: dbFund.category || 'Genel',
+        risk_score: dbFund.risk_score || 0,
+        volume: dbFund.volume || 0,
+        expense_ratio: dbFund.expense_ratio || 0
+      }));
+
+      if (!mappedData || mappedData.length === 0) {
         throw new Error('Mevcut veri bulunamadı.')
       }
 
-      setFunds(data)
+      setFunds(mappedData)
     } catch (err) {
       console.error('Real data fetch failed:', err)
       setError('Gerçek piyasa verileri şu anda alınamıyor. Lütfen daha sonra tekrar deneyiniz.')
@@ -89,6 +117,20 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
     if (sortBy === 'expense_ratio') return a.expense_ratio - b.expense_ratio
     return b[sortBy as keyof TefasFund] as number - (a[sortBy as keyof TefasFund] as number)
   })
+
+  // Search Logic
+  useEffect(() => {
+    if (searchQuery.trim().length >= 2) {
+      const query = searchQuery.toLowerCase().trim()
+      const results = funds.filter(fund =>
+        fund.fund_code.toLowerCase().includes(query) ||
+        fund.fund_name.toLowerCase().includes(query)
+      )
+      setSearchResults(results.slice(0, 8)) // Limit to 8 results for dropdown
+    } else {
+      setSearchResults([])
+    }
+  }, [searchQuery, funds])
 
   const getTopPerformers = (count: number = 5) => {
     return [...funds]
@@ -213,7 +255,7 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
           </div>
           <div className="bg-gray-700/30 rounded-lg p-1">
             <AudioPlayer
-              audioSrc="/audio/commodities.mp3"
+              text={`Tefas Fon Analizi Özeti. ${getTopPerformers(3).map(f => `${f.fund_code} kodlu ${f.fund_name}, yıllık yüzde ${f.performance_1y.toFixed(1)} getiri sağlamıştır.`).join('. ')}`}
               label="TEFAS Analizi Oynat"
             />
           </div>
@@ -224,6 +266,68 @@ const FonAnalizi: React.FC<FonAnaliziProps> = () => {
             <p className="text-red-500">{error}</p>
           </div>
         )}
+
+        {/* Search Bar */}
+        <div className="relative mb-6">
+          <div className="relative">
+            <input
+              type="text"
+              placeholder="Fon Ara (Ad veya Kod ile)..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full bg-gray-700/50 border border-gray-600/50 rounded-xl py-3 pl-12 pr-4 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 transition-all outline-none"
+            />
+            <Search className="absolute left-4 top-3.5 h-5 w-5 text-gray-400" />
+
+            {searchQuery && (
+              <button
+                onClick={() => { setSearchQuery(''); setSearchResults([]); }}
+                className="absolute right-4 top-3.5 text-gray-400 hover:text-white"
+              >
+                <X className="h-5 w-5" />
+              </button>
+            )}
+          </div>
+
+          {/* Autocomplete Dropdown */}
+          {searchResults.length > 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-gray-800 border border-gray-700 rounded-xl shadow-2xl z-50 max-h-80 overflow-y-auto divide-y divide-gray-700/50">
+              {searchResults.map(fund => (
+                <div
+                  key={fund.fund_code}
+                  onClick={() => {
+                    setSelectedFund(fund)
+                    setSearchQuery('')
+                    setSearchResults([])
+                  }}
+                  className="p-4 hover:bg-gray-700/50 cursor-pointer transition-colors flex items-center justify-between group"
+                >
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-bold text-white bg-gray-700 px-2 py-0.5 rounded text-sm group-hover:bg-gray-600 transition-colors">
+                        {fund.fund_code}
+                      </span>
+                      <span className="text-gray-400 text-xs">{fund.category}</span>
+                    </div>
+                    <div className="text-gray-300 text-sm">{fund.fund_name}</div>
+                  </div>
+                  <div className="text-right">
+                    <div className={`text-sm font-bold ${getPerformanceColor(fund.performance_1y)}`}>
+                      %{fund.performance_1y.toFixed(1)}
+                    </div>
+                    <div className="text-xs text-gray-500">Yıllık</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {searchQuery.length >= 2 && searchResults.length === 0 && (
+            <div className="absolute top-full left-0 right-0 mt-2 bg-gray-800 border border-gray-700 rounded-xl shadow-xl z-50 p-4 text-center text-gray-400">
+              Sonuç bulunamadı.
+            </div>
+          )}
+        </div>
 
         {/* Filtreler ve Sıralama */}
         <div className="flex flex-wrap gap-4">

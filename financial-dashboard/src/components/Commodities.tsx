@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { 
+import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   AreaChart, Area, BarChart, Bar, Cell
 } from 'recharts'
@@ -51,8 +51,8 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
   }
 
   const getBgColorClass = (changePercent: number) => {
-    return changePercent >= 0 
-      ? 'bg-green-500/10 border-green-500/30' 
+    return changePercent >= 0
+      ? 'bg-green-500/10 border-green-500/30'
       : 'bg-red-500/10 border-red-500/30'
   }
 
@@ -65,7 +65,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
     const points = 24
     const data = []
     const volatility = Math.abs(changePercent) * 0.3
-    
+
     for (let i = 0; i < points; i++) {
       const trend = (changePercent / 100) * (i / points)
       const noise = (Math.random() - 0.5) * volatility / 100
@@ -80,16 +80,16 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
   }
 
   const goldCommodity = data.commodities.find(c => c.symbol === 'GC=F' || c.symbol === 'GOLD')
-  console.log('Debug Commodities:', { 
-    availableSymbols: data.commodities.map(c => c.symbol), 
+  console.log('Debug Commodities:', {
+    availableSymbols: data.commodities.map(c => c.symbol),
     goldCommodity,
-    dataLength: data.commodities.length 
+    dataLength: data.commodities.length
   })
-  
-  const trendData = goldCommodity 
+
+  const trendData = goldCommodity
     ? generateTrendData(goldCommodity.price, goldCommodity.changePercent)
     : []
-  
+
   console.log('Debug Trend Data:', { trendDataLength: trendData.length, goldPrice: goldCommodity?.price })
 
   const CustomTooltip = ({ active, payload }: any) => {
@@ -111,12 +111,12 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
   }
 
   const renderTrendChart = () => {
-    console.log('Rendering trend chart with data:', { 
-      dataLength: trendData.length, 
+    console.log('Rendering trend chart with data:', {
+      dataLength: trendData.length,
       hasData: trendData.length > 0,
       sampleData: trendData.slice(0, 3)
     })
-    
+
     const commonProps = {
       width: '100%',
       height: 200 * zoomLevel,
@@ -129,22 +129,22 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
           <ResponsiveContainer {...commonProps}>
             <AreaChart>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="time" 
+              <XAxis
+                dataKey="time"
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
                 interval={3 as any}
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
                 domain={['dataMin - 10', 'dataMax + 10'] as any}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Area 
-                type="monotone" 
-                dataKey="price" 
-                stroke="#F59E0B" 
+              <Area
+                type="monotone"
+                dataKey="price"
+                stroke="#F59E0B"
                 fill="#F59E0B"
                 fillOpacity={0.3}
               />
@@ -157,13 +157,13 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
           <ResponsiveContainer {...commonProps}>
             <BarChart>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="time" 
+              <XAxis
+                dataKey="time"
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
                 interval={3 as any}
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
               />
@@ -179,22 +179,22 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
           <ResponsiveContainer {...commonProps}>
             <LineChart>
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
-              <XAxis 
-                dataKey="time" 
+              <XAxis
+                dataKey="time"
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
                 interval={3 as any}
               />
-              <YAxis 
+              <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
                 domain={['dataMin - 10', 'dataMax + 10'] as any}
               />
               <Tooltip content={<CustomTooltip />} />
-              <Line 
-                type="monotone" 
-                dataKey="price" 
-                stroke="#F59E0B" 
+              <Line
+                type="monotone"
+                dataKey="price"
+                stroke="#F59E0B"
                 strokeWidth={2}
                 dot={false}
                 activeDot={{ r: 4, fill: '#F59E0B' } as any}
@@ -218,8 +218,8 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
           </div>
         </div>
         <div className="bg-gray-700/30 rounded-lg p-1">
-          <AudioPlayer 
-            audioSrc="/audio/commodities.mp3"
+          <AudioPlayer
+            text={`Emtia Piyasaları Özeti. ${data.commodities.map(c => `${c.name} fiyatı ${c.price} dolar seviyesinde olup, yüzde ${Math.abs(c.changePercent).toFixed(1)} ${c.changePercent >= 0 ? 'yükseliş' : 'düşüş'} kaydetmiştir. ${c.note}`).join('. ')}`}
             label="Emtialar Oynat"
           />
         </div>
@@ -228,11 +228,10 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
       {/* Commodities Cards */}
       <div className="space-y-4 mb-6">
         {data.commodities.map((commodity) => (
-          <div 
-            key={commodity.symbol} 
-            className={`rounded-lg p-4 border transition-all hover:scale-[1.02] ${
-              getBgColorClass(commodity.changePercent)
-            }`}
+          <div
+            key={commodity.symbol}
+            className={`rounded-lg p-4 border transition-all hover:scale-[1.02] ${getBgColorClass(commodity.changePercent)
+              }`}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
@@ -244,7 +243,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
                   <p className="text-gray-400 text-sm">{commodity.symbol}</p>
                 </div>
               </div>
-              
+
               <div className="text-right">
                 <p className="text-2xl font-bold text-white">
                   {(commodity.price || 0).toLocaleString('tr-TR', { maximumFractionDigits: 2 })}
@@ -252,7 +251,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
                 <p className="text-gray-400 text-sm">{commodity.unit || 'USD'}</p>
               </div>
             </div>
-            
+
             <div className="flex items-center justify-between mt-3">
               <div className="flex items-center space-x-2">
                 {commodity.changePercent >= 0 ? (
@@ -263,13 +262,13 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
                 <span className={`font-bold ${getColorClass(commodity.changePercent)}`}>
                   {commodity.changePercent >= 0 ? '+' : ''}{commodity.changePercent.toFixed(1)}%
                 </span>
-                
+
                 {commodity.monthlyReturn && (
                   <span className="text-yellow-400 text-sm">
                     Aylık {commodity.monthlyReturn >= 0 ? '+' : ''}{commodity.monthlyReturn}%
                   </span>
                 )}
-                
+
                 {commodity.intradayHigh && (
                   <span className="text-blue-400 text-sm">
                     Günlük Yüksek: {(commodity.intradayHigh || 0).toLocaleString('tr-TR')}
@@ -277,7 +276,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
                 )}
               </div>
             </div>
-            
+
             <p className="text-gray-400 text-xs mt-3 bg-gray-700/30 rounded p-2">
               {commodity.note}
             </p>
@@ -327,7 +326,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
             />
           </div>
         </div>
-        
+
         <div className="overflow-x-auto">
           {renderTrendChart()}
         </div>
@@ -338,20 +337,20 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
         <div className="bg-gray-700/20 rounded-lg p-3">
           <p className="text-gray-400 text-sm">En İyi Performans</p>
           <p className="text-green-500 font-bold">
-            {(data.commodities || []).length > 0 ? data.commodities.reduce((best, commodity) => 
+            {(data.commodities || []).length > 0 ? data.commodities.reduce((best, commodity) =>
               commodity.changePercent > best.changePercent ? commodity : best
-            ).name + ' ' : ''}{(data.commodities || []).length > 0 ? '+' : ''}{(data.commodities || []).length > 0 ? data.commodities.reduce((best, commodity) => 
+            ).name + ' ' : ''}{(data.commodities || []).length > 0 ? '+' : ''}{(data.commodities || []).length > 0 ? data.commodities.reduce((best, commodity) =>
               commodity.changePercent > best.changePercent ? commodity : best
             ).changePercent.toFixed(1) : '0'}%
           </p>
         </div>
-        
+
         <div className="bg-gray-700/20 rounded-lg p-3">
           <p className="text-gray-400 text-sm">En Kötü Performans</p>
           <p className="text-red-500 font-bold">
-            {(data.commodities || []).length > 0 ? data.commodities.reduce((worst, commodity) => 
+            {(data.commodities || []).length > 0 ? data.commodities.reduce((worst, commodity) =>
               commodity.changePercent < worst.changePercent ? commodity : worst
-            ).name : 'N/A'} {(data.commodities || []).length > 0 ? data.commodities.reduce((worst, commodity) => 
+            ).name : 'N/A'} {(data.commodities || []).length > 0 ? data.commodities.reduce((worst, commodity) =>
               commodity.changePercent < worst.changePercent ? commodity : worst
             ).changePercent.toFixed(1) : '0.0'}%
           </p>

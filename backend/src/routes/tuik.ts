@@ -1,5 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { db } from '../utils/db.js';
+import { TuikScraperService } from '../services/TuikScraperService.js';
 
 export default async function tuikRoutes(fastify: FastifyInstance) {
   // TÜİK verisi çek (web scraping gerekebilir)
@@ -12,14 +13,13 @@ export default async function tuikRoutes(fastify: FastifyInstance) {
         return { error: 'table_code gerekli' };
       }
 
-      // TÜİK genelde POST ile HTML tablo döner
-      // Buraya scraping logic'i gelecek
-      const url = `https://data.tuik.gov.tr/Table/${table_code}`;
+      // Trigger manual update
+      await TuikScraperService.updateInflationData();
+      await TuikScraperService.updateUnemploymentData();
 
       return {
         success: true,
-        message: 'TÜİK scraping implementasyonu gerekli',
-        table_code
+        message: 'TÜİK verileri güncellendi (Inflation check)'
       };
     } catch (error) {
       fastify.log.error(error);

@@ -224,7 +224,7 @@ const MarketIndices: React.FC<MarketIndicesProps> = ({ data }) => {
         </div>
         <div className="flex items-center space-x-3">
           <AudioPlayer
-            audioSrc="/audio/stock_indices.mp3"
+            text={`Ana Endeksler Özeti. ${data.indices.map(idx => `${idx.name} endeksi, yüzde ${Math.abs(idx.changePercent).toFixed(2)} ${idx.changePercent >= 0 ? 'yükselişle' : 'düşüşle'} ${idx.close.toLocaleString('tr-TR', { maximumFractionDigits: 0 })} puan seviyesindedir. ${idx.note}`).join('. ')}`}
             label="Ana Endeksler Oynat"
           />
         </div>

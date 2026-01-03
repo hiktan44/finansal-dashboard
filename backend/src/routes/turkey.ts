@@ -688,15 +688,93 @@ export default async function turkeyRoutes(fastify: FastifyInstance) {
                     unit: 'Yüzde',
                     source: 'BDDK',
                     period_date: '2025-11-29'
+                },
+                // --- NEW INDICATORS FOR COMPARISON DASHBOARD & MACRO COCKPIT ---
+                {
+                    indicator_code: 'TR_CURR_ACC',
+                    indicator_name: 'Cari İşlemler Dengesi',
+                    indicator_category: 'Dış Ticaret',
+                    current_value: -1.8,
+                    previous_value: -2.1,
+                    change_percent: 14.2,
+                    unit: 'Milyar USD',
+                    source: 'TCMB',
+                    period_date: '2025-11-01'
+                },
+                {
+                    indicator_code: 'TR_CURR_ACC_GDP',
+                    indicator_name: 'Cari Denge / GSYH',
+                    indicator_category: 'Dış Ticaret',
+                    current_value: -1.8,
+                    previous_value: -2.5,
+                    change_percent: 28.0,
+                    unit: 'Yüzde',
+                    source: 'TCMB',
+                    period_date: '2025-09-30'
+                },
+                {
+                    indicator_code: 'TR_GOV_DEBT_GDP',
+                    indicator_name: 'Kamu Borcu / GSYH',
+                    indicator_category: 'Mali Göstergeler',
+                    current_value: 29.5,
+                    previous_value: 30.2,
+                    change_percent: -2.3,
+                    unit: 'Yüzde',
+                    source: 'Hazine',
+                    period_date: '2025-09-30'
+                },
+                {
+                    indicator_code: 'TR_BUDGET_GDP',
+                    indicator_name: 'Bütçe Dengesi / GSYH',
+                    indicator_category: 'Mali Göstergeler',
+                    current_value: -4.9,
+                    previous_value: -5.4,
+                    change_percent: 9.2,
+                    unit: 'Yüzde',
+                    source: 'Hazine',
+                    period_date: '2025-12-01'
+                },
+                {
+                    indicator_code: 'TR_RES_GOLD',
+                    indicator_name: 'Brüt Rezervler',
+                    indicator_category: 'Para Politikası',
+                    current_value: 152.5,
+                    previous_value: 148.2,
+                    change_percent: 2.9,
+                    unit: 'Milyar USD',
+                    source: 'TCMB',
+                    period_date: '2025-12-29'
+                },
+                {
+                    indicator_code: 'TR_STOCK_YTD',
+                    indicator_name: 'BIST 100 Getirisi (YTD)',
+                    indicator_category: 'Borsa',
+                    current_value: 42.5,
+                    previous_value: 38.0,
+                    change_percent: 1.2,
+                    unit: 'Yüzde',
+                    source: 'BIST',
+                    period_date: '2026-01-03'
+                },
+                {
+                    indicator_code: 'TR_CDS',
+                    indicator_name: '5 Yıllık CDS Primi',
+                    indicator_category: 'Risk Göstergeleri',
+                    current_value: 206.0,
+                    previous_value: 215.0,
+                    change_percent: -4.2,
+                    unit: 'Baz Puan',
+                    source: 'Bloomberg',
+                    period_date: '2026-01-02'
                 }
             ];
 
             // 1. Fetch real historical data from FRED for supported indicators
             const turkeyFredMapping: Record<string, string> = {
-                'CPALCY01TRM661N': 'TUFE', // CPI Annual Growth
+                // 'CPALCY01TRM661N': 'TUFE', // Disabled: FRED data is too old/nominal. Using curated source.
                 'LRUNTTTTTRQ156S': 'UNEMPLOYMENT_RATE', // Unemployment Rate
-                'TURPROINDMISMEI': 'IND_PRODUCTION', // Industrial Production
-                'TURGDPNADSMEI': 'GDP', // GDP
+                // 'TURPROINDMISMEI': 'IND_PRODUCTION', // Disabled
+                // 'TURGDPNADSMEI': 'GDP', // Disabled: Nominal GDP distorts growth view.
                 'INTDSRTRM193N': 'POLICY_RATE', // Policy Rate
                 'CCUSSP01TRM650N': 'US_EXCHANGE_RATE', // USD/TRY
                 'XTEXVA01TRM667S': 'EXPORTS_MONTHLY', // Exports
@@ -704,8 +782,8 @@ export default async function turkeyRoutes(fastify: FastifyInstance) {
                 'CSCICP03TRM665S': 'CONSUMER_CONFIDENCE', // Consumer Confidence
                 // Additional indicators based on research
                 'BSCURT02TRM460S': 'CAPACITY_UTILIZATION', // Capacity Utilization: Manufacturing
-                'TURBCAURNCOD': 'CURRENT_ACCOUNT', // Current Account Balance (Quarterly)
-                'SPASTT01TRM661N': 'BIST100_INDEX', // Share Prices: Total (Proxy for BIST 100 trend)
+                // 'TURBCAURNCOD': 'CURRENT_ACCOUNT', // Disabled
+                // 'SPASTT01TRM661N': 'BIST100_INDEX', // Disabled: Index rebased, not raw points.
             };
 
             const apiKey = process.env.FRED_API_KEY;
@@ -759,13 +837,23 @@ export default async function turkeyRoutes(fastify: FastifyInstance) {
                                 // Calculate Annual Change
                                 const chgPct = prevValYear !== 0 ? ((curVal - prevValYear) / prevValYear) * 100 : 0;
 
+                                // Decide what to show as "Current Value"
+                                // For Indices like CPI (TUFE), GDP, PPI (UFE), we want to show the Annual Growth Rate (Inflation/Growth)
+                                // For Rates like Unemployment, Policy Rate, CDS, we want to show the Value itself
+                                let displayValue = curVal;
+                                const percentageIndicators = ['TUFE', 'GDP', 'UFE', 'IND_PRODUCTION', 'MONEY_SUPPLY_M3'];
+
+                                if (percentageIndicators.includes(appCode)) {
+                                    displayValue = Number(chgPct.toFixed(2));
+                                }
+
                                 // Find metadata for this indicator to populate turkey_economics
                                 const indicatorMeta = indicators.find(i => i.indicator_code === appCode);
                                 if (indicatorMeta) {
                                     await db.upsertTurkeyEconomics({
                                         ...indicatorMeta,
-                                        current_value: curVal,
-                                        previous_value: prevValYear,
+                                        current_value: displayValue,
+                                        previous_value: percentageIndicators.includes(appCode) ? indicators.find(i => i.indicator_code === appCode)?.previous_value : prevValYear, // Keep previous value somehow consistent or just use what we have
                                         change_percent: Number(chgPct.toFixed(2)),
                                         period_date: latest.date,
                                         last_updated: new Date().toISOString()

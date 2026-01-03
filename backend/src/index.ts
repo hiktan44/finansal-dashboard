@@ -1,7 +1,9 @@
 
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
+import fastifyStatic from '@fastify/static';
 import env from '@fastify/env';
+import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import cron from 'node-cron';
@@ -19,10 +21,12 @@ import turkeyRoutes from './routes/turkey.js';
 import marketRoutes from './routes/market.js';
 import aiAnalystRoutes from './routes/ai-analyst.js';
 import analysisRoutes from './routes/analysis.js';
+import { TtsRoutes } from './routes/tts.js';
 
 // Services
 import { MarketAgent } from './services/MarketAgent.js';
 import { ScraperService } from './services/ScraperService.js';
+import { TuikScraperService } from './services/TuikScraperService.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -51,10 +55,17 @@ async function build() {
     dotenv: true
   });
 
+
   // Register CORS
   await fastify.register(cors, {
     origin: true,
     credentials: true
+  });
+
+  // Register Static Files (Audio Cache)
+  await fastify.register(fastifyStatic, {
+    root: path.join(__dirname, '../public'),
+    prefix: '/', // Serve directly from root/audio-cache/...
   });
 
   // Health check
@@ -64,6 +75,20 @@ async function build() {
       timestamp: new Date().toISOString(),
       uptime: process.uptime()
     };
+  });
+
+  // CRON JOBS
+  // TÜİK Inflation: 3rd of month at 10:05 AM
+  cron.schedule('5 10 3 * *', async () => {
+    console.log('⏰ Cron: Starting TUIK Inflation Update...');
+    await TuikScraperService.updateInflationData();
+  });
+
+  // Daily check at 10:30 AM (backup for other data)
+  cron.schedule('30 10 * * *', async () => {
+    console.log('⏰ Cron: Daily TUIK Check...');
+    // Future: TuikScraperService.checkOtherIndicators();
+    await TuikScraperService.updateInflationData(); // Robustness: Check daily too in case of delays
   });
 
   // API routes
@@ -79,6 +104,7 @@ async function build() {
   await fastify.register(marketRoutes, { prefix: '/api/market' });
   await fastify.register(aiAnalystRoutes, { prefix: '/api/agent' });
   await fastify.register(analysisRoutes, { prefix: '/api/analysis' });
+  await fastify.register(TtsRoutes);
 
   // Global Sync Route
   fastify.post('/api/sync-all', async (request, reply) => {

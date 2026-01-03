@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import { fetchTurkeyEconomicIndicators, TurkeyEconomicIndicator } from '../lib/supabase'
+import { Activity, Globe2, TrendingUp, TrendingDown, Minus, ChevronDown, RefreshCw, BarChart3, AlertCircle, Calendar, DollarSign, Percent } from 'lucide-react'
 import ReactECharts from 'echarts-for-react'
-import { TrendingUp, TrendingDown, BarChart3, RefreshCw, Activity, Flag, Globe2, ChevronDown } from 'lucide-react'
 import VoiceControl from './VoiceControl'
 
 // Top 20 Economies (Turkey is Base, US is added to list)
@@ -37,7 +38,7 @@ interface ComparisonData {
   target_change: number
   base_date: string
   target_date: string
-  category: 'monetary' | 'economic' | 'market'
+  category: 'monetary' | 'economic' | 'market' | 'fiscal'
 }
 
 interface ComparisonDataset {
@@ -57,106 +58,200 @@ const ComparisonDashboard = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [refreshing, setRefreshing] = useState(false)
   const [selectedCountryCode, setSelectedCountryCode] = useState<string>('US')
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const getMockCountryData = (countryCode: string): ComparisonData[] => {
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [])
+
+  const findIndicatorValue = (indicators: TurkeyEconomicIndicator[], patterns: string[], defaultValue: number): { value: number, change: number, date: string } => {
+    const indicator = indicators.find(ind =>
+      patterns.some(p =>
+        (ind.indicator_code && ind.indicator_code.includes(p)) ||
+        (ind.indicator_name && ind.indicator_name.toLowerCase().includes(p.toLowerCase()))
+      )
+    )
+
+    if (indicator) {
+      return {
+        value: indicator.current_value,
+        change: indicator.change_percent || 0,
+        date: indicator.period_date
+      }
+    }
+    return { value: defaultValue, change: 0, date: new Date().toISOString() }
+  }
+
+
+  const getMockCountryData = (countryCode: string, trValues: any): ComparisonData[] => {
     // Seed-like generation
     const seed = countryCode.charCodeAt(0) + countryCode.charCodeAt(1)
     const variance = (n: number) => n + (seed % 5 - 2) * 0.1
     const randomChange = () => (Math.random() * 2 - 1)
 
-    // Base Values = Turkey
-    const trValues = {
-      interest: 45.0,
-      inflation: 48.6,
-      unemployment: 8.7,
-      gdp: 3.2,
-      stock: 35.4
-    }
-
     // Target Values
     let targetValues
     if (countryCode === 'US') {
       targetValues = {
-        interest: 4.5,
-        inflation: 2.4,
-        unemployment: 4.3,
-        gdp: 2.8,
-        stock: 18.5
+        interest: 4.25,
+        inflation: 2.3,
+        unemployment: 4.1,
+        gdp: 2.6,
+        stock: 14.2,
+        debt_gdp: 124.0,
+        current_account: -2.9,
+        budget_balance: -6.1
+      }
+    } else if (countryCode === 'DE') { // Germany
+      targetValues = {
+        interest: 3.5,
+        inflation: 2.1,
+        unemployment: 5.7,
+        gdp: 0.9,
+        stock: 11.5,
+        debt_gdp: 64.0,
+        current_account: 6.2,
+        budget_balance: -1.8
+      }
+    } else if (countryCode === 'CN') { // China
+      targetValues = {
+        interest: 3.45,
+        inflation: 0.8,
+        unemployment: 5.2,
+        gdp: 4.8,
+        stock: -5.4,
+        debt_gdp: 83.0,
+        current_account: 1.4,
+        budget_balance: -3.8
       }
     } else {
+      // Procedural generation for others
       targetValues = {
         interest: Math.max(0.1, variance(4.5)),
         inflation: Math.max(0.5, variance(3.0)),
         unemployment: Math.max(2.0, variance(5.5)),
         gdp: variance(2.0),
-        stock: variance(10.0) * 1.5
+        stock: variance(10.0) * 1.5,
+        debt_gdp: variance(60.0),
+        current_account: variance(0),
+        budget_balance: variance(-3.0)
       }
     }
 
     return [
       {
         indicator: 'Interest Rate',
-        indicator_tr: 'Faiz Oranı',
-        base_value: trValues.interest,
+        indicator_tr: 'Politika Faizi',
+        base_value: trValues.interest.value,
         target_value: targetValues.interest,
         base_unit: '%',
         target_unit: '%',
-        base_change: 0.0,
+        base_change: trValues.interest.change,
         target_change: countryCode === 'US' ? 0.0 : randomChange(),
-        base_date: '2025-11-01',
-        target_date: '2025-11-01',
+        base_date: trValues.interest.date,
+        target_date: '2026-01-20',
         category: 'monetary'
       },
       {
         indicator: 'Inflation Rate',
-        indicator_tr: 'Enflasyon Oranı',
-        base_value: trValues.inflation,
+        indicator_tr: 'Enflasyon (TÜFE)',
+        base_value: trValues.inflation.value,
         target_value: targetValues.inflation,
         base_unit: '% (YoY)',
         target_unit: '% (YoY)',
-        base_change: -2.6,
-        target_change: countryCode === 'US' ? -0.2 : randomChange(),
-        base_date: '2025-11-01',
-        target_date: '2025-11-01',
-        category: 'economic'
+        base_change: trValues.inflation.change,
+        target_change: countryCode === 'US' ? -0.1 : randomChange(),
+        base_date: trValues.inflation.date,
+        target_date: '2025-12-10',
+        category: 'monetary'
       },
       {
         indicator: 'Unemployment Rate',
         indicator_tr: 'İşsizlik Oranı',
-        base_value: trValues.unemployment,
+        base_value: trValues.unemployment.value,
         target_value: targetValues.unemployment,
         base_unit: '%',
         target_unit: '%',
-        base_change: -0.1,
+        base_change: trValues.unemployment.change,
         target_change: countryCode === 'US' ? 0.1 : randomChange(),
-        base_date: '2025-10-15',
-        target_date: '2025-10-01',
+        base_date: trValues.unemployment.date,
+        target_date: '2025-11-01',
         category: 'economic'
       },
       {
         indicator: 'GDP Growth',
         indicator_tr: 'GSYİH Büyümesi',
-        base_value: trValues.gdp,
+        base_value: trValues.gdp.value,
         target_value: targetValues.gdp,
         base_unit: '% (YoY)',
         target_unit: '% (YoY)',
-        base_change: 0.1,
-        target_change: countryCode === 'US' ? 0.3 : randomChange(),
-        base_date: '2025-Q3',
+        base_change: trValues.gdp.change,
+        target_change: countryCode === 'US' ? 0.1 : randomChange(),
+        base_date: trValues.gdp.date,
         target_date: '2025-Q3',
+        category: 'economic'
+      },
+      {
+        indicator: 'Public Debt/GDP',
+        indicator_tr: 'Kamu Borcu / GSYH',
+        base_value: trValues.debt_gdp.value,
+        target_value: targetValues.debt_gdp,
+        base_unit: '%',
+        target_unit: '%',
+        base_change: trValues.debt_gdp.change,
+        target_change: randomChange() * 0.1,
+        base_date: trValues.debt_gdp.date,
+        target_date: '2025-Q3',
+        category: 'fiscal'
+      },
+      {
+        indicator: 'Budget Balance/GDP',
+        indicator_tr: 'Bütçe Dengesi / GSYH',
+        base_value: trValues.budget_balance.value,
+        target_value: targetValues.budget_balance,
+        base_unit: '%',
+        target_unit: '%',
+        base_change: trValues.budget_balance.change,
+        target_change: randomChange() * 0.2,
+        base_date: trValues.budget_balance.date,
+        target_date: '2025-12',
+        category: 'fiscal'
+      },
+      {
+        indicator: 'Current Account/GDP',
+        indicator_tr: 'Cari Denge / GSYH',
+        base_value: trValues.current_account.value,
+        target_value: targetValues.current_account,
+        base_unit: '%',
+        target_unit: '%',
+        base_change: trValues.current_account.change,
+        target_change: randomChange() * 0.1,
+        base_date: trValues.current_account.date,
+        target_date: '2025-11',
         category: 'economic'
       },
       {
         indicator: 'Stock Market (YTD)',
         indicator_tr: 'Borsa Getirisi (YTD)',
-        base_value: trValues.stock,
+        base_value: trValues.stock.value,
         target_value: targetValues.stock,
         base_unit: '%',
         target_unit: '%',
-        base_change: 0.5,
-        target_change: countryCode === 'US' ? 1.2 : randomChange(),
-        base_date: '2025-12-31',
-        target_date: '2025-12-31',
+        base_change: trValues.stock.change,
+        target_change: countryCode === 'US' ? 0.5 : randomChange(),
+        base_date: trValues.stock.date,
+        target_date: '2026-01-03',
         category: 'market'
       }
     ]
@@ -167,14 +262,28 @@ const ComparisonDashboard = () => {
       setError(null)
       setRefreshing(true)
 
-      const comparisons = getMockCountryData(selectedCountryCode)
+      // Fetch Real Turkey Data
+      const trIndicators = await fetchTurkeyEconomicIndicators()
+
+      const trValues = {
+        interest: findIndicatorValue(trIndicators, ['Interest', 'Faiz', 'Repo'], 45.0),
+        inflation: findIndicatorValue(trIndicators, ['TUFE', 'Enflasyon', 'Tüketici'], 47.1),
+        unemployment: findIndicatorValue(trIndicators, ['Unemployment', 'İşsizlik'], 8.6),
+        gdp: findIndicatorValue(trIndicators, ['GDP', 'GSYİH', 'Büyüme'], 4.5),
+        stock: findIndicatorValue(trIndicators, ['TR_STOCK_YTD', 'Borsa Getirisi'], 42.5),
+        debt_gdp: findIndicatorValue(trIndicators, ['TR_GOV_DEBT_GDP', 'Kamu Borcu / GSYH'], 29.5),
+        current_account: findIndicatorValue(trIndicators, ['TR_CURR_ACC_GDP', 'Cari Denge / GSYH'], -1.8),
+        budget_balance: findIndicatorValue(trIndicators, ['TR_BUDGET_GDP', 'Bütçe Dengesi / GSYH'], -4.9)
+      }
+
+      const comparisons = getMockCountryData(selectedCountryCode, trValues)
 
       const dataset: ComparisonDataset = {
         collection_date: new Date().toISOString(),
         comparisons: comparisons,
         summary: {
           total_indicators: comparisons.length,
-          categories: ['monetary', 'economic', 'market'],
+          categories: ['monetary', 'economic', 'market', 'fiscal'],
           last_updated: new Date().toISOString()
         }
       }
@@ -304,40 +413,48 @@ const ComparisonDashboard = () => {
 
         <div className="flex items-center gap-4">
           {/* Country Selector */}
-          <div className="relative group">
-            <div className="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg cursor-pointer transition-colors border border-gray-600">
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              className="flex items-center gap-2 bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg cursor-pointer transition-colors border border-gray-600 outline-none focus:ring-2 focus:ring-blue-500/50"
+            >
               <span className="text-xl">{getSelectedCountryFlag()}</span>
               <span className="font-medium">{getSelectedCountryName()}</span>
-              <ChevronDown className="h-4 w-4 text-gray-400" />
-            </div>
+              <ChevronDown className={`h - 4 w - 4 text - gray - 400 transition - transform ${isDropdownOpen ? 'rotate-180' : ''} `} />
+            </button>
 
-            <div className="absolute right-0 top-full mt-2 w-64 max-h-80 overflow-y-auto bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 hidden group-hover:block">
-              <div className="p-2 space-y-1">
-                {COUNTRIES.map(country => (
-                  <button
-                    key={country.code}
-                    onClick={() => setSelectedCountryCode(country.code)}
-                    className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-left transition-colors ${selectedCountryCode === country.code
+            {isDropdownOpen && (
+              <div className="absolute right-0 top-full mt-2 w-64 max-h-80 overflow-y-auto bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50">
+                <div className="p-2 space-y-1">
+                  {COUNTRIES.map(country => (
+                    <button
+                      key={country.code}
+                      onClick={() => {
+                        setSelectedCountryCode(country.code)
+                        setIsDropdownOpen(false)
+                      }}
+                      className={`w - full flex items - center gap - 3 px - 3 py - 2 rounded - md text - left transition - colors ${selectedCountryCode === country.code
                         ? 'bg-blue-600/20 text-blue-400'
                         : 'text-gray-300 hover:bg-gray-700'
-                      }`}
-                  >
-                    <span className="text-lg">{country.flag}</span>
-                    <span>{country.name}</span>
-                    {selectedCountryCode === country.code && (
-                      <div className="ml-auto w-2 h-2 rounded-full bg-blue-400"></div>
-                    )}
-                  </button>
-                ))}
+                        } `}
+                    >
+                      <span className="text-lg">{country.flag}</span>
+                      <span>{country.name}</span>
+                      {selectedCountryCode === country.code && (
+                        <div className="ml-auto w-2 h-2 rounded-full bg-blue-400"></div>
+                      )}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           <VoiceControl />
 
           <button
             onClick={handleRefresh}
-            className={`p-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors ${refreshing ? 'animate-spin' : ''}`}
+            className={`p - 2 rounded - lg bg - gray - 700 hover: bg - gray - 600 transition - colors ${refreshing ? 'animate-spin' : ''} `}
             title="Verileri Yenile"
           >
             <RefreshCw className="h-5 w-5 text-gray-300" />
@@ -359,11 +476,12 @@ const ComparisonDashboard = () => {
                 <div key={index} className="bg-gray-700/30 p-3 rounded-lg border border-gray-600/50 hover:bg-gray-700/50 transition-colors">
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-gray-300 font-medium">{item.indicator_tr}</span>
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${item.category === 'monetary' ? 'bg-purple-900/50 text-purple-300' :
-                        item.category === 'market' ? 'bg-green-900/50 text-green-300' :
+                    <span className={`text - xs px - 2 py - 0.5 rounded - full ${item.category === 'monetary' ? 'bg-purple-900/50 text-purple-300' :
+                      item.category === 'market' ? 'bg-green-900/50 text-green-300' :
+                        item.category === 'fiscal' ? 'bg-orange-900/50 text-orange-300' :
                           'bg-blue-900/50 text-blue-300'
-                      }`}>
-                      {item.category === 'monetary' ? 'Parasal' : item.category === 'market' ? 'Piyasa' : 'Ekonomi'}
+                      } `}>
+                      {item.category === 'monetary' ? 'Parasal' : item.category === 'market' ? 'Piyasa' : item.category === 'fiscal' ? 'Mali' : 'Ekonomi'}
                     </span>
                   </div>
 
@@ -375,7 +493,7 @@ const ComparisonDashboard = () => {
                       <div className="text-lg font-bold text-white">
                         {item.base_value}{item.base_unit.replace('%', '')}<span className="text-xs text-gray-400">%</span>
                       </div>
-                      <div className={`text-xs flex items-center ${item.base_change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                      <div className={`text - xs flex items - center ${item.base_change >= 0 ? 'text-green-400' : 'text-red-400'} `}>
                         {item.base_change >= 0 ? <TrendingUp className="h-3 w-3 mr-1" /> : <TrendingDown className="h-3 w-3 mr-1" />}
                         {Math.abs(item.base_change)}%
                       </div>
@@ -388,7 +506,7 @@ const ComparisonDashboard = () => {
                       <div className="text-lg font-bold text-white">
                         {item.target_value.toFixed(2)}{item.target_unit.replace('%', '')}<span className="text-xs text-gray-400">%</span>
                       </div>
-                      <div className={`text-xs flex items-center justify-end ${item.target_change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                      <div className={`text - xs flex items - center justify - end ${item.target_change >= 0 ? 'text-green-400' : 'text-red-400'} `}>
                         {item.target_change >= 0 ? <TrendingUp className="h-3 w-3 mr-1" /> : <TrendingDown className="h-3 w-3 mr-1" />}
                         {Math.abs(item.target_change).toFixed(2)}%
                       </div>
@@ -411,16 +529,19 @@ const ComparisonDashboard = () => {
               </h3>
               {/* Category Filter Buttons */}
               <div className="flex gap-2 text-xs">
-                {['all', 'economic', 'monetary', 'market'].map(cat => (
+                {['all', 'economic', 'monetary', 'fiscal', 'market'].map(cat => (
                   <button
                     key={cat}
                     onClick={() => setSelectedCategory(cat)}
-                    className={`px-3 py-1.5 rounded-lg transition-colors capitalize ${selectedCategory === cat
-                        ? 'bg-blue-600 text-white'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
-                      }`}
+                    className={`px - 3 py - 1.5 rounded - lg transition - colors capitalize ${selectedCategory === cat
+                      ? 'bg-blue-600 text-white'
+                      : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                      } `}
                   >
-                    {cat === 'all' ? 'Tümü' : cat === 'economic' ? 'Ekonomi' : cat === 'monetary' ? 'Parasal' : 'Piyasa'}
+                    {cat === 'all' ? 'Tümü' :
+                      cat === 'economic' ? 'Ekonomi' :
+                        cat === 'monetary' ? 'Parasal' :
+                          cat === 'fiscal' ? 'Mali' : 'Piyasa'}
                   </button>
                 ))}
               </div>

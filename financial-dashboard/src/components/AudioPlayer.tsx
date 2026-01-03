@@ -1,13 +1,16 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { Volume2, Play, Pause, VolumeX } from 'lucide-react'
+import { usePreferencesContext } from '../context/UserPreferencesContext'
 
 interface AudioPlayerProps {
-  audioSrc: string
+  audioSrc?: string
+  text?: string
   label: string
   className?: string
 }
 
-const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = '' }) => {
+const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, text, label, className = '' }) => {
+  const { preferences } = usePreferencesContext()
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
@@ -15,6 +18,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
   const [volume, setVolume] = useState(0.7)
   const [isLoading, setIsLoading] = useState(false)
   const audioRef = useRef<HTMLAudioElement>(null)
+  const [generatedAudioUrl, setGeneratedAudioUrl] = useState<string | null>(null)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -44,6 +48,15 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
     }
   }, [])
 
+  // Cleanup generated URL on unmount
+  useEffect(() => {
+    return () => {
+      if (generatedAudioUrl) {
+        URL.revokeObjectURL(generatedAudioUrl)
+      }
+    }
+  }, [generatedAudioUrl])
+
   const togglePlay = async () => {
     const audio = audioRef.current
     if (!audio) return
@@ -54,6 +67,41 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
         setIsPlaying(false)
       } else {
         setIsLoading(true)
+
+        // If we have text and no generated URL yet (or voice changed? - simpler to just regenerate if text provided)
+        // Optimally we should check if text/voice changed. But for now let's just generate if text is present.
+        // Actually, if we already generated it, we can reuse it unless voice changed.
+        // But implementing voice change detection is extra state.
+        // Let's regenerate to be safe and ensure correct voice.
+
+        if (text) {
+          const activeVoice = preferences?.audio?.activeVoiceId || 'analist_erkek'
+          console.log('Generating audio for:', activeVoice)
+
+          const response = await fetch('http://localhost:3001/api/tts/generate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              text: text,
+              voice: activeVoice
+            })
+          })
+
+          if (!response.ok) throw new Error('TTS Failed')
+
+          const blob = await response.blob()
+          const url = URL.createObjectURL(blob)
+
+          // Revoke old url
+          if (generatedAudioUrl) URL.revokeObjectURL(generatedAudioUrl)
+          setGeneratedAudioUrl(url)
+
+          audio.src = url
+          // Wait for load? audio.play() usually handles it.
+        }
+
+        // If no text, we assume src is already set via props or previous generation
+
         await audio.play()
         setIsPlaying(true)
         setIsLoading(false)
@@ -61,13 +109,21 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
     } catch (error) {
       console.error('Ses oynatma hatası:', error)
       setIsLoading(false)
+      // Fallback to browser TTS if desired?
+      if (text && window.speechSynthesis) {
+        // Simple fallback
+        const utterance = new SpeechSynthesisUtterance(text)
+        utterance.lang = 'tr-TR'
+        window.speechSynthesis.speak(utterance)
+        // We can't easily sync state with window.speechSynthesis without more logic
+      }
     }
   }
 
   const toggleMute = () => {
     const audio = audioRef.current
     if (!audio) return
-    
+
     audio.muted = !isMuted
     setIsMuted(!isMuted)
   }
@@ -105,20 +161,20 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
 
   return (
     <div className={`audio-player bg-gray-700/30 backdrop-blur-sm rounded-lg p-3 border border-gray-600 ${className}`}>
-      <audio 
+      <audio
         ref={audioRef}
-        src={audioSrc}
+        src={generatedAudioUrl || audioSrc}
         preload="metadata"
         muted={isMuted}
       />
-      
+
       {/* Header */}
       <div className="flex items-center justify-between mb-2">
         <div className="flex items-center space-x-2">
           <Volume2 className="h-4 w-4 text-yellow-500" />
           <span className="text-white text-sm font-medium">{label}</span>
         </div>
-        
+
         <div className="flex items-center space-x-1">
           <button
             onClick={toggleMute}
@@ -130,7 +186,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
               <Volume2 className="h-3 w-3 text-yellow-500" />
             )}
           </button>
-          
+
           <input
             type="range"
             min="0"
@@ -148,13 +204,12 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
         <button
           onClick={togglePlay}
           disabled={isLoading}
-          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all ${
-            isLoading 
-              ? 'bg-gray-600 cursor-not-allowed' 
-              : isPlaying 
-                ? 'bg-yellow-500 hover:bg-yellow-400 text-gray-900' 
+          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all ${isLoading
+              ? 'bg-gray-600 cursor-not-allowed'
+              : isPlaying
+                ? 'bg-yellow-500 hover:bg-yellow-400 text-gray-900'
                 : 'bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-500'
-          }`}
+            }`}
         >
           {isLoading ? (
             <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-400 border-t-transparent" />
@@ -180,7 +235,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ audioSrc, label, className = 
               }}
             />
           </div>
-          
+
           {/* Time Display */}
           <div className="flex justify-between text-xs text-gray-400 mt-1">
             <span>{formatTime(currentTime)}</span>

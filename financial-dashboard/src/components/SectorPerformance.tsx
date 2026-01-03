@@ -64,8 +64,8 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
           </div>
         </div>
         <div className="bg-gray-700/30 rounded-lg p-1">
-          <AudioPlayer 
-            audioSrc="/audio/sector_rotation.mp3"
+          <AudioPlayer
+            text={`Sektör Performansı Özeti. En iyi performansı ${sortedData[0]?.name} sektörü, yüzde ${sortedData[0]?.return.toFixed(1)} getiri ile gösterdi. En düşük performansı ise ${sortedData[sortedData.length - 1]?.name} sektörü, yüzde ${sortedData[sortedData.length - 1]?.return.toFixed(1)} getiri ile sergiledi. ${sortedData.filter(s => s.return > 0).length} sektör pozitif ayrıştı.`}
             label="Sektör Performansı Oynat"
           />
         </div>
@@ -91,7 +91,7 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
                   <Cell key={`cell-${index}`} fill={getReturnColor(entry.return)} />
                 ))}
               </Pie>
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: '#1F2937',
                   border: '1px solid #374151',
@@ -111,19 +111,19 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={sortedData} layout="horizontal">
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-              <XAxis 
+              <XAxis
                 type="number"
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
               />
-              <YAxis 
+              <YAxis
                 type="category"
                 dataKey="name"
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
                 width={60}
               />
-              <Tooltip 
+              <Tooltip
                 contentStyle={{
                   backgroundColor: '#1F2937',
                   border: '1px solid #374151',
@@ -147,21 +147,20 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
         <h3 className="text-white font-semibold mb-4">Sektör Detayları</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {data.sectors.slice(0, 6).map((sector) => (
-            <div 
-              key={sector.symbol} 
+            <div
+              key={sector.symbol}
               className="bg-gray-700/20 rounded-lg p-4 border border-gray-600 hover:border-gray-500 transition-colors"
             >
               <div className="flex items-center justify-between mb-2">
                 <h4 className="text-white font-medium">{sector.name}</h4>
                 <span className="text-gray-400 text-sm">{sector.symbol}</span>
               </div>
-              
+
               <div className="grid grid-cols-2 gap-2 text-sm">
                 <div>
                   <p className="text-gray-400">Yıl Başından Bu Yana Getiri</p>
-                  <p className={`font-bold ${
-                    sector.ytdReturn >= 0 ? 'text-green-500' : 'text-red-500'
-                  }`}>
+                  <p className={`font-bold ${sector.ytdReturn >= 0 ? 'text-green-500' : 'text-red-500'
+                    }`}>
                     {sector.ytdReturn >= 0 ? '+' : ''}{sector.ytdReturn.toFixed(1)}%
                   </p>
                 </div>
@@ -178,7 +177,7 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
                   <p className="text-purple-400 font-bold">{sector.expectedGrowth.toFixed(1)}%</p>
                 </div>
               </div>
-              
+
               <p className="text-xs text-gray-400 mt-3 bg-gray-800/50 rounded p-2">
                 {sector.note}
               </p>
@@ -195,21 +194,21 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
             {sortedData[0].name} +{sortedData[0].return.toFixed(1)}%
           </p>
         </div>
-        
+
         <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3">
           <p className="text-red-400 text-sm">En Kötü Performans</p>
           <p className="text-white font-bold">
             {sortedData[sortedData.length - 1].name} {sortedData[sortedData.length - 1].return.toFixed(1)}%
           </p>
         </div>
-        
+
         <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-3">
           <p className="text-blue-400 text-sm">Ortalama Getiri</p>
           <p className="text-white font-bold">
             +{((sortedData || []).length > 0 ? (sortedData || []).reduce((sum, sector) => sum + sector.return, 0) / (sortedData || []).length : 0).toFixed(1)}%
           </p>
         </div>
-        
+
         <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-3">
           <p className="text-purple-400 text-sm">Yükselen Sektörler</p>
           <p className="text-white font-bold">
