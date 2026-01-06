@@ -1,10 +1,11 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.SUPABASE_URL!;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+const supabaseUrl = process.env.SUPABASE_URL || '';
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 
 if (!supabaseUrl || !supabaseKey) {
-  throw new Error('SUPABASE_URL ve SUPABASE_SERVICE_ROLE_KEY environment variables gerekli');
+  console.error('❌ KRİTİK HATA: SUPABASE_URL veya SUPABASE_SERVICE_ROLE_KEY environment variable\'ları eksik!');
+  console.error('Lütfen Coolify veya Docker Dashboard üzerinden bu değişkenleri tanımlayın.');
 }
 
 export const supabase = createClient(supabaseUrl, supabaseKey, {
