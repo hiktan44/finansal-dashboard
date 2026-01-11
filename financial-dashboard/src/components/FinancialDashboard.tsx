@@ -16,7 +16,7 @@ import GunlukAnaliz from './GunlukAnaliz'
 import SectorHeatmap from './SectorHeatmap'
 import ScenarioSimulator from './ScenarioSimulator'
 import CorrelationMatrix from './CorrelationMatrix'
-import Footer from './Footer'
+import WhatsAppWidget from './WhatsAppWidget'
 import { Activity, TrendingUp, BarChart3, Coins, RefreshCw, WifiOff, Settings, LogIn, LogOut, User, Bell, Globe, MapPin, GitCompare, PieChart, Calendar } from 'lucide-react'
 import { fetchLatestMarketData, triggerDataSync, getCachedData, setCachedData } from '../lib/supabase'
 import { usePreferencesContext } from '../context/UserPreferencesContext'
@@ -272,79 +272,91 @@ const FinancialDashboard = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       {/* Header - Static (Not Fixed/Sticky) & High Z-Index */}
       <header className="relative bg-gray-800/95 backdrop-blur-md border-b border-gray-700 z-[9999] shadow-lg">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 p-2 rounded-lg">
+        <div className="container mx-auto px-4 md:px-6 py-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            <div className="flex items-center space-x-3 w-full md:w-auto justify-center md:justify-start">
+              <div className="bg-gradient-to-r from-yellow-500 to-orange-500 p-2 rounded-lg shrink-0">
                 <Activity className="h-6 w-6 text-white" />
               </div>
-              <div>
-                <h1 className="text-2xl font-bold text-white">Finansal Piyasalar Panosu</h1>
-                <p className="text-gray-400 text-sm">
+              <div className="text-center md:text-left">
+                <h1 className="text-xl md:text-2xl font-bold text-white">Finansal Piyasalar</h1>
+                <p className="text-gray-400 text-xs md:text-sm">
                   {isOnline ? 'Canlı Veriler' : 'Çevrimdışı Mod'} - {marketData.indices?.date || 'Güncel Tarih'}
                 </p>
               </div>
               {!isOnline && (
-                <div className="flex items-center space-x-2 text-orange-500 bg-orange-500/10 px-3 py-1 rounded-lg">
+                <div className="flex items-center space-x-2 text-orange-500 bg-orange-500/10 px-3 py-1 rounded-lg shrink-0">
                   <WifiOff className="h-4 w-4" />
                   <span className="text-sm">Çevrimdışı</span>
                 </div>
               )}
             </div>
-            <div className="flex items-center space-x-4">
+
+            <div className="flex items-center space-x-2 md:space-x-4 w-full md:w-auto justify-center md:justify-end overflow-x-auto pb-2 md:pb-0 hide-scrollbar">
               {user ? (
-                <div className="flex items-center space-x-3">
-                  <div className="flex items-center space-x-2 bg-gray-700/50 px-3 py-2 rounded-lg">
+                <div className="flex items-center space-x-3 shrink-0">
+                  <div className="hidden md:flex items-center space-x-2 bg-gray-700/50 px-3 py-2 rounded-lg">
                     <User className="h-4 w-4 text-blue-400" />
                     <span className="text-white text-sm">{user.email}</span>
                   </div>
                   <button
                     onClick={() => signOut()}
-                    className="bg-red-500 hover:bg-red-400 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2"
+                    className="bg-red-500 hover:bg-red-400 text-white p-2 md:px-4 md:py-2 rounded-lg transition-colors flex items-center space-x-2 shrink-0"
+                    title="Çıkış"
                   >
                     <LogOut className="h-4 w-4" />
-                    <span>Çıkış</span>
+                    <span className="hidden md:inline">Çıkış</span>
                   </button>
                 </div>
               ) : (
                 <button
                   onClick={() => setShowAuthModal(true)}
-                  className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2"
+                  className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg transition-colors flex items-center space-x-2 shrink-0"
                 >
                   <LogIn className="h-4 w-4" />
-                  <span>Giriş Yap</span>
+                  <span className="whitespace-nowrap">Giriş Yap</span>
                 </button>
               )}
-              <GlobalAudioControl
-                summaryData={marketData?.summary}
-                allData={marketData}
-              />
-              <div className="text-right">
+
+              <div className="shrink-0">
+                <GlobalAudioControl
+                  summaryData={marketData?.summary}
+                  allData={marketData}
+                />
+              </div>
+
+              <div className="hidden lg:block text-right shrink-0">
                 <p className="text-gray-400 text-sm">Son Güncelleme</p>
                 <p className="text-white font-mono text-sm">{lastUpdate?.toLocaleTimeString('tr-TR') || '--:--'}</p>
               </div>
+
               <button
                 onClick={() => setShowSettings(true)}
-                className="bg-purple-500 hover:bg-purple-400 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2"
+                className="bg-purple-500 hover:bg-purple-400 text-white p-2 md:px-4 md:py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 shrink-0"
+                title="Ayarlar"
               >
                 <Settings className="h-4 w-4" />
-                <span>Ayarlar</span>
+                <span className="hidden md:inline">Ayarlar</span>
               </button>
+
               <button
                 onClick={handleManualSync}
                 disabled={syncing || !isOnline}
-                className="bg-blue-500 hover:bg-blue-400 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-blue-500 hover:bg-blue-400 text-white p-2 md:px-4 md:py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                title="Manuel Senkronizasyon"
               >
                 <RefreshCw className={`h-4 w-4 ${syncing ? 'animate-spin' : ''}`} />
-                <span>{syncing ? 'Senkronize...' : 'Manuel Senk.'}</span>
+                <span className="hidden md:inline">{syncing ? 'Senk...' : 'Güncelle'}</span>
               </button>
+
               <button
                 onClick={refreshData}
                 disabled={loading}
-                className="bg-yellow-500 hover:bg-yellow-400 text-gray-900 px-4 py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50"
+                className="bg-yellow-500 hover:bg-yellow-400 text-gray-900 p-2 md:px-4 md:py-2 rounded-lg font-medium transition-colors flex items-center space-x-2 disabled:opacity-50 shrink-0"
+                title="Yenile"
               >
                 <Activity className="h-4 w-4" />
-                <span>Yenile</span>
+                <span className="hidden md:inline">Yenile</span>
               </button>
             </div>
           </div>
@@ -352,7 +364,7 @@ const FinancialDashboard = () => {
       </header>
 
       {/* Main Dashboard */}
-      <main className="container mx-auto px-6 py-8 space-y-8">
+      <main className="container mx-auto px-4 md:px-6 py-4 md:py-8 space-y-6 md:space-y-8">
         {/* Navigation Tabs */}
         <div className="overflow-x-auto bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-xl p-2">
           <div className="flex items-center space-x-2 min-w-max">

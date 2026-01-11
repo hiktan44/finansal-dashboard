@@ -113,13 +113,13 @@ const SectorPerformance: React.FC<SectorPerformanceProps> = ({ data }) => {
               <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
               <XAxis
                 type="number"
-                tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
               />
               <YAxis
                 type="category"
                 dataKey="name"
-                tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
                 width={60}
               />

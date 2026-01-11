@@ -107,7 +107,7 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
                 stroke="#4B5563"
               />
               <YAxis
-                tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
               />
               <Tooltip content={<CustomTooltip />} />
@@ -130,11 +130,11 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
               <XAxis
                 dataKey="name"
-                tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
               />
               <YAxis
-                tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
               />
               <Tooltip content={<CustomTooltip />} />
@@ -157,11 +157,11 @@ const TechGiants: React.FC<TechGiantsProps> = ({ data }) => {
               {showGrid && <CartesianGrid strokeDasharray="3 3" stroke="#374151" />}
               <XAxis
                 dataKey="name"
-                tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
               />
               <YAxis
-                tick={{ fill: '#9CA3AF', fontSize: 12 } as any}
+                domain={['auto', 'auto']}
                 stroke="#4B5563"
               />
               <Tooltip content={<CustomTooltip />} />

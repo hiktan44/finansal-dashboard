@@ -138,7 +138,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
               <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
-                domain={['dataMin - 10', 'dataMax + 10'] as any}
+                domain={['auto', 'auto']}
               />
               <Tooltip content={<CustomTooltip />} />
               <Area
@@ -188,7 +188,7 @@ const Commodities: React.FC<CommoditiesProps> = ({ data }) => {
               <YAxis
                 tick={{ fill: '#9CA3AF', fontSize: 10 } as any}
                 stroke="#4B5563"
-                domain={['dataMin - 10', 'dataMax + 10'] as any}
+                domain={['auto', 'auto']}
               />
               <Tooltip content={<CustomTooltip />} />
               <Line

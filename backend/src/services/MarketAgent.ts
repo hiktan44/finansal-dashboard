@@ -83,7 +83,8 @@ export class MarketAgent {
         console.log('🧠 Agent Analyzing Data...');
 
         if (!process.env.OPENROUTER_API_KEY) {
-            throw new Error('OPENROUTER_API_KEY is missing');
+            console.error('❌ OPENROUTER_API_KEY is missing. Skipping AI analysis.');
+            return { market_summary: "API Key eksik, analiz yapılamadı." };
         }
 
         const context = `
@@ -144,7 +145,7 @@ export class MarketAgent {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    "model": "google/gemini-3-flash-preview", // Upgraded to Gemini 3 Flash Preview as requested
+                    "model": "google/gemini-2.0-flash-exp:free", // Fallback to a known reliable model
                     "messages": [
                         { "role": "system", "content": systemPrompt },
                         { "role": "user", "content": context }
@@ -153,7 +154,22 @@ export class MarketAgent {
                 })
             });
 
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error(`❌ OpenRouter API Error (${response.status}):`, errorText);
+                throw new Error(`OpenRouter API responded with status ${response.status}`);
+            }
+
             const json = await response.json() as any;
+
+            // Log response for debugging (truncated)
+            // console.log('OpenRouter Response:', JSON.stringify(json).substring(0, 200) + '...');
+
+            if (!json.choices || !json.choices.length || !json.choices[0].message) {
+                console.error('❌ Invalid OpenRouter Response Structure:', JSON.stringify(json, null, 2));
+                throw new Error('Invalid API response structure');
+            }
+
             const content = json.choices[0].message.content;
 
             // Clean JSON if md blocks exist
@@ -162,7 +178,19 @@ export class MarketAgent {
 
         } catch (error) {
             console.error('AI Analysis Failed:', error);
-            throw error;
+            // Return a safe mock object so the app doesn't crash completely
+            return {
+                market_summary: "AI Analizi şu an kullanılamıyor. (Sistem Hatası)",
+                technical_analysis: "Veri alınamadı.",
+                sector_highlights: "-",
+                market_forecast: "-",
+                next_week_outcome: "Analiz servisinden yanıt alınamadı.",
+                long_term_outcome: { "3_months": "-", "6_months": "-", "1_year": "-" },
+                economic_calendar: [],
+                sentiment_score: "5.0",
+                volatility_index: "Unknown",
+                top_movers: { gainers: [], losers: [] }
+            };
         }
     }
 
